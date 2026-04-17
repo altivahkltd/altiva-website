@@ -50,6 +50,57 @@ export const metadata: Metadata = {
   },
 };
 
+const siteUrl = "https://www.altiva.hk";
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": `${siteUrl}/#organization`,
+      name: "Altiva Limited",
+      alternateName: "Altiva",
+      url: siteUrl,
+      logo: `${siteUrl}/altiva-logo.png`,
+      description,
+      foundingDate: "2025",
+      founder: { "@id": `${siteUrl}/#julien-levet` },
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "2/F West Wing, 822 Lai Chi Kok Road",
+        addressLocality: "Cheung Sha Wan",
+        addressRegion: "Kowloon",
+        addressCountry: "HK",
+      },
+      areaServed: ["Europe", "North America", "Asia-Pacific"],
+      sameAs: ["https://www.linkedin.com/company/altiva-limited"],
+    },
+    {
+      "@type": "Person",
+      "@id": `${siteUrl}/#julien-levet`,
+      name: "Julien Levet",
+      jobTitle: "Founder & Principal",
+      worksFor: { "@id": `${siteUrl}/#organization` },
+      email: "mailto:julien_levet@outlook.com",
+      knowsLanguage: ["en", "fr"],
+      nationality: "FR",
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Hong Kong",
+        addressCountry: "HK",
+      },
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${siteUrl}/#website`,
+      url: siteUrl,
+      name: "Altiva",
+      publisher: { "@id": `${siteUrl}/#organization` },
+      inLanguage: "en-GB",
+    },
+  ],
+};
+
 export default function RootLayout({
   children,
 }: {
@@ -57,7 +108,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${inter.variable} ${fraunces.variable}`}>
-      <body className="bg-paper font-sans text-ink antialiased">{children}</body>
+      <body className="bg-paper font-sans text-ink antialiased">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+        {children}
+      </body>
     </html>
   );
 }
