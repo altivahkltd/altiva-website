@@ -9,8 +9,6 @@ const inter = Inter({
   display: "swap",
 });
 
-// Fraunces as a true variable font — full weight range + italic + extra axes.
-// (No `weight` array: specifying axes requires variable-font mode.)
 const fraunces = Fraunces({
   subsets: ["latin"],
   style: ["normal", "italic"],
@@ -19,21 +17,33 @@ const fraunces = Fraunces({
   display: "swap",
 });
 
+const title = "Altiva — Operator. Not consultant.";
+const description =
+  "International operator-led advisory platform. Altiva is engaged when growth is there — but execution is not keeping up. 15+ years of senior operating experience across 40+ countries. Based in Hong Kong.";
+
 export const metadata: Metadata = {
-  title: "Altiva — Operator. Not consultant.",
-  description:
-    "Altiva is an international operator-led advisory platform for executives and organizations navigating complex, high-stakes business situations.",
+  title,
+  description,
   metadataBase: new URL("https://www.altiva.hk"),
   icons: {
     icon: "/altiva-logo.png",
     apple: "/altiva-logo.png",
   },
   openGraph: {
-    title: "Altiva — Operator. Not consultant.",
-    description:
-      "International operator-led advisory platform. Hong Kong · Europe · Asia-Pacific.",
+    title,
+    description,
     type: "website",
-    images: ["/altiva-logo.png"],
+    url: "https://www.altiva.hk",
+    siteName: "Altiva",
+    locale: "en_GB",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title,
+    description,
+  },
+  alternates: {
+    canonical: "https://www.altiva.hk",
   },
 };
 
