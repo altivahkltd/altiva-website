@@ -476,7 +476,7 @@ export default function Home() {
               </a>
               <div>
                 <a
-                  href="https://calendly.com/julien-levet"
+                  href="https://calendly.com/altiva"
                   target="_blank"
                   rel="noreferrer"
                   className="cursor-pointer text-base text-ink underline decoration-line decoration-1 underline-offset-[6px] transition hover:decoration-gold md:text-lg"
