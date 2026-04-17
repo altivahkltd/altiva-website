@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   title: "Altiva — Operator. Not consultant.",
   description:
     "Altiva is an international operator-led advisory platform for executives and organizations navigating complex, high-stakes business situations.",
-  metadataBase: new URL("https://altiva.hk"),
+  metadataBase: new URL("https://www.altiva.hk"),
   icons: {
     icon: "/altiva-logo.png",
     apple: "/altiva-logo.png",
