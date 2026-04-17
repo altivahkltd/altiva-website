@@ -1,32 +1,47 @@
 import { ImageResponse } from "next/og";
 
-// Next.js App Router convention: this file generates the site's OG image.
-// Accessible at /opengraph-image and auto-wired to metadata.
+// Next.js App Router convention — generates the site's OG share image.
+// Rendered on demand at the edge.
 
 export const runtime = "edge";
 export const alt = "Altiva — Operator. Not consultant.";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
-async function loadFont(url: string) {
-  const res = await fetch(url);
-  return res.arrayBuffer();
-}
-
 export default async function OGImage() {
-  // Pull Fraunces + Inter straight from Google's font CDN at render time.
-  // These specific file URLs are stable for Google's hosted variable fonts.
-  const [frauncesRegular, frauncesItalic, interMedium] = await Promise.all([
-    loadFont(
-      "https://fonts.gstatic.com/s/fraunces/v32/6NUh8FyLNQOQZAnv9ZwNjucMHVn85Ni7emEq9ZlqDw.woff"
-    ),
-    loadFont(
-      "https://fonts.gstatic.com/s/fraunces/v32/6NUg8FyLNQOQZAnv9bYEvDiDuzc8q8PQN-NXHA_DYVzFGoQvkA.woff"
-    ),
-    loadFont(
-      "https://fonts.gstatic.com/s/inter/v19/UcCo3FwrK3iLTcvneQg7Ca725JhhKnNqk4j1ebLhAm8SrXTQ2w.woff"
-    ),
+  // Pull fonts from Google Fonts CSS API (stable, long-lived URLs).
+  const cssRes = await fetch(
+    "https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;1,9..144,400&family=Inter:wght@500&display=swap",
+    {
+      headers: {
+        "User-Agent":
+          "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0 Safari/537.36",
+      },
+    }
+  );
+  const cssText = await cssRes.text();
+
+  const frauncesRegularUrl = cssText.match(
+    /@font-face\s*{[^}]*?font-family:\s*'Fraunces'[^}]*?font-style:\s*normal[^}]*?src:\s*url\((https:\/\/[^)]+\.woff2)\)/
+  )?.[1];
+  const frauncesItalicUrl = cssText.match(
+    /@font-face\s*{[^}]*?font-family:\s*'Fraunces'[^}]*?font-style:\s*italic[^}]*?src:\s*url\((https:\/\/[^)]+\.woff2)\)/
+  )?.[1];
+  const interUrl = cssText.match(
+    /@font-face\s*{[^}]*?font-family:\s*'Inter'[^}]*?src:\s*url\((https:\/\/[^)]+\.woff2)\)/
+  )?.[1];
+
+  const [fraunces, frauncesItalic, inter] = await Promise.all([
+    frauncesRegularUrl ? fetch(frauncesRegularUrl).then((r) => r.arrayBuffer()) : null,
+    frauncesItalicUrl ? fetch(frauncesItalicUrl).then((r) => r.arrayBuffer()) : null,
+    interUrl ? fetch(interUrl).then((r) => r.arrayBuffer()) : null,
   ]);
+
+  const fonts = [
+    fraunces && { name: "Fraunces", data: fraunces, style: "normal" as const, weight: 400 as const },
+    frauncesItalic && { name: "Fraunces", data: frauncesItalic, style: "italic" as const, weight: 400 as const },
+    inter && { name: "Inter", data: inter, style: "normal" as const, weight: 500 as const },
+  ].filter(Boolean) as Array<{ name: string; data: ArrayBuffer; style: "normal" | "italic"; weight: 400 | 500 }>;
 
   return new ImageResponse(
     (
@@ -39,28 +54,27 @@ export default async function OGImage() {
           justifyContent: "space-between",
           backgroundColor: "#FAFAF9",
           padding: "72px 80px",
-          position: "relative",
+          fontFamily: "Inter",
         }}
       >
-        {/* Top bar — eyebrow / margin annotation */}
+        {/* Eyebrow */}
         <div
           style={{
             display: "flex",
             alignItems: "center",
             gap: 16,
             color: "#A16207",
-            fontFamily: "Inter",
-            fontWeight: 500,
             fontSize: 18,
             letterSpacing: "0.28em",
             textTransform: "uppercase",
+            fontWeight: 500,
           }}
         >
           <span>§</span>
           <span style={{ color: "#78716C" }}>International Advisory Platform</span>
         </div>
 
-        {/* Main display type */}
+        {/* Display type */}
         <div
           style={{
             display: "flex",
@@ -72,19 +86,19 @@ export default async function OGImage() {
             letterSpacing: "-0.025em",
           }}
         >
-          <div>Operator.</div>
+          <div style={{ display: "flex" }}>Operator.</div>
           <div
             style={{
-              fontFamily: "FrauncesItalic",
-              color: "#44403C",
+              display: "flex",
               fontStyle: "italic",
+              color: "#44403C",
             }}
           >
             Not consultant.
           </div>
         </div>
 
-        {/* Bottom row — wordmark + locator */}
+        {/* Bottom hairline bar */}
         <div
           style={{
             display: "flex",
@@ -108,27 +122,18 @@ export default async function OGImage() {
           <div
             style={{
               display: "flex",
-              flexDirection: "column",
-              alignItems: "flex-end",
-              fontFamily: "Inter",
               color: "#78716C",
               fontSize: 18,
               letterSpacing: "0.24em",
               textTransform: "uppercase",
+              fontWeight: 500,
             }}
           >
-            <span>Hong Kong · Europe · APAC</span>
+            Hong Kong · Europe · APAC
           </div>
         </div>
       </div>
     ),
-    {
-      ...size,
-      fonts: [
-        { name: "Fraunces", data: frauncesRegular, style: "normal", weight: 400 },
-        { name: "FrauncesItalic", data: frauncesItalic, style: "italic", weight: 400 },
-        { name: "Inter", data: interMedium, style: "normal", weight: 500 },
-      ],
-    }
+    { ...size, fonts }
   );
 }
