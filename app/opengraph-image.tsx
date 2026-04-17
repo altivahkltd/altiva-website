@@ -12,9 +12,9 @@ export const contentType = "image/png";
 
 export default async function OGImage() {
   const [fraunces, frauncesItalic, inter] = await Promise.all([
-    fetch(new URL("./fonts/Fraunces.ttf", import.meta.url)).then((r) => r.arrayBuffer()),
+    fetch(new URL("./fonts/Fraunces-Regular.ttf", import.meta.url)).then((r) => r.arrayBuffer()),
     fetch(new URL("./fonts/Fraunces-Italic.ttf", import.meta.url)).then((r) => r.arrayBuffer()),
-    fetch(new URL("./fonts/Inter.ttf", import.meta.url)).then((r) => r.arrayBuffer()),
+    fetch(new URL("./fonts/Inter-Medium.ttf", import.meta.url)).then((r) => r.arrayBuffer()),
   ]);
 
   return new ImageResponse(
