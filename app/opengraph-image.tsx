@@ -1,13 +1,12 @@
 import { ImageResponse } from "next/og";
 
 // Next.js App Router convention — generates the site's OG share image.
-// Fonts are bundled next to this route and loaded at the edge via
-// `fetch(new URL('./fonts/…', import.meta.url))` — the documented
-// reliable pattern for @vercel/og.
+// Rendered at 2x spec resolution (2400x1260) so social platforms
+// downscale cleanly regardless of their display dimensions.
 
 export const runtime = "edge";
 export const alt = "Altiva — Operator. Not consultant.";
-export const size = { width: 1200, height: 630 };
+export const size = { width: 2400, height: 1260 };
 export const contentType = "image/png";
 
 export default async function OGImage() {
@@ -27,17 +26,17 @@ export default async function OGImage() {
           flexDirection: "column",
           justifyContent: "space-between",
           backgroundColor: "#FAFAF9",
-          padding: "72px 80px",
+          padding: "144px 160px",
           fontFamily: "Inter",
         }}
       >
-        {/* Eyebrow — § + margin note */}
+        {/* Eyebrow */}
         <div
           style={{
             display: "flex",
             alignItems: "center",
-            gap: 16,
-            fontSize: 18,
+            gap: 32,
+            fontSize: 36,
             letterSpacing: "0.28em",
             textTransform: "uppercase",
             fontWeight: 500,
@@ -47,14 +46,14 @@ export default async function OGImage() {
           <span style={{ color: "#78716C" }}>International Advisory Platform</span>
         </div>
 
-        {/* Display headline — Fraunces */}
+        {/* Display headline */}
         <div
           style={{
             display: "flex",
             flexDirection: "column",
             fontFamily: "Fraunces",
             color: "#0C0A09",
-            fontSize: 156,
+            fontSize: 312,
             lineHeight: 0.98,
             letterSpacing: "-0.025em",
           }}
@@ -78,15 +77,15 @@ export default async function OGImage() {
             display: "flex",
             alignItems: "flex-end",
             justifyContent: "space-between",
-            borderTop: "1px solid #E7E5E4",
-            paddingTop: 28,
+            borderTop: "2px solid #E7E5E4",
+            paddingTop: 56,
           }}
         >
           <div
             style={{
               display: "flex",
               fontFamily: "Fraunces",
-              fontSize: 42,
+              fontSize: 84,
               color: "#0C0A09",
               letterSpacing: "-0.01em",
             }}
@@ -97,7 +96,7 @@ export default async function OGImage() {
             style={{
               display: "flex",
               color: "#78716C",
-              fontSize: 18,
+              fontSize: 36,
               letterSpacing: "0.24em",
               textTransform: "uppercase",
               fontWeight: 500,
