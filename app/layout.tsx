@@ -28,10 +28,6 @@ export const metadata: Metadata = {
   title,
   description,
   metadataBase: new URL("https://www.altiva.hk"),
-  icons: {
-    icon: "/altiva-logo.png",
-    apple: "/altiva-logo.png",
-  },
   openGraph: {
     title,
     description,
