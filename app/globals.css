@@ -89,6 +89,26 @@ em.font-display,
   color: #78716C;
 }
 
+/* Skip link — visible on keyboard focus only --------------------------- */
+.skip-link {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 100;
+  transform: translateY(-200%);
+  background: #0C0A09;
+  color: #FAFAF9;
+  padding: 0.75rem 1.25rem;
+  font-size: 0.875rem;
+  letter-spacing: 0.02em;
+  transition: transform 160ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+.skip-link:focus-visible {
+  transform: translateY(0);
+  outline: 1.5px solid #A16207;
+  outline-offset: 2px;
+}
+
 /* Reduced motion ------------------------------------------------------- */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
