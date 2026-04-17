@@ -1,0 +1,101 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "ss01", "cv11";
+}
+
+body {
+  background-color: #FAFAF9;
+  color: #0C0A09;
+}
+
+::selection {
+  background: #0C0A09;
+  color: #FAFAF9;
+}
+
+/* Fraunces variable-axes tuning ---------------------------------------- */
+.font-display {
+  font-variation-settings: "opsz" 144, "SOFT" 40, "WONK" 0;
+}
+
+h1.font-display,
+h2.font-display {
+  font-variation-settings: "opsz" 144, "SOFT" 30, "WONK" 0;
+}
+
+.font-display em,
+em.font-display,
+.font-display .italic,
+.italic.font-display {
+  font-variation-settings: "opsz" 144, "SOFT" 100, "WONK" 1;
+}
+
+/* Tabular numerals for all display numbers — ledger feel ---------------- */
+.font-display {
+  font-variant-numeric: tabular-nums lining-nums;
+}
+
+/* Focus ring ----------------------------------------------------------- */
+:where(a, button, [role="button"]):focus-visible {
+  outline: 1.5px solid #A16207;
+  outline-offset: 4px;
+  border-radius: 1px;
+}
+
+/* Gold underline on hover — restrained --------------------------------- */
+.link-accent {
+  background-image: linear-gradient(#A16207, #A16207);
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  background-size: 0 1px;
+  transition: background-size 500ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+.link-accent:hover,
+.link-accent:focus-visible {
+  background-size: 100% 1px;
+}
+
+/* Subtle grain — depth without noise ---------------------------------- */
+.grain {
+  position: relative;
+}
+.grain::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.03;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.9'/%3E%3C/svg%3E");
+}
+
+/* Margin annotation — small editorial labels in the gutter ------------- */
+.margin-note {
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-size: 0.65rem;
+  color: #78716C;
+}
+
+/* Reduced motion ------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
