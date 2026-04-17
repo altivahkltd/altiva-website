@@ -71,7 +71,7 @@ export default async function OGImage() {
           </div>
         </div>
 
-        {/* Bottom rule + wordmark + locator */}
+        {/* Bottom rule + wordmark + locator + CTA */}
         <div
           style={{
             display: "flex",
@@ -84,25 +84,51 @@ export default async function OGImage() {
           <div
             style={{
               display: "flex",
-              fontFamily: "Fraunces",
-              fontSize: 84,
-              color: "#0C0A09",
-              letterSpacing: "-0.01em",
+              flexDirection: "column",
+              gap: 14,
             }}
           >
-            Altiva
+            <div
+              style={{
+                display: "flex",
+                fontFamily: "Fraunces",
+                fontSize: 84,
+                color: "#0C0A09",
+                letterSpacing: "-0.01em",
+              }}
+            >
+              Altiva
+            </div>
+            <div
+              style={{
+                display: "flex",
+                color: "#78716C",
+                fontSize: 30,
+                letterSpacing: "0.24em",
+                textTransform: "uppercase",
+                fontWeight: 500,
+              }}
+            >
+              Hong Kong · Europe · APAC
+            </div>
           </div>
+
+          {/* Call-to-action lockup */}
           <div
             style={{
               display: "flex",
-              color: "#78716C",
-              fontSize: 36,
-              letterSpacing: "0.24em",
-              textTransform: "uppercase",
+              alignItems: "center",
+              gap: 24,
+              padding: "28px 48px",
+              backgroundColor: "#0C0A09",
+              color: "#FAFAF9",
+              fontSize: 34,
               fontWeight: 500,
+              letterSpacing: "0.04em",
             }}
           >
-            Hong Kong · Europe · APAC
+            <span>Start a conversation</span>
+            <span style={{ display: "flex" }}>→</span>
           </div>
         </div>
       </div>

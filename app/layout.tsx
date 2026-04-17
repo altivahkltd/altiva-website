@@ -17,9 +17,12 @@ const fraunces = Fraunces({
   display: "swap",
 });
 
-const title = "Altiva — Operator. Not consultant.";
+// ~55 chars — inside the 50–60 sweet spot for search + social.
+const title = "Altiva — Operator-led advisory. Hong Kong & beyond.";
+
+// ~150 chars — inside the 110–160 sweet spot.
 const description =
-  "International operator-led advisory platform. Altiva is engaged when growth is there — but execution is not keeping up. 15+ years of senior operating experience across 40+ countries. Based in Hong Kong.";
+  "International operator-led advisory. Engaged when growth is there — but execution is not keeping up. Based in Hong Kong. Start a conversation.";
 
 export const metadata: Metadata = {
   title,
