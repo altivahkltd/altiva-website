@@ -1,37 +1,6 @@
 import Mark from "@/components/Mark";
 import Portrait from "@/components/Portrait";
 
-const engagements = [
-  {
-    ref: "I.",
-    tag: "Luxury automation · Europe / APAC",
-    situation:
-      "Privately-held luxury automation group approaching shareholder exit with operational debt accumulated over a decade of founder-led growth.",
-    mandate:
-      "Full operational rebuild, governance restructuring, and investor narrative preparation.",
-    outcome: "14-month mandate. Transaction readiness restored. Exit process initiated.",
-  },
-  {
-    ref: "II.",
-    tag: "Industrial technology · EMEA",
-    situation:
-      "Services division of an industrial technology multinational underperforming across multiple EMEA countries.",
-    mandate:
-      "Services go-to-market redesign and P&L discipline. Multi-country execution.",
-    outcome:
-      "18-month programme. Services margin restored. Operating model adopted beyond EMEA.",
-  },
-  {
-    ref: "III.",
-    tag: "PE-backed platform · APAC",
-    situation:
-      "Post-acquisition value-creation plan stalling across three APAC entities 18 months after transaction close.",
-    mandate: "Operational diagnostic, governance alignment, cost-structure review.",
-    outcome:
-      "Six-month diagnostic, twelve-month execution. Value-creation plan re-anchored to delivered metrics.",
-  },
-];
-
 const mandates = [
   {
     title: "COO, on call",
@@ -59,27 +28,6 @@ const mandates = [
   },
 ];
 
-const notes = [
-  {
-    date: "2026 · 03",
-    title: "Why AI programmes stall at companies that need them most",
-    excerpt:
-      "Most AI initiatives fail in the same place: the first handoff from vendor pitch to line operations. A short piece on what to install before the model.",
-  },
-  {
-    date: "2026 · 02",
-    title: "What PE portfolios get wrong about cross-border scale",
-    excerpt:
-      "Value-creation plans that look tidy in a board deck tend to unravel at the second country. The operational layer that most theses skip.",
-  },
-  {
-    date: "2026 · 01",
-    title: "The hidden cost of interim leadership",
-    excerpt:
-      "Interim mandates are priced on day rate. They are paid for in institutional memory. A note on how to scope for knowledge transfer from day one.",
-  },
-];
-
 export default function Home() {
   return (
     <main className="min-h-screen bg-paper text-ink">
@@ -99,14 +47,11 @@ export default function Home() {
             <a href="#practice" className="cursor-pointer transition-colors hover:text-ink">
               Practice
             </a>
-            <a href="#engagements" className="cursor-pointer transition-colors hover:text-ink">
-              Engagements
-            </a>
             <a href="#founder" className="cursor-pointer transition-colors hover:text-ink">
               Founder
             </a>
-            <a href="#notes" className="cursor-pointer transition-colors hover:text-ink">
-              Notes
+            <a href="#contact" className="cursor-pointer transition-colors hover:text-ink">
+              Contact
             </a>
           </div>
           <a
@@ -250,68 +195,13 @@ export default function Home() {
       </section>
 
       {/* ============================================================ */}
-      {/* SELECTED ENGAGEMENTS                                          */}
-      {/* ============================================================ */}
-      <section id="engagements" className="border-b border-line bg-shade/40">
-        <div className="mx-auto max-w-6xl px-6 py-28 md:px-10 md:py-40">
-          <header className="grid gap-8 md:grid-cols-12 md:gap-10">
-            <div className="md:col-span-3">
-              <p className="margin-note">§ II. Engagements · anonymized</p>
-            </div>
-            <div className="md:col-span-9">
-              <h2 className="font-display text-display-lg font-normal leading-[1.05] text-ink">
-                Representative mandates.
-              </h2>
-              <p className="mt-8 max-w-xl text-base leading-8 text-stone md:text-lg">
-                Client names and specifics withheld. Three recent engagements,
-                written as the memo that would have opened them.
-              </p>
-            </div>
-          </header>
-
-          <ol className="mt-20 space-y-0 border-t border-line md:mt-24">
-            {engagements.map((e) => (
-              <li key={e.ref} className="border-b border-line">
-                <article className="grid gap-10 py-12 md:grid-cols-12 md:gap-10 md:py-16">
-                  <div className="md:col-span-3">
-                    <p className="font-display text-3xl text-ink md:text-4xl">{e.ref}</p>
-                    <p className="margin-note mt-4">{e.tag}</p>
-                  </div>
-                  <dl className="md:col-span-9 grid gap-8 md:grid-cols-3 md:gap-10">
-                    <div>
-                      <dt className="margin-note">Situation</dt>
-                      <dd className="mt-3 text-base leading-7 text-ink md:text-[0.95rem] md:leading-7">
-                        {e.situation}
-                      </dd>
-                    </div>
-                    <div>
-                      <dt className="margin-note">Mandate</dt>
-                      <dd className="mt-3 text-base leading-7 text-ink md:text-[0.95rem] md:leading-7">
-                        {e.mandate}
-                      </dd>
-                    </div>
-                    <div>
-                      <dt className="margin-note">Outcome</dt>
-                      <dd className="mt-3 text-base leading-7 text-ink md:text-[0.95rem] md:leading-7">
-                        {e.outcome}
-                      </dd>
-                    </div>
-                  </dl>
-                </article>
-              </li>
-            ))}
-          </ol>
-        </div>
-      </section>
-
-      {/* ============================================================ */}
       {/* FOUNDER                                                       */}
       {/* ============================================================ */}
-      <section id="founder" className="border-b border-line">
+      <section id="founder" className="border-b border-line bg-shade/40">
         <div className="mx-auto max-w-6xl px-6 py-28 md:px-10 md:py-40">
           <header className="grid gap-8 md:grid-cols-12 md:gap-10">
             <div className="md:col-span-3">
-              <p className="margin-note">§ III. The founder</p>
+              <p className="margin-note">§ II. The founder</p>
             </div>
             <div className="md:col-span-9">
               <h2 className="font-display text-display-lg font-normal leading-[1.05] text-ink">
@@ -403,54 +293,13 @@ export default function Home() {
       </section>
 
       {/* ============================================================ */}
-      {/* NOTES                                                         */}
-      {/* ============================================================ */}
-      <section id="notes" className="border-b border-line bg-shade/40">
-        <div className="mx-auto max-w-6xl px-6 py-28 md:px-10 md:py-40">
-          <header className="grid gap-8 md:grid-cols-12 md:gap-10">
-            <div className="md:col-span-3">
-              <p className="margin-note">§ IV. Notes</p>
-            </div>
-            <div className="md:col-span-9">
-              <h2 className="font-display text-display-lg font-normal leading-[1.05] text-ink">
-                Field notes from the operator&apos;s seat.
-              </h2>
-              <p className="mt-8 max-w-xl text-base leading-8 text-stone md:text-lg">
-                Occasional memos on situations we see recur. Short, blunt,
-                written for operators.
-              </p>
-            </div>
-          </header>
-
-          <ol className="mt-20 border-t border-line md:mt-24">
-            {notes.map((n) => (
-              <li key={n.title} className="border-b border-line">
-                <article className="grid grid-cols-1 gap-6 py-10 md:grid-cols-[1fr_2fr_auto] md:gap-12 md:py-12">
-                  <p className="margin-note">{n.date}</p>
-                  <div>
-                    <h3 className="font-display text-xl leading-snug text-ink md:text-2xl">
-                      {n.title}
-                    </h3>
-                    <p className="mt-4 text-base leading-7 text-stone">
-                      {n.excerpt}
-                    </p>
-                  </div>
-                  <p className="margin-note md:self-center">Forthcoming</p>
-                </article>
-              </li>
-            ))}
-          </ol>
-        </div>
-      </section>
-
-      {/* ============================================================ */}
       {/* CONTACT                                                       */}
       {/* ============================================================ */}
       <section id="contact" className="border-b border-line">
         <div className="mx-auto max-w-6xl px-6 py-32 md:px-10 md:py-48">
           <header className="grid gap-8 md:grid-cols-12 md:gap-10">
             <div className="md:col-span-3">
-              <p className="margin-note">§ V. Contact</p>
+              <p className="margin-note">§ III. Contact</p>
             </div>
             <div className="md:col-span-9">
               <h2 className="font-display text-[clamp(2.25rem,5vw,4.25rem)] font-normal leading-[1.05] tracking-[-0.02em] text-ink">
