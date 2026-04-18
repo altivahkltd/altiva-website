@@ -1,28 +1,28 @@
 import type { Metadata } from "next";
-import { Fraunces, Inter } from "next/font/google";
+import { GeistSans } from "geist/font/sans";
+import { GeistMono } from "geist/font/mono";
+import { Instrument_Serif } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-  variable: "--font-sans",
-  display: "swap",
-});
+// Geist Sans — body + display. Vercel's variable font; one file, all weights.
+// Overridden locally via `--font-sans` to keep globals.css framework-agnostic.
+const geist = GeistSans;
+const geistMono = GeistMono;
 
-const fraunces = Fraunces({
+const instrumentSerif = Instrument_Serif({
   subsets: ["latin"],
+  weight: ["400"],
   style: ["normal", "italic"],
-  axes: ["SOFT", "WONK", "opsz"],
-  variable: "--font-display",
+  variable: "--font-italic",
   display: "swap",
 });
 
 // ~55 chars — inside the 50–60 sweet spot for search + social.
 const title = "Altiva — Operator-led advisory. Hong Kong & beyond.";
 
-// ~150 chars — inside the 110–160 sweet spot.
+// ~170 chars — sharpened for the design-refreshed positioning.
 const description =
-  "International operator-led advisory. Engaged when growth is there — but execution is not keeping up. Based in Hong Kong. Start a conversation.";
+  "Altiva is a senior operator engaged when execution becomes the bottleneck. Fractional COO, transformation, and strategic mandates across Europe and Asia-Pacific.";
 
 export const metadata: Metadata = {
   title,
@@ -57,10 +57,11 @@ const jsonLd = {
       name: "Altiva Limited",
       alternateName: "Altiva",
       url: siteUrl,
-      logo: `${siteUrl}/altiva-logo.png`,
+      logo: `${siteUrl}/altiva-logo-black.png`,
       description,
       foundingDate: "2025",
       founder: { "@id": `${siteUrl}/#julien-levet` },
+      email: "mailto:contact@altiva.hk",
       address: {
         "@type": "PostalAddress",
         streetAddress: "2/F West Wing, 822 Lai Chi Kok Road",
@@ -69,7 +70,7 @@ const jsonLd = {
         addressCountry: "HK",
       },
       areaServed: ["Europe", "North America", "Asia-Pacific"],
-      sameAs: ["https://www.linkedin.com/company/altiva-limited"],
+      sameAs: ["https://www.linkedin.com/company/altivaltd"],
     },
     {
       "@type": "Person",
@@ -77,7 +78,7 @@ const jsonLd = {
       name: "Julien Levet",
       jobTitle: "Founder & Principal",
       worksFor: { "@id": `${siteUrl}/#organization` },
-      email: "mailto:julien_levet@outlook.com",
+      email: "mailto:contact@altiva.hk",
       knowsLanguage: ["en", "fr"],
       nationality: "FR",
       address: {
@@ -103,8 +104,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${inter.variable} ${fraunces.variable}`}>
-      <body className="bg-paper font-sans text-ink antialiased">
+    <html
+      lang="en"
+      className={`${geist.variable} ${geistMono.variable} ${instrumentSerif.variable}`}
+    >
+      <body>
         <a href="#main-content" className="skip-link">
           Skip to content
         </a>
