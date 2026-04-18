@@ -90,7 +90,7 @@ const DICT: Record<Lang, Dict> = {
     "hero.meta.label2": "Experience",
     "hero.meta.val2": "15<span>years senior operating</span>",
     "hero.meta.label3": "Deep expertise in",
-    "hero.meta.val3": "Asian Pacific<br>&amp; European markets",
+    "hero.meta.val3": "Asia-Pacific<br>&amp; European markets",
     "hero.sub":
       "Altiva is engaged when the strategy is sound and the growth is there, but the organisation is not moving. <b>One senior operator, inside the business, until the situation has shifted.</b> No juniors, no slide theatre, no distance.",
     "hero.cta.primary": "Start a conversation",

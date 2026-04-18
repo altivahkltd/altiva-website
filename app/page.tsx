@@ -256,7 +256,7 @@ export default function Home() {
                         letterSpacing: "-0.02em",
                       }}
                     >
-                      Asian Pacific
+                      Asia-Pacific
                       <br />
                       &amp; European markets
                     </dd>
@@ -592,22 +592,6 @@ export default function Home() {
                 </p>
 
                 <ContactForm />
-
-                <div className="contact-actions reveal">
-                  <a
-                    className="btn outline-light"
-                    href="https://outlook.office.com/bookwithme/user/YOUR_BOOKINGS_ID@altiva.hk"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <span data-i18n="ctc.cta.book">Book a 30-min call</span>{" "}
-                    <span className="arr">→</span>
-                  </a>
-                  <a className="btn ghost-light" href="mailto:julien@altiva.hk">
-                    <span data-i18n="ctc.cta.write">Or write directly</span>{" "}
-                    <span className="arr">→</span>
-                  </a>
-                </div>
               </div>
 
               <div className="contact-card reveal">
@@ -619,10 +603,6 @@ export default function Home() {
                   <br />
                   Cheung Sha Wan, Hong Kong
                 </address>
-                <div className="row">
-                  <span data-i18n="ctc.card.direct">Direct</span>
-                  <b>julien@altiva.hk</b>
-                </div>
                 <div className="row">
                   <span data-i18n="ctc.card.li">LinkedIn</span>
                   <b>/company/altivaltd</b>
@@ -652,7 +632,7 @@ export default function Home() {
           </div>
           <div className="foot-meta" style={{ textAlign: "right" }}>
             <div style={{ marginBottom: 8 }}>
-              <a href="mailto:julien@altiva.hk" data-i18n="foot.email">
+              <a href="mailto:julien_levet@outlook.com" data-i18n="foot.email">
                 Email
               </a>{" "}
               &nbsp;·&nbsp;
