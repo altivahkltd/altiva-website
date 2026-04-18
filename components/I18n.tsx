@@ -191,10 +191,11 @@ const DICT: Record<Lang, Dict> = {
     "w3.yr": "03 - Transformation &amp; AI",
     "w3.t": "Regional <em>transformation</em>, services business",
     "w3.body":
-      "Led transformation across APAC &amp; Middle East - spanning operations, supply chain, customer experience, and commercial execution.",
-    "w3.geo": "€500M business scope",
-    "w3.outA": "15% YoY growth delivered",
-    "w3.outB": "Full programme across four functions",
+      "End-to-end programme spanning operations, supply chain, customer experience, and commercial execution.",
+    "w3.geo": "APAC &amp; Middle East",
+    "w3.outA": "€500M business scope",
+    "w3.outB":
+      "15% YoY growth · Full programme across four functions",
 
     "w4.yr": "04 - Go-to-market &amp; growth",
     "w4.t": "Global <em>channel</em> &amp; IoT go-to-market",
@@ -402,10 +403,11 @@ const DICT: Record<Lang, Dict> = {
     "w3.yr": "03 - Transformation &amp; IA",
     "w3.t": "<em>Transformation</em> régionale, services",
     "w3.body":
-      "Pilotage de la transformation en APAC &amp; Moyen-Orient - opérations, supply chain, expérience client, exécution commerciale.",
-    "w3.geo": "Périmètre de 500 M€",
-    "w3.outA": "Croissance annuelle de 15 %",
-    "w3.outB": "Programme complet sur quatre fonctions",
+      "Programme de bout en bout - opérations, supply chain, expérience client, exécution commerciale.",
+    "w3.geo": "APAC &amp; Moyen-Orient",
+    "w3.outA": "Périmètre de 500 M€",
+    "w3.outB":
+      "Croissance annuelle de 15 % · Programme complet sur quatre fonctions",
 
     "w4.yr": "04 - Go-to-market &amp; croissance",
     "w4.t": "Go-to-market <em>canal</em> &amp; IoT, global",
