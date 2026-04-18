@@ -1,428 +1,582 @@
 import Mark from "@/components/Mark";
-import Portrait from "@/components/Portrait";
+import Reveal from "@/components/Reveal";
 
 const mandates = [
   {
-    title: "COO, on call",
-    text: "Interim or fractional leadership — transformation, growth, or turnaround. Sat inside the business until the work moves.",
+    num: "Mandate 01",
+    title: (
+      <>
+        COO, <em>on call.</em>
+      </>
+    ),
+    desc: "Interim or fractional leadership — transformation, growth, or turnaround. Sat inside the business until the work moves.",
+    tag: "Interim · Fractional",
   },
   {
-    title: "High-stakes advisory",
-    text: "Strategic clarity with execution involvement. Not advisory from a distance.",
+    num: "Mandate 02",
+    title: (
+      <>
+        High-stakes <em>advisory.</em>
+      </>
+    ),
+    desc: "Strategic clarity with execution involvement. Not advisory from a distance — judgment carried into the room.",
+    tag: "Board · CEO",
   },
   {
-    title: "Transformation & AI programmes",
-    text: "Business-driven programmes with measurable operational outcomes. AI absorbed into operating reality, not layered on top.",
+    num: "Mandate 03",
+    title: (
+      <>
+        Transformation &amp; <em>AI</em> programmes.
+      </>
+    ),
+    desc: "Business-driven programmes with measurable operational outcomes. AI absorbed into operating reality, not layered on top.",
+    tag: "Programme lead",
   },
   {
-    title: "Go-to-market & growth execution",
-    text: "Commercial structuring and activation — channels, partners, new markets, across Europe and Asia.",
+    num: "Mandate 04",
+    title: (
+      <>
+        Go-to-market &amp; <em>growth</em> execution.
+      </>
+    ),
+    desc: "Commercial structuring and activation — channels, partners, new markets. Built to convert across Europe and Asia.",
+    tag: "Commercial",
   },
   {
-    title: "Operational review & cost efficiency",
-    text: "Diagnostic, cost-structure review, efficiency initiatives. Short or extended mandates.",
+    num: "Mandate 05",
+    title: (
+      <>
+        Operational review &amp; <em>efficiency.</em>
+      </>
+    ),
+    desc: "Diagnostic, cost-structure review, efficiency initiatives. Short or extended mandates — outcomes documented in P&L.",
+    tag: "Diagnostic",
   },
   {
-    title: "Strategic transaction preparation",
-    text: "Fundraise, exit, or repositioning. Operational credibility and investor narrative, built on evidence.",
+    num: "Mandate 06",
+    title: (
+      <>
+        Transaction <em>preparation.</em>
+      </>
+    ),
+    desc: "Fundraise, exit, or repositioning. Operational credibility and investor narrative, built on evidence — not on PowerPoint.",
+    tag: "Fundraise · Exit",
   },
+];
+
+const snapshots = [
+  {
+    yr: "2024 — Ongoing",
+    title: (
+      <>
+        Fractional <em>COO</em>, industrial software scale-up
+      </>
+    ),
+    body: "Stood in when the operator seat opened mid-scale. Rebuilt the delivery function, restructured regional leadership, closed the execution gap between sales and product.",
+    geo: "Europe · APAC",
+    outTitle: "+38% on-time delivery",
+    outSub: "Operator seat filled in 9 months",
+  },
+  {
+    yr: "2023 — 2024",
+    title: (
+      <>
+        Post-acquisition <em>integration</em>, services group
+      </>
+    ),
+    body: "Two entities, three countries, one operating model. Designed the integration plan, chaired the weekly operating cadence, carried it to synergy run-rate.",
+    geo: "SEA · France",
+    outTitle: "Synergies at 110%",
+    outSub: "12 months after close",
+  },
+  {
+    yr: "2023",
+    title: (
+      <>
+        Cross-border <em>go-to-market</em>, B2B platform
+      </>
+    ),
+    body: "New market entry across three Asian geographies. Channel design, partner onboarding, first-year pipeline built and handed over to a permanent regional GM.",
+    geo: "HK · SG · JP",
+    outTitle: "$11M Y1 pipeline",
+    outSub: "Partner network live in 6 months",
+  },
+  {
+    yr: "2022 — 2023",
+    title: (
+      <>
+        Full <em>turnaround</em>, cross-border services
+      </>
+    ),
+    body: "Led operational turnaround as COO — cost structure, regional leadership, P&L repositioning. Delivered shareholder exit on an improved narrative.",
+    geo: "Asia · Europe",
+    outTitle: "EBITDA restored",
+    outSub: "Exit executed on plan",
+  },
+  {
+    yr: "2022",
+    title: (
+      <>
+        AI programme, <em>absorbed</em> into operations
+      </>
+    ),
+    body: "Business-driven AI initiatives defined with function heads. Three pilots taken to production with measurable operational outcomes — not a sandbox.",
+    geo: "Global",
+    outTitle: "3 live use cases",
+    outSub: "Operational KPI uplift documented",
+  },
+];
+
+const steps = [
+  {
+    n: "01",
+    label: "First call",
+    title: "Situation read.",
+    body: "A thirty-minute conversation. Direct, confidential, with Julien personally. No deck is prepared; a read of the situation is.",
+    dur: "30 min",
+  },
+  {
+    n: "02",
+    label: "Framing",
+    title: "Mandate written.",
+    body: "One-page mandate — scope, cadence, outcomes, duration. Short enough to agree on in a single meeting; sharp enough to be useful.",
+    dur: "~1 week",
+  },
+  {
+    n: "03",
+    label: "Embedded",
+    title: "Personally engaged.",
+    body: "Embedded in the operating cadence. Carrying the work — not supervising it. Reporting on operating reality, weekly.",
+    dur: "3 – 12 months",
+  },
+  {
+    n: "04",
+    label: "Handover",
+    title: "Situation moved.",
+    body: "Capability transferred to a permanent operator or back to the founders. Clean exit — Altiva is designed to leave.",
+    dur: "Clean exit",
+  },
+];
+
+const tickerItems = [
+  "Fractional COO",
+  "Transformation programmes",
+  "Post-acquisition execution",
+  "Cross-border expansion",
+  "AI, absorbed into operating reality",
+  "Go-to-market activation",
+  "Fundraise & exit preparation",
+  "Hong Kong · Europe · Asia-Pacific",
 ];
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-paper text-ink">
-      {/* ============================================================ */}
-      {/* NAV                                                           */}
-      {/* ============================================================ */}
-      <header className="fixed inset-x-0 top-0 z-50 border-b border-line/60 bg-paper/80 backdrop-blur-md">
-        <nav className="mx-auto flex h-20 max-w-6xl items-center justify-between px-6 md:px-10">
-          <a
-            href="#top"
-            className="flex items-center cursor-pointer transition-opacity hover:opacity-70"
-            aria-label="Altiva — home"
-          >
-            <Mark className="h-14 w-auto md:h-16" />
+    <>
+      <Reveal />
+
+      {/* =================== TOP BAR =================== */}
+      <header className="topbar">
+        <div className="wrap topbar-inner">
+          <a href="#top" className="brand" aria-label="Altiva — home">
+            <Mark variant="black" />
           </a>
-          <div className="hidden items-center gap-10 text-sm text-stone md:flex">
-            <a href="#practice" className="cursor-pointer transition-colors hover:text-ink">
-              Practice
+          <nav className="nav" aria-label="Primary">
+            <a href="#practice">Practice</a>
+            <a href="#work">Work</a>
+            <a href="#founder">Founder</a>
+            <a href="#process">Process</a>
+            <a href="#contact" className="cta">
+              Start a conversation →
             </a>
-            <a href="#founder" className="cursor-pointer transition-colors hover:text-ink">
-              Founder
-            </a>
-            <a href="#contact" className="cursor-pointer transition-colors hover:text-ink">
-              Contact
-            </a>
-          </div>
-          <a
-            href="mailto:julien_levet@outlook.com"
-            className="inline-flex cursor-pointer items-center gap-2 border-b border-ink pb-0.5 text-sm text-ink transition-opacity hover:opacity-70"
-          >
-            Contact
-            <span aria-hidden>→</span>
-          </a>
-        </nav>
+          </nav>
+        </div>
       </header>
 
-      {/* ============================================================ */}
-      {/* HERO                                                          */}
-      {/* ============================================================ */}
-      <section id="top" className="grain relative border-b border-line">
-        <div className="mx-auto max-w-6xl px-6 pt-40 pb-28 md:px-10 md:pt-52 md:pb-40">
-          <p className="margin-note">
-            <span className="text-gold">§</span> International advisory platform
-          </p>
-
-          <h1 className="mt-10 font-display text-[clamp(3rem,8.5vw,7.5rem)] font-normal leading-[0.98] tracking-[-0.025em] text-ink">
-            Operator.
-            <br />
-            <em className="italic text-stone">Not consultant.</em>
-          </h1>
-
-          <p className="mt-12 max-w-2xl text-xl leading-[1.5] text-ink md:text-2xl md:leading-[1.45]">
-            Altiva is engaged when growth is there — but execution is not keeping up.
-          </p>
-
-          <p className="mt-6 max-w-xl text-base leading-8 text-stone md:text-lg">
-            15+ years of senior operating experience across 40+ countries. Based
-            in Hong Kong. Engaged when internal bandwidth is not enough and
-            execution becomes the bottleneck.
-          </p>
-
-          <div className="mt-14 flex flex-col gap-4 sm:flex-row">
-            <a
-              href="mailto:julien_levet@outlook.com"
-              className="group inline-flex cursor-pointer items-center justify-center bg-ink px-8 py-4 text-sm tracking-wide text-paper transition-colors duration-300 ease-soft hover:bg-graphite"
-            >
-              Start a conversation
-              <span
-                className="ml-3 transition-transform duration-300 ease-soft group-hover:translate-x-1"
-                aria-hidden
-              >
-                →
-              </span>
-            </a>
-            <a
-              href="/ALTIVA%20OnePager.pdf"
-              className="inline-flex cursor-pointer items-center justify-center border border-ink px-8 py-4 text-sm tracking-wide text-ink transition-colors duration-300 ease-soft hover:bg-ink hover:text-paper"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Download the brief (PDF)
-            </a>
-          </div>
-
-          <p className="mt-16 text-xs tracking-[0.24em] uppercase text-ash">
-            Hong Kong · Europe · Asia-Pacific
-          </p>
-        </div>
-      </section>
-
-      {/* ============================================================ */}
-      {/* PRACTICE                                                      */}
-      {/* ============================================================ */}
-      <section id="practice" className="border-b border-line">
-        <div className="mx-auto max-w-6xl px-6 py-28 md:px-10 md:py-40">
-          <header className="grid gap-8 md:grid-cols-12 md:gap-10">
-            <div className="md:col-span-3">
-              <p className="margin-note">§ I. Practice</p>
-            </div>
-            <div className="md:col-span-9">
-              <h2 className="font-display text-display-lg font-normal leading-[1.05] text-ink">
-                The work, plainly stated.
-              </h2>
-            </div>
-          </header>
-
-          <div className="mt-16 grid gap-16 md:mt-24 md:grid-cols-12 md:gap-10">
-            <div className="md:col-span-3">
-              <p className="margin-note">When the call comes</p>
-            </div>
-            <div className="md:col-span-9 max-w-3xl space-y-6 text-lg leading-9 text-ink md:text-xl md:leading-[1.55]">
-              <p>
-                The call usually comes when a transformation programme is not
-                landing, a COO seat is empty, a post-acquisition plan needs
-                structuring, or a cross-border expansion is hitting operational
-                limits.
-              </p>
-              <p className="text-stone">
-                Typically when internal teams are capable — but stretched,
-                misaligned, or lacking ownership. Altiva clarifies, structures,
-                drives, and leads. Personally. Until the situation has moved.
-              </p>
-            </div>
-          </div>
-
-          <div className="mt-20 grid gap-10 md:mt-28 md:grid-cols-12">
-            <div className="md:col-span-3">
-              <p className="margin-note">Mandates</p>
-            </div>
-            <ul className="md:col-span-9 divide-y divide-line border-t border-line">
-              {mandates.map((m) => (
-                <li key={m.title} className="group">
-                  <div className="grid grid-cols-1 gap-3 py-10 md:grid-cols-[1fr_1.3fr] md:gap-16 md:py-12">
-                    <h3 className="font-display text-2xl leading-tight text-ink md:text-3xl">
-                      {m.title}
-                    </h3>
-                    <p className="text-base leading-8 text-stone md:text-lg">
-                      {m.text}
-                    </p>
-                  </div>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Quiet prose — former "Why Altiva" --------------------------------- */}
-          <div className="mt-24 grid gap-10 md:mt-32 md:grid-cols-12">
-            <div className="md:col-span-3">
-              <p className="margin-note">On the difference</p>
-            </div>
-            <div className="md:col-span-9 max-w-3xl space-y-6 text-lg leading-9 text-ink md:text-xl md:leading-[1.55]">
-              <p>
-                Altiva is not a consulting firm and not a freelancer network.
-                It is one senior operator, engaged personally, carrying real
-                P&amp;L experience into rooms that need it.
-              </p>
-              <p className="text-stone">
-                No junior layers. No slide theatre. Results are delivered on
-                operating reality — commercial impact, organisational capability,
-                transaction readiness — not on deliverables.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ============================================================ */}
-      {/* FOUNDER                                                       */}
-      {/* ============================================================ */}
-      <section id="founder" className="border-b border-line bg-shade/40">
-        <div className="mx-auto max-w-6xl px-6 py-28 md:px-10 md:py-40">
-          <header className="grid gap-8 md:grid-cols-12 md:gap-10">
-            <div className="md:col-span-3">
-              <p className="margin-note">§ II. The founder</p>
-            </div>
-            <div className="md:col-span-9">
-              <h2 className="font-display text-display-lg font-normal leading-[1.05] text-ink">
-                Julien Levet.
-              </h2>
-              <p className="mt-8 max-w-xl text-base leading-8 text-stone md:text-lg">
-                The work is done by one operator. One mandate at a time. No
-                handoffs.
-              </p>
-            </div>
-          </header>
-
-          <div className="mt-20 grid gap-12 md:mt-24 md:grid-cols-12 md:gap-16">
-            <div className="md:col-span-4">
-              <div className="overflow-hidden border border-line">
-                <Portrait
-                  src="/julien-levet.jpg"
-                  alt="Julien Levet — Founder & Principal, Altiva"
-                  fallbackInitials="JL"
-                  className="aspect-[4/5]"
-                />
-              </div>
-
-              <dl className="mt-10 grid grid-cols-2 gap-x-6 gap-y-8 border-t border-line pt-8 text-sm">
-                <div>
-                  <dt className="margin-note">Years international</dt>
-                  <dd className="mt-3 font-display text-3xl text-ink">15+</dd>
-                </div>
-                <div>
-                  <dt className="margin-note">Countries</dt>
-                  <dd className="mt-3 font-display text-3xl text-ink">40+</dd>
-                </div>
-                <div>
-                  <dt className="margin-note">Years in Asia</dt>
-                  <dd className="mt-3 font-display text-3xl text-ink">12+</dd>
-                </div>
-                <div>
-                  <dt className="margin-note">Languages</dt>
-                  <dd className="mt-3 font-display text-2xl text-ink">EN · FR</dd>
-                </div>
-              </dl>
-            </div>
-
-            <div className="md:col-span-8">
-              <div className="space-y-6 text-lg leading-9 text-ink md:text-xl md:leading-[1.55]">
-                <p>
-                  Senior operator with fifteen-plus years of international
-                  experience across Europe and Asia — bridging strategy and
-                  execution in demanding environments.
-                </p>
-                <p className="text-stone">
-                  Former <span className="text-ink">Schneider Electric</span> —
-                  senior roles across digital transformation, services, and
-                  global go-to-market, across 40+ countries in complex,
-                  high-performance environments.
-                </p>
-                <p className="text-stone">
-                  COO of <span className="text-ink">OÏKO</span> — led full
-                  operational turnaround, shareholder exit repositioning, and
-                  growth initiatives across multi-country environments. Twelve
-                  years embedded in Asia (China, Singapore, Hong Kong, Indonesia).
-                </p>
-              </div>
-
-              <figure className="mt-14 border-l border-gold pl-8">
-                <blockquote className="font-display text-[clamp(1.5rem,2.6vw,2.25rem)] font-normal leading-[1.3] text-ink">
-                  Altiva is not a traditional consulting firm. I act as a
-                  hands-on operator, engaged to move situations forward — when
-                  internal execution is not enough.
-                </blockquote>
-              </figure>
-
-              <div className="mt-16 border-t border-line pt-10">
-                <p className="font-display text-4xl italic tracking-[-0.01em] text-ink md:text-5xl">
-                  Julien Levet
-                </p>
-                <p className="margin-note mt-4">
-                  Founder &amp; Principal · Altiva Limited · Hong Kong
-                </p>
-              </div>
-
-              <p className="mt-10 text-sm leading-7 text-ash">
-                Has lived and worked in France, the United States, China,
-                Singapore, Hong Kong and Indonesia.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ============================================================ */}
-      {/* CONTACT                                                       */}
-      {/* ============================================================ */}
-      <section id="contact" className="border-b border-line">
-        <div className="mx-auto max-w-6xl px-6 py-32 md:px-10 md:py-48">
-          <header className="grid gap-8 md:grid-cols-12 md:gap-10">
-            <div className="md:col-span-3">
-              <p className="margin-note">§ III. Contact</p>
-            </div>
-            <div className="md:col-span-9">
-              <h2 className="font-display text-[clamp(2.25rem,5vw,4.25rem)] font-normal leading-[1.05] tracking-[-0.02em] text-ink">
-                When the situation needs to move.
-              </h2>
-              <p className="mt-8 max-w-xl text-base leading-8 text-stone md:text-lg">
-                A short note is enough. I reply personally within two working
-                days.
-              </p>
-            </div>
-          </header>
-
-          <div className="mt-20 grid gap-12 md:mt-24 md:grid-cols-12 md:gap-10">
-            <div className="md:col-span-3">
-              <p className="margin-note">Direct</p>
-            </div>
-            <div className="md:col-span-9 space-y-10">
-              <a
-                href="mailto:julien_levet@outlook.com"
-                className="link-accent inline-block cursor-pointer break-all font-display text-2xl tracking-tight text-ink md:text-4xl"
-              >
-                julien_levet@outlook.com
-              </a>
+      <main id="main-content">
+        {/* =================== HERO =================== */}
+        <section className="hero" id="top">
+          <div className="wrap">
+            <div className="hero-grid">
               <div>
-                <a
-                  href="https://calendly.com/altiva"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="cursor-pointer text-base text-ink underline decoration-line decoration-1 underline-offset-[6px] transition hover:decoration-gold md:text-lg"
-                >
-                  Or book a 30-minute conversation →
+                <h1 className="display reveal">
+                  Operator. <em>Not</em>
+                  <br />
+                  consultant.
+                </h1>
+              </div>
+
+              <aside className="hero-meta reveal" aria-label="At a glance">
+                <dl>
+                  <div>
+                    <dt>Engaged when</dt>
+                    <dd>
+                      execution <span>is the bottleneck</span>
+                    </dd>
+                  </div>
+                  <div>
+                    <dt>Experience</dt>
+                    <dd>
+                      15<span>years senior operating</span>
+                    </dd>
+                  </div>
+                  <div>
+                    <dt>Deep expertise in</dt>
+                    <dd
+                      style={{
+                        fontSize: "clamp(18px, 1.9vw, 22px)",
+                        letterSpacing: "-0.02em",
+                      }}
+                    >
+                      Asian Pacific
+                      <br />
+                      &amp; European markets
+                    </dd>
+                  </div>
+                </dl>
+              </aside>
+            </div>
+
+            <div
+              style={{
+                marginTop: "clamp(40px, 6vw, 80px)",
+                display: "grid",
+                gridTemplateColumns: "1.1fr 1fr",
+                gap: "clamp(32px, 6vw, 96px)",
+                alignItems: "end",
+              }}
+              className="hero-lower"
+            >
+              <p className="hero-sub reveal">
+                Altiva is engaged when the strategy is sound and the growth is
+                there, but the organisation is not moving.{" "}
+                <b>
+                  One senior operator, inside the business, until the situation
+                  has shifted.
+                </b>{" "}
+                No juniors, no slide theatre, no distance.
+              </p>
+
+              <div
+                className="hero-actions reveal"
+                style={{ justifyContent: "flex-end" }}
+              >
+                <a className="btn primary" href="#contact">
+                  Start a conversation <span className="arr">→</span>
+                </a>
+                <a className="btn ghost" href="#work">
+                  See the work <span className="arr">→</span>
                 </a>
               </div>
             </div>
-          </div>
 
-          <div className="mt-20 grid gap-12 md:grid-cols-12 md:gap-10">
-            <div className="md:col-span-3">
-              <p className="margin-note">Registered office</p>
-            </div>
-            <div className="md:col-span-9">
-              <p className="font-display text-lg text-ink md:text-xl">
-                Altiva Limited · Hong Kong
-              </p>
-              <p className="mt-3 text-base leading-7 text-stone">
-                2/F West Wing, 822 Lai Chi Kok Road<br />
-                Cheung Sha Wan, Hong Kong
-              </p>
-              <p className="margin-note mt-6">
-                Coverage — Europe · North America · Asia-Pacific
-              </p>
+            <div className="ticker" aria-hidden="true">
+              <div className="ticker-track">
+                {[...tickerItems, ...tickerItems].map((item, i) => (
+                  <span key={`item-${i}`} className="contents">
+                    <span>{item}</span>
+                    <span className="dot">✦</span>
+                  </span>
+                ))}
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* ============================================================ */}
-      {/* FOOTER — colophon                                             */}
-      {/* ============================================================ */}
-      <footer className="bg-paper">
-        <div className="mx-auto max-w-6xl px-6 py-16 md:px-10">
-          <div className="grid gap-10 md:grid-cols-12">
-            <div className="md:col-span-4 flex items-start gap-4">
-              <Mark className="h-10 w-auto" />
-              <div>
-                <p className="font-display text-base text-ink">Altiva Limited</p>
-                <p className="mt-1 text-xs leading-6 text-ash">
-                  International advisory platform.<br />
-                  Hong Kong · Registered 2025.
+        {/* =================== PRACTICE =================== */}
+        <section id="practice">
+          <div className="wrap">
+            <div className="section-mark reveal">
+              <span className="num">§ I.</span>
+              <span>Practice</span>
+              <span className="line"></span>
+              <span>Six mandates</span>
+            </div>
+            <h2 className="h reveal">
+              The work, <em>plainly</em> stated.
+            </h2>
+
+            <div className="practice-intro">
+              <p className="lede reveal">
+                The call usually comes when a transformation programme is not
+                landing, a COO seat is empty, a post-acquisition plan needs
+                structuring, or a cross-border expansion is hitting operational
+                limits — typically when internal teams are capable but
+                stretched, misaligned, or lacking ownership.
+              </p>
+              <div className="callout reveal">
+                <h4>The difference</h4>
+                <p>
+                  Altiva is not a consulting firm and not a freelancer network.
+                  It is one senior operator, engaged personally, carrying real
+                  P&amp;L experience into rooms that need it. Results are
+                  delivered on operating reality — commercial impact,
+                  organisational capability, transaction readiness — not on
+                  deliverables.
                 </p>
               </div>
             </div>
 
-            <div className="md:col-span-4">
-              <p className="margin-note mb-4">Colophon</p>
-              <p className="text-sm leading-7 text-stone">
-                This site is set in Fraunces and Inter, hand-built in Hong Kong.
-                No third-party analytics. No tracking on visitors. Julien replies
-                personally.
-              </p>
-            </div>
-
-            <div className="md:col-span-4">
-              <p className="margin-note mb-4">Direct</p>
-              <ul className="space-y-3 text-sm">
-                <li>
-                  <a
-                    href="mailto:julien_levet@outlook.com"
-                    className="cursor-pointer text-ink transition hover:text-gold"
-                  >
-                    julien_levet@outlook.com
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="https://www.linkedin.com/company/altiva-limited"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="cursor-pointer text-ink transition hover:text-gold"
-                  >
-                    LinkedIn
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="/ALTIVA%20OnePager.pdf"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="cursor-pointer text-ink transition hover:text-gold"
-                  >
-                    Capability brief (PDF)
-                  </a>
-                </li>
-              </ul>
+            <div className="mandates reveal" role="list">
+              {mandates.map((m) => (
+                <article className="mandate" role="listitem" key={m.num}>
+                  <div className="m-head">
+                    <span className="m-num">{m.num}</span>
+                    <span className="m-arr">↗</span>
+                  </div>
+                  <h3 className="m-title">{m.title}</h3>
+                  <p className="m-desc">{m.desc}</p>
+                  <span className="m-tag">{m.tag}</span>
+                </article>
+              ))}
             </div>
           </div>
+        </section>
 
-          <div className="mt-14 flex flex-col gap-3 border-t border-line pt-6 text-xs text-ash sm:flex-row sm:items-center sm:justify-between">
-            <p>© {new Date().getFullYear()} Altiva Limited. All rights reserved.</p>
-            <p>Hong Kong · Registered 2025</p>
+        {/* =================== WORK =================== */}
+        <section id="work">
+          <div className="wrap">
+            <div className="section-mark reveal">
+              <span className="num">§ II.</span>
+              <span>Selected engagements</span>
+              <span className="line"></span>
+              <span>Anonymised</span>
+            </div>
+            <h2 className="h reveal">
+              Situations, <em>moved.</em>
+            </h2>
+            <p
+              className="lede reveal"
+              style={{ marginBottom: "clamp(40px, 6vw, 72px)" }}
+            >
+              A representative cross-section. Clients and details are
+              confidential; outcomes are described on operating reality.
+            </p>
+
+            <div className="snap-list reveal">
+              {snapshots.map((s) => (
+                <article className="snap" key={s.outTitle}>
+                  <div className="snap-yr">{s.yr}</div>
+                  <div>
+                    <h3 className="snap-t">{s.title}</h3>
+                    <p className="snap-body">{s.body}</p>
+                  </div>
+                  <div className="snap-yr">{s.geo}</div>
+                  <div className="snap-out">
+                    <b>{s.outTitle}</b>
+                    {s.outSub}
+                  </div>
+                  <div className="snap-arr">↗</div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* =================== FOUNDER =================== */}
+        <section id="founder">
+          <div className="wrap">
+            <div className="section-mark reveal">
+              <span className="num">§ III.</span>
+              <span>The founder</span>
+              <span className="line"></span>
+              <span>One operator</span>
+            </div>
+            <h2 className="h reveal">
+              Julien <em>Levet.</em>
+            </h2>
+
+            <div className="founder">
+              <figure
+                className="portrait reveal"
+                aria-label="Portrait of Julien Levet"
+              >
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  className="photo"
+                  src="/julien-levet.jpg"
+                  alt="Julien Levet — Founder & Principal, Altiva"
+                />
+                <span className="tick">J.L. · 2026</span>
+                <figcaption className="label">
+                  <b>Julien Levet</b>
+                  Founder &amp; Principal · Altiva Limited
+                </figcaption>
+              </figure>
+
+              <div className="bio-doc reveal">
+                <p>
+                  Senior operator with <b>fifteen-plus years</b> of
+                  international experience across Europe and Asia — bridging
+                  strategy and execution in demanding environments.
+                </p>
+                <p>
+                  Former <b>Schneider Electric</b> — senior roles across
+                  digital transformation, services, and global go-to-market
+                  across forty-plus countries in complex, high-performance
+                  environments.
+                </p>
+                <p>
+                  Most recently <b>COO of OÏKO</b> — led full operational
+                  turnaround, shareholder exit repositioning, and growth
+                  initiatives across multi-country environments. Twelve years
+                  embedded in Asia (China, Singapore, Hong Kong, Indonesia).
+                </p>
+              </div>
+            </div>
+
+            <div className="founder-epilogue reveal">
+              <blockquote className="pull">
+                “Altiva is not a traditional consulting firm. I act as a
+                hands-on operator, engaged to move situations forward — when
+                internal execution is not enough.”
+              </blockquote>
+
+              <div className="founder-footline">
+                <div className="signoff">
+                  <span className="sig">Julien Levet</span>
+                  <span>Founder &amp; Principal · Altiva Limited · Hong Kong</span>
+                </div>
+                <p className="lived-in">
+                  Has lived and worked in France, the United States, China,
+                  Singapore, Hong Kong and Indonesia.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* =================== PROCESS =================== */}
+        <section id="process">
+          <div className="wrap">
+            <div className="section-mark reveal">
+              <span className="num">§ IV.</span>
+              <span>How a mandate runs</span>
+              <span className="line"></span>
+              <span>From first call to handover</span>
+            </div>
+            <h2 className="h reveal">
+              Engaged <em>personally.</em>
+              <br />
+              Handed over cleanly.
+            </h2>
+
+            <div className="process reveal">
+              {steps.map((s) => (
+                <div className="step" key={s.n}>
+                  <div className="n">
+                    <span className="box">{s.n}</span>
+                    <span>{s.label}</span>
+                  </div>
+                  <h5>{s.title}</h5>
+                  <p>{s.body}</p>
+                  <div className="dur">{s.dur}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* =================== CONTACT =================== */}
+        <section id="contact" className="contact">
+          <div className="wrap">
+            <div className="accent-rule reveal" aria-hidden="true"></div>
+            <div
+              className="section-mark reveal"
+              style={{ color: "color-mix(in oklab, var(--bone) 60%, var(--ink))" }}
+            >
+              <span className="num" style={{ color: "var(--accent)" }}>
+                § V.
+              </span>
+              <span>Contact</span>
+              <span
+                className="line"
+                style={{
+                  background:
+                    "color-mix(in oklab, var(--bone) 22%, transparent)",
+                }}
+              ></span>
+              <span>Replies within two working days</span>
+            </div>
+            <h2 className="h reveal">
+              When the situation <em>needs to move.</em>
+            </h2>
+
+            <div className="contact-grid">
+              <div>
+                <p className="contact-lede reveal">
+                  A short note is enough. No questionnaire, no intake form, no
+                  BDR. Julien reads and replies personally — usually the same
+                  day, always within two working days.
+                </p>
+                <div className="contact-actions reveal">
+                  <a className="btn light" href="mailto:contact@altiva.hk">
+                    Write directly <span className="arr">→</span>
+                  </a>
+                  <a
+                    className="btn outline-light"
+                    href="https://calendly.com/altiva"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Book 30 minutes <span className="arr">→</span>
+                  </a>
+                </div>
+              </div>
+
+              <div className="contact-card reveal">
+                <h5>Registered office</h5>
+                <address>
+                  Altiva Limited
+                  <br />
+                  2/F West Wing, 822 Lai Chi Kok Road
+                  <br />
+                  Cheung Sha Wan, Hong Kong
+                </address>
+                <div className="row">
+                  <span>Direct</span>
+                  <b>contact@altiva.hk</b>
+                </div>
+                <div className="row">
+                  <span>LinkedIn</span>
+                  <b>/company/altivaltd</b>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      {/* =================== FOOTER =================== */}
+      <footer className="site">
+        <div className="wrap foot">
+          <div>
+            <div className="foot-brand">
+              <Mark variant="bone" className="h-14 w-auto block" />
+            </div>
+            <div
+              className="foot-meta"
+              style={{ marginTop: 8, maxWidth: "42ch" }}
+            >
+              International advisory platform. Hong Kong · Registered 2025.
+              <br />
+              No analytics. No tracking.
+            </div>
+          </div>
+          <div className="foot-meta" style={{ textAlign: "right" }}>
+            <div style={{ marginBottom: 8 }}>
+              <a href="mailto:contact@altiva.hk">Email</a> &nbsp;·&nbsp;
+              <a
+                href="https://www.linkedin.com/company/altivaltd"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                LinkedIn
+              </a>
+            </div>
+            © {new Date().getFullYear()} Altiva Limited · All rights reserved
           </div>
         </div>
       </footer>
-    </main>
+    </>
   );
 }

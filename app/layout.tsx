@@ -1,37 +1,33 @@
 import type { Metadata } from "next";
-import { Fraunces, Inter } from "next/font/google";
+import { GeistSans } from "geist/font/sans";
+import { GeistMono } from "geist/font/mono";
+import { Instrument_Serif } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-  variable: "--font-sans",
-  display: "swap",
-});
+// Geist Sans — body + display. Vercel's variable font; one file, all weights.
+// Overridden locally via `--font-sans` to keep globals.css framework-agnostic.
+const geist = GeistSans;
+const geistMono = GeistMono;
 
-const fraunces = Fraunces({
+const instrumentSerif = Instrument_Serif({
   subsets: ["latin"],
+  weight: ["400"],
   style: ["normal", "italic"],
-  axes: ["SOFT", "WONK", "opsz"],
-  variable: "--font-display",
+  variable: "--font-italic",
   display: "swap",
 });
 
 // ~55 chars — inside the 50–60 sweet spot for search + social.
 const title = "Altiva — Operator-led advisory. Hong Kong & beyond.";
 
-// ~150 chars — inside the 110–160 sweet spot.
+// ~170 chars — sharpened for the design-refreshed positioning.
 const description =
-  "International operator-led advisory. Engaged when growth is there — but execution is not keeping up. Based in Hong Kong. Start a conversation.";
+  "Altiva is a senior operator engaged when execution becomes the bottleneck. Fractional COO, transformation, and strategic mandates across Europe and Asia-Pacific.";
 
 export const metadata: Metadata = {
   title,
   description,
   metadataBase: new URL("https://www.altiva.hk"),
-  icons: {
-    icon: "/altiva-logo.png",
-    apple: "/altiva-logo.png",
-  },
   openGraph: {
     title,
     description,
@@ -50,14 +46,78 @@ export const metadata: Metadata = {
   },
 };
 
+const siteUrl = "https://www.altiva.hk";
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": `${siteUrl}/#organization`,
+      name: "Altiva Limited",
+      alternateName: "Altiva",
+      url: siteUrl,
+      logo: `${siteUrl}/altiva-logo-black.png`,
+      description,
+      foundingDate: "2025",
+      founder: { "@id": `${siteUrl}/#julien-levet` },
+      email: "mailto:contact@altiva.hk",
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "2/F West Wing, 822 Lai Chi Kok Road",
+        addressLocality: "Cheung Sha Wan",
+        addressRegion: "Kowloon",
+        addressCountry: "HK",
+      },
+      areaServed: ["Europe", "North America", "Asia-Pacific"],
+      sameAs: ["https://www.linkedin.com/company/altivaltd"],
+    },
+    {
+      "@type": "Person",
+      "@id": `${siteUrl}/#julien-levet`,
+      name: "Julien Levet",
+      jobTitle: "Founder & Principal",
+      worksFor: { "@id": `${siteUrl}/#organization` },
+      email: "mailto:contact@altiva.hk",
+      knowsLanguage: ["en", "fr"],
+      nationality: "FR",
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Hong Kong",
+        addressCountry: "HK",
+      },
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${siteUrl}/#website`,
+      url: siteUrl,
+      name: "Altiva",
+      publisher: { "@id": `${siteUrl}/#organization` },
+      inLanguage: "en-GB",
+    },
+  ],
+};
+
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${inter.variable} ${fraunces.variable}`}>
-      <body className="bg-paper font-sans text-ink antialiased">{children}</body>
+    <html
+      lang="en"
+      className={`${geist.variable} ${geistMono.variable} ${instrumentSerif.variable}`}
+    >
+      <body>
+        <a href="#main-content" className="skip-link">
+          Skip to content
+        </a>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+        {children}
+      </body>
     </html>
   );
 }
