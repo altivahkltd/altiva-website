@@ -61,7 +61,7 @@ const mandates = [
       </>
     ),
     desc: "Fundraise, exit, or repositioning. Operational credibility and investor narrative, built on evidence - not on PowerPoint.",
-    tag: "Fundraise · Exit",
+    tag: "Equity Story · Exit",
   },
 ];
 
@@ -178,8 +178,7 @@ const tickerItems = [
   "Cross-border expansion",
   "AI, absorbed into operating reality",
   "Go-to-market activation",
-  "Fundraise & exit preparation",
-  "Hong Kong · Europe · Asia-Pacific",
+  "Equity Story & exit preparation",
 ];
 
 export default function Home() {
