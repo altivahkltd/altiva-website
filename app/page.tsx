@@ -66,64 +66,76 @@ const mandates = [
 
 const snapshots = [
   {
-    yr: "2024 — Ongoing",
+    yr: "01 — COO, on call",
     title: (
       <>
-        Fractional <em>COO</em>, industrial software scale-up
+        COO, <em>automation</em> &amp; smart building group
       </>
     ),
-    body: "Stood in when the operator seat opened mid-scale. Rebuilt the delivery function, restructured regional leadership, closed the execution gap between sales and product.",
-    geo: "Europe · APAC",
-    outTitle: "+38% on-time delivery",
-    outSub: "Operator seat filled in 9 months",
+    body: "Stepped into a company in operational difficulty. Led a full reset — rebuilt delivery, restructured the team, restored execution standards, and repositioned the business for growth.",
+    geo: "France · Caribbean · Switzerland",
+    outTitle: "Scaled beyond €10M revenue",
+    outSub: "Built and led 50+ team with full P&L ownership",
   },
   {
-    yr: "2023 — 2024",
+    yr: "02 — High-stakes advisory",
     title: (
       <>
-        Post-acquisition <em>integration</em>, services group
+        Executive environment, <em>Fortune 500</em> industrial group
       </>
     ),
-    body: "Two entities, three countries, one operating model. Designed the integration plan, chaired the weekly operating cadence, carried it to synergy run-rate.",
-    geo: "SEA · France",
-    outTitle: "Synergies at 110%",
-    outSub: "12 months after close",
-  },
-  {
-    yr: "2023",
-    title: (
-      <>
-        Cross-border <em>go-to-market</em>, B2B platform
-      </>
-    ),
-    body: "New market entry across three Asian geographies. Channel design, partner onboarding, first-year pipeline built and handed over to a permanent regional GM.",
-    geo: "HK · SG · JP",
-    outTitle: "$11M Y1 pipeline",
-    outSub: "Partner network live in 6 months",
-  },
-  {
-    yr: "2022 — 2023",
-    title: (
-      <>
-        Full <em>turnaround</em>, cross-border services
-      </>
-    ),
-    body: "Led operational turnaround as COO — cost structure, regional leadership, P&L repositioning. Delivered shareholder exit on an improved narrative.",
-    geo: "Asia · Europe",
-    outTitle: "EBITDA restored",
-    outSub: "Exit executed on plan",
-  },
-  {
-    yr: "2022",
-    title: (
-      <>
-        AI programme, <em>absorbed</em> into operations
-      </>
-    ),
-    body: "Business-driven AI initiatives defined with function heads. Three pilots taken to production with measurable operational outcomes — not a sandbox.",
+    body: "Designed and operated digital environments for top leadership — including CEO and Executive Committee — across a decentralised, multi-country organisation.",
     geo: "Global",
-    outTitle: "3 live use cases",
-    outSub: "Operational KPI uplift documented",
+    outTitle: "Supported top 200 executives across 20+ countries",
+    outSub: "Delivered in high-stakes, zero-failure environments",
+  },
+  {
+    yr: "03 — Transformation & AI",
+    title: (
+      <>
+        Regional <em>transformation</em>, services business
+      </>
+    ),
+    body: "Led transformation across APAC & Middle East — spanning operations, supply chain, customer experience, and commercial execution.",
+    geo: "€500M business scope",
+    outTitle: "15% YoY growth delivered",
+    outSub: "Full programme across four functions",
+  },
+  {
+    yr: "04 — Go-to-market & growth",
+    title: (
+      <>
+        Global <em>channel</em> &amp; IoT go-to-market
+      </>
+    ),
+    body: "Built and scaled partner ecosystems and connected offers across multiple regions. Aligned marketing, product, and field execution to drive commercial growth.",
+    geo: "40+ countries",
+    outTitle: "Tripled business results",
+    outSub: "Channel programme deployed globally",
+  },
+  {
+    yr: "05 — Operational review",
+    title: (
+      <>
+        Enterprise <em>operations</em> optimisation, IT services
+      </>
+    ),
+    body: "Led performance optimisation of collaboration services across large-scale environments. Simplified workflows, improved user adoption, and aligned systems with operational needs.",
+    geo: "Greater China",
+    outTitle: "10,000+ users supported",
+    outSub: "Efficiency gains through workflow & tool optimisation",
+  },
+  {
+    yr: "06 — Transaction preparation",
+    title: (
+      <>
+        Operational <em>repositioning</em>, ahead of exit
+      </>
+    ),
+    body: "Rebuilt operational credibility, stabilised performance, and structured the business to support a stronger exit narrative.",
+    geo: "Europe · Asia",
+    outTitle: "Profitability restored",
+    outSub: "Business repositioned for exit",
   },
 ];
 
@@ -348,8 +360,8 @@ export default function Home() {
               className="lede reveal"
               style={{ marginBottom: "clamp(40px, 6vw, 72px)" }}
             >
-              A representative cross-section. Clients and details are
-              confidential; outcomes are described on operating reality.
+              Six mandates, selected. Real operator seats, real P&amp;L, real
+              outcomes — across six geographies and three continents.
             </p>
 
             <div className="snap-list reveal">
