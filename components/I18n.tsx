@@ -66,9 +66,26 @@ const FR_TIMEZONES = new Set<string>([
   "America/Toronto",
 ]);
 
+// SEO-tuned document title per language. The OG title (used by social
+// unfurls) stays short and brand-led.
 const TITLES: Record<Lang, string> = {
+  en: "Altiva - Operator-led advisory. Fractional COO · Hong Kong & APAC · Europe.",
+  fr: "Altiva - Conseil piloté par un opérateur. COO à temps partagé · Hong Kong & APAC · Europe.",
+};
+
+const DESCRIPTIONS: Record<Lang, string> = {
+  en: "Altiva is a senior operator engaged when execution becomes the bottleneck. Fractional COO, transformation, and strategic mandates across Europe and Asia-Pacific. Founded by Julien Levet in Hong Kong.",
+  fr: "Altiva est un opérateur senior engagé lorsque l\u2019exécution devient le goulot d\u2019étranglement. COO à temps partagé, transformation et mandats stratégiques entre l\u2019Europe et l\u2019Asie-Pacifique. Fondé par Julien Levet à Hong Kong.",
+};
+
+const OG_TITLES: Record<Lang, string> = {
   en: "Altiva - Operator, not consultant.",
   fr: "Altiva - Opérateur, pas consultant.",
+};
+
+const OG_LOCALES: Record<Lang, string> = {
+  en: "en_US",
+  fr: "fr_FR",
 };
 
 type Dict = Record<string, string>;
@@ -537,6 +554,11 @@ function detect(): Lang {
   return "en";
 }
 
+function setMeta(selector: string, attr: "content" | "href", value: string) {
+  const el = document.querySelector(selector);
+  if (el) el.setAttribute(attr, value);
+}
+
 function apply(lang: Lang) {
   currentLang = lang;
   const dict = DICT[lang];
@@ -547,7 +569,16 @@ function apply(lang: Lang) {
     if (key && dict[key] != null) el.innerHTML = dict[key];
   });
 
+  // Keep the head tags in sync with the active language so Google + social
+  // crawlers see French metadata when they land on ?lang=fr.
   document.title = TITLES[lang];
+  setMeta('meta[name="description"]', "content", DESCRIPTIONS[lang]);
+  setMeta('meta[property="og:title"]', "content", OG_TITLES[lang]);
+  setMeta('meta[property="og:description"]', "content", DESCRIPTIONS[lang]);
+  setMeta('meta[property="og:locale"]', "content", OG_LOCALES[lang]);
+  setMeta('meta[name="twitter:title"]', "content", OG_TITLES[lang]);
+  setMeta('meta[name="twitter:description"]', "content", DESCRIPTIONS[lang]);
+
   listeners.forEach((fn) => fn());
 }
 

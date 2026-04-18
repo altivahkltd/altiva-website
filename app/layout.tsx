@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
 import { Instrument_Serif } from "next/font/google";
@@ -17,36 +17,86 @@ const instrumentSerif = Instrument_Serif({
   display: "swap",
 });
 
-// ~55 chars — inside the 50–60 sweet spot for search + social.
-const title = "Altiva — Operator-led advisory. Hong Kong & beyond.";
+// Enhanced title — keyword-rich for SEO without breaking the brand voice.
+const title =
+  "Altiva — Operator-led advisory. Fractional COO · Hong Kong & APAC · Europe.";
 
-// ~170 chars — sharpened for the design-refreshed positioning.
+// ~190 chars — keeps us under the 200-char mobile SERP truncation and
+// name-drops Julien + Hong Kong for the "founder search" long-tail.
 const description =
-  "Altiva is a senior operator engaged when execution becomes the bottleneck. Fractional COO, transformation, and strategic mandates across Europe and Asia-Pacific.";
+  "Altiva is a senior operator engaged when execution becomes the bottleneck. Fractional COO, transformation, and strategic mandates across Europe and Asia-Pacific. Founded by Julien Levet in Hong Kong.";
+
+const siteUrl = "https://www.altiva.hk";
+
+// Short-form titles used by the social unfurl + the JS language switch.
+const ogTitle = "Altiva — Operator, not consultant.";
 
 export const metadata: Metadata = {
   title,
   description,
-  metadataBase: new URL("https://www.altiva.hk"),
+  metadataBase: new URL(siteUrl),
+  authors: [{ name: "Julien Levet", url: siteUrl }],
+  creator: "Julien Levet",
+  publisher: "Altiva Limited",
+  keywords: [
+    "fractional COO",
+    "operator-led advisory",
+    "interim COO",
+    "transformation APAC",
+    "fractional COO Hong Kong",
+    "COO à temps partagé",
+    "operator advisory Asia Pacific",
+    "post-merger integration",
+    "operational turnaround",
+    "go-to-market APAC",
+    "Julien Levet",
+    "Altiva",
+  ],
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
   openGraph: {
-    title,
+    title: ogTitle,
     description,
     type: "website",
-    url: "https://www.altiva.hk",
+    url: siteUrl,
     siteName: "Altiva",
-    locale: "en_GB",
+    locale: "en_US",
+    alternateLocale: ["fr_FR"],
   },
   twitter: {
     card: "summary_large_image",
-    title,
+    title: ogTitle,
     description,
   },
   alternates: {
-    canonical: "https://www.altiva.hk",
+    canonical: siteUrl,
+    languages: {
+      en: siteUrl,
+      fr: `${siteUrl}/?lang=fr`,
+      "x-default": siteUrl,
+    },
+  },
+  // Geo / locale signals — Next's Metadata API surfaces these via `other`.
+  other: {
+    "geo.region": "HK",
+    "geo.placename": "Hong Kong",
+    "geo.position": "22.3351;114.1490",
+    "ICBM": "22.3351, 114.1490",
   },
 };
 
-const siteUrl = "https://www.altiva.hk";
+export const viewport: Viewport = {
+  themeColor: "#ECE6D7",
+};
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -54,10 +104,17 @@ const jsonLd = {
     {
       "@type": "Organization",
       "@id": `${siteUrl}/#organization`,
-      name: "Altiva Limited",
+      name: "Altiva",
+      legalName: "Altiva Limited",
       alternateName: "Altiva",
       url: siteUrl,
-      logo: `${siteUrl}/altiva-logo-black.png`,
+      logo: {
+        "@type": "ImageObject",
+        url: `${siteUrl}/altiva-logo-black.png`,
+        width: 705,
+        height: 612,
+      },
+      image: `${siteUrl}/opengraph-image`,
       description,
       foundingDate: "2025",
       founder: { "@id": `${siteUrl}/#julien-levet` },
@@ -69,18 +126,71 @@ const jsonLd = {
         addressRegion: "Kowloon",
         addressCountry: "HK",
       },
-      areaServed: ["Europe", "North America", "Asia-Pacific"],
+      areaServed: [
+        { "@type": "Place", name: "Hong Kong" },
+        { "@type": "Place", name: "Asia-Pacific" },
+        { "@type": "Place", name: "Europe" },
+        { "@type": "Country", name: "France" },
+        { "@type": "Country", name: "Singapore" },
+        { "@type": "Country", name: "China" },
+      ],
+      knowsLanguage: ["en", "fr"],
       sameAs: ["https://www.linkedin.com/company/altivaltd"],
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": `${siteUrl}/#service`,
+      name: "Altiva — Operator-led advisory",
+      url: siteUrl,
+      image: `${siteUrl}/opengraph-image`,
+      description:
+        "Senior operator engaged when execution becomes the bottleneck. Fractional COO, high-stakes advisory, transformation & AI programmes, go-to-market, operational review, and transaction preparation.",
+      provider: { "@id": `${siteUrl}/#organization` },
+      serviceType: [
+        "Fractional COO",
+        "Interim COO",
+        "Operational transformation",
+        "AI programme leadership",
+        "Go-to-market execution",
+        "Operational review & efficiency",
+        "Transaction preparation",
+        "Post-merger integration",
+        "Operational turnaround",
+      ],
+      areaServed: [
+        { "@type": "Place", name: "Hong Kong" },
+        { "@type": "Place", name: "Asia-Pacific" },
+        { "@type": "Place", name: "Europe" },
+      ],
+      priceRange: "$$$$",
     },
     {
       "@type": "Person",
       "@id": `${siteUrl}/#julien-levet`,
       name: "Julien Levet",
+      givenName: "Julien",
+      familyName: "Levet",
       jobTitle: "Founder & Principal",
       worksFor: { "@id": `${siteUrl}/#organization` },
+      url: `${siteUrl}/#founder`,
       email: "mailto:julien@altiva.hk",
+      description:
+        "Senior operator with 15+ years of international experience across Europe and Asia-Pacific. Former Schneider Electric and COO of OÏKO.",
+      alumniOf: [
+        { "@type": "Organization", name: "Schneider Electric" },
+        { "@type": "Organization", name: "OÏKO" },
+      ],
+      knowsAbout: [
+        "Operational transformation",
+        "Fractional leadership",
+        "Go-to-market strategy",
+        "AI programme delivery",
+        "Post-merger integration",
+        "Exit preparation",
+      ],
       knowsLanguage: ["en", "fr"],
-      nationality: "FR",
+      nationality: { "@type": "Country", name: "France" },
+      workLocation: { "@type": "Place", name: "Hong Kong" },
       address: {
         "@type": "PostalAddress",
         addressLocality: "Hong Kong",
@@ -93,7 +203,7 @@ const jsonLd = {
       url: siteUrl,
       name: "Altiva",
       publisher: { "@id": `${siteUrl}/#organization` },
-      inLanguage: "en-GB",
+      inLanguage: ["en", "fr"],
     },
   ],
 };
