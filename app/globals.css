@@ -216,6 +216,38 @@ a {
   .lang-switch {
     padding-left: 10px;
     margin-left: 0;
+    border-left-width: 0;
+  }
+}
+@media (max-width: 520px) {
+  .topbar-inner {
+    height: 64px;
+  }
+  .brand {
+    height: 26px;
+  }
+  .brand img {
+    height: 26px !important;
+  }
+  .nav {
+    gap: 10px;
+  }
+  .nav .cta {
+    font-size: 10.5px;
+    letter-spacing: 0.08em;
+    padding: 8px 10px;
+  }
+  .lang-switch {
+    font-size: 10.5px;
+    letter-spacing: 0.12em;
+  }
+  .lang-switch button {
+    padding: 6px 2px;
+  }
+}
+@media (max-width: 480px) {
+  .specs {
+    grid-template-columns: 1fr;
   }
 }
 
