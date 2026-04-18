@@ -19,7 +19,12 @@ import { useState, type FormEvent } from "react";
  * falls back to English if the FR key is missing.
  */
 
-const ACCESS_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_KEY ?? "";
+// Web3Forms access key — publicly exposed by design (client-side POST to
+// api.web3forms.com). Prefer the env var override, fall back to the key
+// Julien provisioned on the Altiva account for the live deploy.
+const ACCESS_KEY =
+  process.env.NEXT_PUBLIC_WEB3FORMS_KEY ??
+  "6f2053d5-e3b9-470f-acbd-acc88ba42ff2";
 const STATUS_FALLBACKS: Record<
   "sending" | "ok" | "err",
   { en: string; fr: string }
@@ -70,7 +75,7 @@ export default function ContactForm() {
         `Topic: ${topic}`,
       ];
       const subject = `Altiva · ${topic || "Enquiry"}`;
-      window.location.href = `mailto:julien@altiva.hk?subject=${encodeURIComponent(
+      window.location.href = `mailto:julien_levet@outlook.com?subject=${encodeURIComponent(
         subject
       )}&body=${encodeURIComponent(bodyLines.join("\n"))}`;
       return;
