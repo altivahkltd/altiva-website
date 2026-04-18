@@ -1038,6 +1038,142 @@ h2.h em {
   color: var(--ink);
   border-color: var(--bone);
 }
+.btn.ghost-light {
+  position: relative;
+  background: transparent;
+  color: color-mix(in oklab, var(--bone) 75%, var(--ink));
+  border: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+  letter-spacing: 0.02em;
+}
+.btn.ghost-light::after {
+  content: "";
+  position: absolute;
+  left: 4px;
+  right: 4px;
+  bottom: 8px;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.35;
+  transition: opacity 0.2s;
+}
+.btn.ghost-light:hover {
+  color: var(--bone);
+}
+.btn.ghost-light:hover::after {
+  opacity: 0.7;
+}
+
+/* ---------- Contact form ---------- */
+.contact-form {
+  display: grid;
+  gap: 18px;
+  margin-bottom: 28px;
+}
+.contact-form .field {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+.contact-form .row-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+@media (max-width: 520px) {
+  .contact-form .row-2 {
+    grid-template-columns: 1fr;
+  }
+}
+.contact-form label {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: color-mix(in oklab, var(--bone) 55%, var(--ink));
+}
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid color-mix(in oklab, var(--bone) 25%, var(--ink));
+  padding: 10px 0;
+  color: var(--bone);
+  font-family: var(--font-sans), -apple-system, system-ui, sans-serif;
+  font-size: 16px;
+  letter-spacing: -0.01em;
+  transition: border-color 0.2s ease;
+  border-radius: 0;
+}
+.contact-form textarea {
+  resize: vertical;
+  min-height: 90px;
+  line-height: 1.5;
+}
+.contact-form select {
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: linear-gradient(45deg, transparent 50%, var(--bone) 50%),
+    linear-gradient(135deg, var(--bone) 50%, transparent 50%);
+  background-position: calc(100% - 14px) 50%, calc(100% - 8px) 50%;
+  background-size: 6px 6px, 6px 6px;
+  background-repeat: no-repeat;
+  padding-right: 28px;
+}
+.contact-form select option {
+  background: var(--ink);
+  color: var(--bone);
+}
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: color-mix(in oklab, var(--bone) 35%, var(--ink));
+}
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus {
+  outline: 0;
+  border-bottom-color: var(--accent);
+}
+.contact-form .submit-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 8px;
+  flex-wrap: wrap;
+}
+.contact-form .btn {
+  cursor: pointer;
+  font-family: var(--font-sans), -apple-system, system-ui, sans-serif;
+}
+.contact-form .btn[disabled] {
+  opacity: 0.55;
+  cursor: wait;
+}
+.form-status {
+  margin-top: 18px;
+  padding: 14px 16px;
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  display: none;
+}
+.form-status.on {
+  display: block;
+}
+.form-status.ok {
+  background: color-mix(in oklab, var(--accent) 20%, transparent);
+  color: var(--bone);
+  border-left: 2px solid var(--accent);
+}
+.form-status.err {
+  background: color-mix(in oklab, #c04040 20%, transparent);
+  color: var(--bone);
+  border-left: 2px solid #c04040;
+}
 
 .contact-card {
   border: 1px solid color-mix(in oklab, var(--bone) 22%, var(--ink));
