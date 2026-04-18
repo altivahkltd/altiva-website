@@ -176,9 +176,46 @@ a {
 .nav .cta::after {
   display: none;
 }
+.lang-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: 4px;
+  padding-left: 18px;
+  border-left: 1px solid color-mix(in oklab, var(--ink) 18%, transparent);
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+.lang-switch button {
+  background: transparent;
+  border: 0;
+  padding: 6px 2px;
+  cursor: pointer;
+  font: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+  color: color-mix(in oklab, var(--ink) 45%, transparent);
+  transition: color 0.2s ease;
+}
+.lang-switch button:hover {
+  color: var(--ink);
+}
+.lang-switch button.active {
+  color: var(--ink);
+  font-weight: 500;
+}
+.lang-switch span {
+  color: color-mix(in oklab, var(--ink) 25%, transparent);
+}
 @media (max-width: 720px) {
   .nav a:not(.cta) {
     display: none;
+  }
+  .lang-switch {
+    padding-left: 10px;
+    margin-left: 0;
   }
 }
 
