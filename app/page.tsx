@@ -98,10 +98,10 @@ const snapshots = [
         Regional <em>transformation</em>, services business
       </>
     ),
-    body: "Led transformation across APAC & Middle East - spanning operations, supply chain, customer experience, and commercial execution.",
-    geo: "€500M business scope",
-    outTitle: "15% YoY growth delivered",
-    outSub: "Full programme across four functions",
+    body: "End-to-end programme spanning operations, supply chain, customer experience, and commercial execution.",
+    geo: "APAC & Middle East",
+    outTitle: "€500M business scope",
+    outSub: "15% YoY growth · Full programme across four functions",
   },
   {
     yr: "04 - Go-to-market & growth",
