@@ -1,6 +1,7 @@
 import Mark from "@/components/Mark";
 import Reveal from "@/components/Reveal";
 import { I18n, LangSwitch } from "@/components/I18n";
+import ContactForm from "@/components/ContactForm";
 
 const mandates = [
   {
@@ -586,13 +587,24 @@ export default function Home() {
             <div className="contact-grid">
               <div>
                 <p className="contact-lede reveal" data-i18n="ctc.lede">
-                  A short note is enough. No questionnaire, no intake form, no
-                  BDR. Julien reads and replies personally - usually the same
-                  day, always within two working days.
+                  A short note is enough. Julien reads and replies personally
+                  - usually the same day, always within two working days.
                 </p>
+
+                <ContactForm />
+
                 <div className="contact-actions reveal">
-                  <a className="btn light" href="mailto:contact@altiva.hk">
-                    <span data-i18n="ctc.cta.write">Write directly</span>{" "}
+                  <a
+                    className="btn outline-light"
+                    href="https://outlook.office.com/bookwithme/user/YOUR_BOOKINGS_ID@altiva.hk"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <span data-i18n="ctc.cta.book">Book a 30-min call</span>{" "}
+                    <span className="arr">→</span>
+                  </a>
+                  <a className="btn ghost-light" href="mailto:julien@altiva.hk">
+                    <span data-i18n="ctc.cta.write">Or write directly</span>{" "}
                     <span className="arr">→</span>
                   </a>
                 </div>
@@ -609,7 +621,7 @@ export default function Home() {
                 </address>
                 <div className="row">
                   <span data-i18n="ctc.card.direct">Direct</span>
-                  <b>contact@altiva.hk</b>
+                  <b>julien@altiva.hk</b>
                 </div>
                 <div className="row">
                   <span data-i18n="ctc.card.li">LinkedIn</span>
@@ -640,7 +652,7 @@ export default function Home() {
           </div>
           <div className="foot-meta" style={{ textAlign: "right" }}>
             <div style={{ marginBottom: 8 }}>
-              <a href="mailto:contact@altiva.hk" data-i18n="foot.email">
+              <a href="mailto:julien@altiva.hk" data-i18n="foot.email">
                 Email
               </a>{" "}
               &nbsp;·&nbsp;

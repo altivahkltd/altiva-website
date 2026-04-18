@@ -61,7 +61,7 @@ const jsonLd = {
       description,
       foundingDate: "2025",
       founder: { "@id": `${siteUrl}/#julien-levet` },
-      email: "mailto:contact@altiva.hk",
+      email: "mailto:julien@altiva.hk",
       address: {
         "@type": "PostalAddress",
         streetAddress: "2/F West Wing, 822 Lai Chi Kok Road",
@@ -78,7 +78,7 @@ const jsonLd = {
       name: "Julien Levet",
       jobTitle: "Founder & Principal",
       worksFor: { "@id": `${siteUrl}/#organization` },
-      email: "mailto:contact@altiva.hk",
+      email: "mailto:julien@altiva.hk",
       knowsLanguage: ["en", "fr"],
       nationality: "FR",
       address: {
