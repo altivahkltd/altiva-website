@@ -595,15 +595,6 @@ export default function Home() {
                     <span data-i18n="ctc.cta.write">Write directly</span>{" "}
                     <span className="arr">→</span>
                   </a>
-                  <a
-                    className="btn outline-light"
-                    href="https://calendly.com/altiva"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <span data-i18n="ctc.cta.book">Book 30 minutes</span>{" "}
-                    <span className="arr">→</span>
-                  </a>
                 </div>
               </div>
 
