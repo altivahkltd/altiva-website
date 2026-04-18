@@ -206,8 +206,13 @@ export default function Home() {
             <a href="#process" data-i18n="nav.process">
               Process
             </a>
-            <a href="#contact" className="cta" data-i18n="nav.cta">
-              Start a conversation →
+            <a href="#contact" className="cta">
+              <span className="full" data-i18n="nav.cta">
+                Start a conversation →
+              </span>
+              <span className="short" data-i18n="nav.cta.short">
+                Contact →
+              </span>
             </a>
             <LangSwitch />
           </nav>

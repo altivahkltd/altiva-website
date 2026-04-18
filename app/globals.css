@@ -167,6 +167,7 @@ a {
   background: var(--ink);
   color: var(--bone);
   transition: background 0.2s, color 0.2s;
+  white-space: nowrap;
 }
 .nav .cta:hover {
   background: var(--accent);
@@ -175,6 +176,13 @@ a {
 }
 .nav .cta::after {
   display: none;
+}
+/* Desktop default: full label; swap to short on narrow screens. */
+.nav .cta .short {
+  display: none;
+}
+.nav .cta .full {
+  display: inline;
 }
 .lang-switch {
   display: inline-flex;
@@ -219,35 +227,51 @@ a {
     border-left-width: 0;
   }
 }
-@media (max-width: 520px) {
+@media (max-width: 560px) {
   .topbar-inner {
-    height: 64px;
-  }
-  .brand {
-    height: 26px;
+    height: 60px;
   }
   .brand img {
-    height: 26px !important;
+    height: 32px !important;
   }
   .nav {
     gap: 10px;
   }
   .nav .cta {
+    padding: 8px 12px;
     font-size: 10.5px;
-    letter-spacing: 0.08em;
-    padding: 8px 10px;
+    letter-spacing: 0.1em;
+  }
+  .nav .cta .full {
+    display: none;
+  }
+  .nav .cta .short {
+    display: inline;
   }
   .lang-switch {
     font-size: 10.5px;
     letter-spacing: 0.12em;
-  }
-  .lang-switch button {
-    padding: 6px 2px;
+    gap: 5px;
   }
 }
 @media (max-width: 480px) {
   .specs {
     grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 380px) {
+  .topbar-inner {
+    height: 56px;
+  }
+  .brand img {
+    height: 28px !important;
+  }
+  .nav {
+    gap: 8px;
+  }
+  .nav .cta {
+    padding: 7px 10px;
+    font-size: 10px;
   }
 }
 
