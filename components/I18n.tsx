@@ -102,8 +102,7 @@ const DICT: Record<Lang, Dict> = {
     "tk.4": "Cross-border expansion",
     "tk.5": "AI, absorbed into operating reality",
     "tk.6": "Go-to-market activation",
-    "tk.7": "Fundraise &amp; exit preparation",
-    "tk.8": "Hong Kong · Europe · Asia-Pacific",
+    "tk.7": "Equity Story &amp; exit preparation",
 
     // practice
     "prac.mark.num": "§ I.",
@@ -145,7 +144,7 @@ const DICT: Record<Lang, Dict> = {
     "m6.t": "Transaction <em>preparation.</em>",
     "m6.d":
       "Fundraise, exit, or repositioning. Operational credibility and investor narrative, built on evidence - not on PowerPoint.",
-    "m6.tag": "Fundraise · Exit",
+    "m6.tag": "Equity Story · Exit",
 
     // work (selected engagements)
     "work.mark.num": "§ II.",
@@ -298,8 +297,7 @@ const DICT: Record<Lang, Dict> = {
     "tk.4": "Expansion internationale",
     "tk.5": "IA, intégrée à la réalité opérationnelle",
     "tk.6": "Activation go-to-market",
-    "tk.7": "Préparation de levée &amp; de cession",
-    "tk.8": "Hong Kong · Europe · Asie-Pacifique",
+    "tk.7": "Equity Story &amp; préparation de cession",
 
     // practice
     "prac.mark.num": "§ I.",
@@ -341,7 +339,7 @@ const DICT: Record<Lang, Dict> = {
     "m6.t": "Préparation de <em>transaction.</em>",
     "m6.d":
       "Levée, cession ou repositionnement. Crédibilité opérationnelle et narratif investisseur construits sur l\u2019évidence - pas sur PowerPoint.",
-    "m6.tag": "Levée · Cession",
+    "m6.tag": "Equity Story · Cession",
 
     // work (selected engagements)
     "work.mark.num": "§ II.",
