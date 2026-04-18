@@ -10,7 +10,7 @@ const mandates = [
         COO, <em>on call.</em>
       </>
     ),
-    desc: "Interim or fractional leadership — transformation, growth, or turnaround. Sat inside the business until the work moves.",
+    desc: "Interim or fractional leadership - transformation, growth, or turnaround. Sat inside the business until the work moves.",
     tag: "Interim · Fractional",
   },
   {
@@ -20,7 +20,7 @@ const mandates = [
         High-stakes <em>advisory.</em>
       </>
     ),
-    desc: "Strategic clarity with execution involvement. Not advisory from a distance — judgment carried into the room.",
+    desc: "Strategic clarity with execution involvement. Not advisory from a distance - judgment carried into the room.",
     tag: "Board · CEO",
   },
   {
@@ -40,7 +40,7 @@ const mandates = [
         Go-to-market &amp; <em>growth</em> execution.
       </>
     ),
-    desc: "Commercial structuring and activation — channels, partners, new markets. Built to convert across Europe and Asia.",
+    desc: "Commercial structuring and activation - channels, partners, new markets. Built to convert across Europe and Asia.",
     tag: "Commercial",
   },
   {
@@ -50,7 +50,7 @@ const mandates = [
         Operational review &amp; <em>efficiency.</em>
       </>
     ),
-    desc: "Diagnostic, cost-structure review, efficiency initiatives. Short or extended mandates — outcomes documented in P&L.",
+    desc: "Diagnostic, cost-structure review, efficiency initiatives. Short or extended mandates - outcomes documented in P&L.",
     tag: "Diagnostic",
   },
   {
@@ -60,50 +60,50 @@ const mandates = [
         Transaction <em>preparation.</em>
       </>
     ),
-    desc: "Fundraise, exit, or repositioning. Operational credibility and investor narrative, built on evidence — not on PowerPoint.",
+    desc: "Fundraise, exit, or repositioning. Operational credibility and investor narrative, built on evidence - not on PowerPoint.",
     tag: "Fundraise · Exit",
   },
 ];
 
 const snapshots = [
   {
-    yr: "01 — COO, on call",
+    yr: "01 - COO, on call",
     title: (
       <>
         COO, <em>automation</em> &amp; smart building group
       </>
     ),
-    body: "Stepped into a company in operational difficulty. Led a full reset — rebuilt delivery, restructured the team, restored execution standards, and repositioned the business for growth.",
+    body: "Stepped into a company in operational difficulty. Led a full reset - rebuilt delivery, restructured the team, restored execution standards, and repositioned the business for growth.",
     geo: "France · Caribbean · Switzerland",
     outTitle: "Scaled beyond €10M revenue",
     outSub: "Built and led 50+ team with full P&L ownership",
   },
   {
-    yr: "02 — High-stakes advisory",
+    yr: "02 - High-stakes advisory",
     title: (
       <>
         Executive environment, <em>Fortune 500</em> industrial group
       </>
     ),
-    body: "Designed and operated digital environments for top leadership — including CEO and Executive Committee — across a decentralised, multi-country organisation.",
+    body: "Designed and operated digital environments for top leadership - including CEO and Executive Committee - across a decentralised, multi-country organisation.",
     geo: "Global",
     outTitle: "Supported top 200 executives across 20+ countries",
     outSub: "Delivered in high-stakes, zero-failure environments",
   },
   {
-    yr: "03 — Transformation & AI",
+    yr: "03 - Transformation & AI",
     title: (
       <>
         Regional <em>transformation</em>, services business
       </>
     ),
-    body: "Led transformation across APAC & Middle East — spanning operations, supply chain, customer experience, and commercial execution.",
+    body: "Led transformation across APAC & Middle East - spanning operations, supply chain, customer experience, and commercial execution.",
     geo: "€500M business scope",
     outTitle: "15% YoY growth delivered",
     outSub: "Full programme across four functions",
   },
   {
-    yr: "04 — Go-to-market & growth",
+    yr: "04 - Go-to-market & growth",
     title: (
       <>
         Global <em>channel</em> &amp; IoT go-to-market
@@ -115,7 +115,7 @@ const snapshots = [
     outSub: "Channel programme deployed globally",
   },
   {
-    yr: "05 — Operational review",
+    yr: "05 - Operational review",
     title: (
       <>
         Enterprise <em>operations</em> optimisation, IT services
@@ -127,14 +127,14 @@ const snapshots = [
     outSub: "Efficiency gains through workflow & tool optimisation",
   },
   {
-    yr: "06 — Transaction preparation",
+    yr: "06 - Transaction preparation",
     title: (
       <>
         Operational <em>repositioning</em>, ahead of exit
       </>
     ),
     body: "Rebuilt operational credibility, stabilised performance, and structured the business to support a stronger exit narrative.",
-    geo: "Europe · Asia",
+    geo: "Europe",
     outTitle: "Profitability restored",
     outSub: "Business repositioned for exit",
   },
@@ -152,21 +152,21 @@ const steps = [
     n: "02",
     label: "Framing",
     title: "Mandate written.",
-    body: "One-page mandate — scope, cadence, outcomes, duration. Short enough to agree on in a single meeting; sharp enough to be useful.",
+    body: "One-page mandate - scope, cadence, outcomes, duration. Short enough to agree on in a single meeting; sharp enough to be useful.",
     dur: "~1 week",
   },
   {
     n: "03",
     label: "Embedded",
     title: "Personally engaged.",
-    body: "Embedded in the operating cadence. Carrying the work — not supervising it. Reporting on operating reality, weekly.",
+    body: "Embedded in the operating cadence. Carrying the work - not supervising it. Reporting on operating reality, weekly.",
     dur: "3 – 12 months",
   },
   {
     n: "04",
     label: "Handover",
     title: "Situation moved.",
-    body: "Capability transferred to a permanent operator or back to the founders. Clean exit — Altiva is designed to leave.",
+    body: "Capability transferred to a permanent operator or back to the founders. Clean exit - Altiva is designed to leave.",
     dur: "Clean exit",
   },
 ];
@@ -191,7 +191,7 @@ export default function Home() {
       {/* =================== TOP BAR =================== */}
       <header className="topbar">
         <div className="wrap topbar-inner">
-          <a href="#top" className="brand" aria-label="Altiva — home">
+          <a href="#top" className="brand" aria-label="Altiva - home">
             <Mark variant="black" />
           </a>
           <nav className="nav" aria-label="Primary">
@@ -298,7 +298,7 @@ export default function Home() {
             <div className="ticker" aria-hidden="true">
               <div className="ticker-track">
                 {[...tickerItems, ...tickerItems].map((item, i) => {
-                  // tk.1 … tk.8 — two copies for seamless loop.
+                  // tk.1 … tk.8 - two copies for seamless loop.
                   const key = `tk.${(i % tickerItems.length) + 1}`;
                   return (
                     <span key={`run-${i}`} style={{ display: "contents" }}>
@@ -332,7 +332,7 @@ export default function Home() {
                 The call usually comes when a transformation programme is not
                 landing, a COO seat is empty, a post-acquisition plan needs
                 structuring, or a cross-border expansion is hitting operational
-                limits — typically when internal teams are capable but
+                limits - typically when internal teams are capable but
                 stretched, misaligned, or lacking ownership.
               </p>
               <div className="callout reveal">
@@ -341,8 +341,8 @@ export default function Home() {
                   Altiva is not a consulting firm and not a freelancer network.
                   It is one senior operator, engaged personally, carrying real
                   P&amp;L experience into rooms that need it. Results are
-                  delivered on operating reality — commercial impact,
-                  organisational capability, transaction readiness — not on
+                  delivered on operating reality - commercial impact,
+                  organisational capability, transaction readiness - not on
                   deliverables.
                 </p>
               </div>
@@ -395,7 +395,7 @@ export default function Home() {
               style={{ marginBottom: "clamp(40px, 6vw, 72px)" }}
             >
               Six mandates, selected. Real operator seats, real P&amp;L, real
-              outcomes — across six geographies and three continents.
+              outcomes - across six geographies and three continents.
             </p>
 
             <div className="snap-list reveal">
@@ -453,7 +453,7 @@ export default function Home() {
                 <img
                   className="photo"
                   src="/julien-levet.jpg"
-                  alt="Julien Levet — Founder & Principal, Altiva"
+                  alt="Julien Levet - Founder & Principal, Altiva"
                 />
                 <span className="tick">J.L. · 2026</span>
                 <figcaption className="label">
@@ -467,17 +467,17 @@ export default function Home() {
               <div className="bio-doc reveal">
                 <p data-i18n="fnd.bio.1">
                   Senior operator with <b>fifteen-plus years</b> of
-                  international experience across Europe and Asia — bridging
+                  international experience across Europe and Asia - bridging
                   strategy and execution in demanding environments.
                 </p>
                 <p data-i18n="fnd.bio.2">
-                  Former <b>Schneider Electric</b> — senior roles across
+                  Former <b>Schneider Electric</b> - senior roles across
                   digital transformation, services, and global go-to-market
                   across forty-plus countries in complex, high-performance
                   environments.
                 </p>
                 <p data-i18n="fnd.bio.3">
-                  Most recently <b>COO of OÏKO</b> — led full operational
+                  Most recently <b>COO of OÏKO</b> - led full operational
                   turnaround, shareholder exit repositioning, and growth
                   initiatives across multi-country environments. Twelve years
                   embedded in Asia (China, Singapore, Hong Kong, Indonesia).
@@ -488,7 +488,7 @@ export default function Home() {
             <div className="founder-epilogue reveal">
               <blockquote className="pull" data-i18n="fnd.pull">
                 “Altiva is not a traditional consulting firm. I act as a
-                hands-on operator, engaged to move situations forward — when
+                hands-on operator, engaged to move situations forward - when
                 internal execution is not enough.”
               </blockquote>
 
@@ -583,7 +583,7 @@ export default function Home() {
               <div>
                 <p className="contact-lede reveal" data-i18n="ctc.lede">
                   A short note is enough. No questionnaire, no intake form, no
-                  BDR. Julien reads and replies personally — usually the same
+                  BDR. Julien reads and replies personally - usually the same
                   day, always within two working days.
                 </p>
                 <div className="contact-actions reveal">

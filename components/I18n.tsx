@@ -3,10 +3,10 @@
 import { useEffect, useReducer } from "react";
 
 /* ============================================================
-   Altiva — i18n (FR / EN)
+   Altiva - i18n (FR / EN)
    -----------------------------------------------------------
    Ported from the Claude Design handoff (assets/i18n.js).
-   Keeps the DOM-mutation approach — server pre-renders the
+   Keeps the DOM-mutation approach - server pre-renders the
    English fallback (great for SEO), client detects + mutates
    innerHTML of every `[data-i18n]` node on hydration.
 
@@ -67,8 +67,8 @@ const FR_TIMEZONES = new Set<string>([
 ]);
 
 const TITLES: Record<Lang, string> = {
-  en: "Altiva — Operator, not consultant.",
-  fr: "Altiva — Opérateur, pas consultant.",
+  en: "Altiva - Operator, not consultant.",
+  fr: "Altiva - Opérateur, pas consultant.",
 };
 
 type Dict = Record<string, string>;
@@ -111,20 +111,20 @@ const DICT: Record<Lang, Dict> = {
     "prac.mark.2": "Six mandates",
     "prac.h": "The work, <em>plainly</em> stated.",
     "prac.lede":
-      "The call usually comes when a transformation programme is not landing, a COO seat is empty, a post-acquisition plan needs structuring, or a cross-border expansion is hitting operational limits — typically when internal teams are capable but stretched, misaligned, or lacking ownership.",
+      "The call usually comes when a transformation programme is not landing, a COO seat is empty, a post-acquisition plan needs structuring, or a cross-border expansion is hitting operational limits - typically when internal teams are capable but stretched, misaligned, or lacking ownership.",
     "prac.callout.h": "The difference",
     "prac.callout.p":
-      "Altiva is not a consulting firm and not a freelancer network. It is one senior operator, engaged personally, carrying real P&amp;L experience into rooms that need it. Results are delivered on operating reality — commercial impact, organisational capability, transaction readiness — not on deliverables.",
+      "Altiva is not a consulting firm and not a freelancer network. It is one senior operator, engaged personally, carrying real P&amp;L experience into rooms that need it. Results are delivered on operating reality - commercial impact, organisational capability, transaction readiness - not on deliverables.",
 
     "m1.num": "Mandate 01",
     "m1.t": "COO, <em>on call.</em>",
     "m1.d":
-      "Interim or fractional leadership — transformation, growth, or turnaround. Sat inside the business until the work moves.",
+      "Interim or fractional leadership - transformation, growth, or turnaround. Sat inside the business until the work moves.",
     "m1.tag": "Interim · Fractional",
     "m2.num": "Mandate 02",
     "m2.t": "High-stakes <em>advisory.</em>",
     "m2.d":
-      "Strategic clarity with execution involvement. Not advisory from a distance — judgment carried into the room.",
+      "Strategic clarity with execution involvement. Not advisory from a distance - judgment carried into the room.",
     "m2.tag": "Board · CEO",
     "m3.num": "Mandate 03",
     "m3.t": "Transformation &amp; <em>AI</em> programmes.",
@@ -134,17 +134,17 @@ const DICT: Record<Lang, Dict> = {
     "m4.num": "Mandate 04",
     "m4.t": "Go-to-market &amp; <em>growth</em> execution.",
     "m4.d":
-      "Commercial structuring and activation — channels, partners, new markets. Built to convert across Europe and Asia.",
+      "Commercial structuring and activation - channels, partners, new markets. Built to convert across Europe and Asia.",
     "m4.tag": "Commercial",
     "m5.num": "Mandate 05",
     "m5.t": "Operational review &amp; <em>efficiency.</em>",
     "m5.d":
-      "Diagnostic, cost-structure review, efficiency initiatives. Short or extended mandates — outcomes documented in P&amp;L.",
+      "Diagnostic, cost-structure review, efficiency initiatives. Short or extended mandates - outcomes documented in P&amp;L.",
     "m5.tag": "Diagnostic",
     "m6.num": "Mandate 06",
     "m6.t": "Transaction <em>preparation.</em>",
     "m6.d":
-      "Fundraise, exit, or repositioning. Operational credibility and investor narrative, built on evidence — not on PowerPoint.",
+      "Fundraise, exit, or repositioning. Operational credibility and investor narrative, built on evidence - not on PowerPoint.",
     "m6.tag": "Fundraise · Exit",
 
     // work (selected engagements)
@@ -153,33 +153,33 @@ const DICT: Record<Lang, Dict> = {
     "work.mark.2": "Anonymised",
     "work.h": "Situations, <em>moved.</em>",
     "work.lede":
-      "Six mandates, selected. Real operator seats, real P&amp;L, real outcomes — across six geographies and three continents.",
+      "Six mandates, selected. Real operator seats, real P&amp;L, real outcomes - across six geographies and three continents.",
 
-    "w1.yr": "01 — COO, on call",
+    "w1.yr": "01 - COO, on call",
     "w1.t": "COO, <em>automation</em> &amp; smart building group",
     "w1.body":
-      "Stepped into a company in operational difficulty. Led a full reset — rebuilt delivery, restructured the team, restored execution standards, and repositioned the business for growth.",
+      "Stepped into a company in operational difficulty. Led a full reset - rebuilt delivery, restructured the team, restored execution standards, and repositioned the business for growth.",
     "w1.geo": "France · Caribbean · Switzerland",
     "w1.outA": "Scaled beyond €10M revenue",
     "w1.outB": "Built and led 50+ team with full P&amp;L ownership",
 
-    "w2.yr": "02 — High-stakes advisory",
+    "w2.yr": "02 - High-stakes advisory",
     "w2.t": "Executive environment, <em>Fortune 500</em> industrial group",
     "w2.body":
-      "Designed and operated digital environments for top leadership — including CEO and Executive Committee — across a decentralised, multi-country organisation.",
+      "Designed and operated digital environments for top leadership - including CEO and Executive Committee - across a decentralised, multi-country organisation.",
     "w2.geo": "Global",
     "w2.outA": "Supported top 200 executives across 20+ countries",
     "w2.outB": "Delivered in high-stakes, zero-failure environments",
 
-    "w3.yr": "03 — Transformation &amp; AI",
+    "w3.yr": "03 - Transformation &amp; AI",
     "w3.t": "Regional <em>transformation</em>, services business",
     "w3.body":
-      "Led transformation across APAC &amp; Middle East — spanning operations, supply chain, customer experience, and commercial execution.",
+      "Led transformation across APAC &amp; Middle East - spanning operations, supply chain, customer experience, and commercial execution.",
     "w3.geo": "€500M business scope",
     "w3.outA": "15% YoY growth delivered",
     "w3.outB": "Full programme across four functions",
 
-    "w4.yr": "04 — Go-to-market &amp; growth",
+    "w4.yr": "04 - Go-to-market &amp; growth",
     "w4.t": "Global <em>channel</em> &amp; IoT go-to-market",
     "w4.body":
       "Built and scaled partner ecosystems and connected offers across multiple regions. Aligned marketing, product, and field execution to drive commercial growth.",
@@ -187,7 +187,7 @@ const DICT: Record<Lang, Dict> = {
     "w4.outA": "Tripled business results",
     "w4.outB": "Channel programme deployed globally",
 
-    "w5.yr": "05 — Operational review",
+    "w5.yr": "05 - Operational review",
     "w5.t": "Enterprise <em>operations</em> optimisation, IT services",
     "w5.body":
       "Led performance optimisation of collaboration services across large-scale environments. Simplified workflows, improved user adoption, and aligned systems with operational needs.",
@@ -195,11 +195,11 @@ const DICT: Record<Lang, Dict> = {
     "w5.outA": "10,000+ users supported",
     "w5.outB": "Efficiency gains through workflow &amp; tool optimisation",
 
-    "w6.yr": "06 — Transaction preparation",
+    "w6.yr": "06 - Transaction preparation",
     "w6.t": "Operational <em>repositioning</em>, ahead of exit",
     "w6.body":
       "Rebuilt operational credibility, stabilised performance, and structured the business to support a stronger exit narrative.",
-    "w6.geo": "Europe · Asia",
+    "w6.geo": "Europe",
     "w6.outA": "Profitability restored",
     "w6.outB": "Business repositioned for exit",
 
@@ -209,13 +209,13 @@ const DICT: Record<Lang, Dict> = {
     "fnd.mark.2": "One operator",
     "fnd.h": "Julien <em>Levet.</em>",
     "fnd.bio.1":
-      "Senior operator with <b>fifteen-plus years</b> of international experience across Europe and Asia — bridging strategy and execution in demanding environments.",
+      "Senior operator with <b>fifteen-plus years</b> of international experience across Europe and Asia - bridging strategy and execution in demanding environments.",
     "fnd.bio.2":
-      "Former <b>Schneider Electric</b> — senior roles across digital transformation, services, and global go-to-market across forty-plus countries in complex, high-performance environments.",
+      "Former <b>Schneider Electric</b> - senior roles across digital transformation, services, and global go-to-market across forty-plus countries in complex, high-performance environments.",
     "fnd.bio.3":
-      "Most recently <b>COO of OÏKO</b> — led full operational turnaround, shareholder exit repositioning, and growth initiatives across multi-country environments. Twelve years embedded in Asia (China, Singapore, Hong Kong, Indonesia).",
+      "Most recently <b>COO of OÏKO</b> - led full operational turnaround, shareholder exit repositioning, and growth initiatives across multi-country environments. Twelve years embedded in Asia (China, Singapore, Hong Kong, Indonesia).",
     "fnd.pull":
-      "\u201CAltiva is not a traditional consulting firm. I act as a hands-on operator, engaged to move situations forward — when internal execution is not enough.\u201D",
+      "\u201CAltiva is not a traditional consulting firm. I act as a hands-on operator, engaged to move situations forward - when internal execution is not enough.\u201D",
     "fnd.signoff": "Founder &amp; Principal · Altiva Limited · Hong Kong",
     "fnd.geo":
       "Has lived and worked in France, the United States, China, Singapore, Hong Kong and Indonesia.",
@@ -234,17 +234,17 @@ const DICT: Record<Lang, Dict> = {
     "p2.tag": "Framing",
     "p2.h": "Mandate written.",
     "p2.p":
-      "One-page mandate — scope, cadence, outcomes, duration. Short enough to agree on in a single meeting; sharp enough to be useful.",
+      "One-page mandate - scope, cadence, outcomes, duration. Short enough to agree on in a single meeting; sharp enough to be useful.",
     "p2.dur": "~1 week",
     "p3.tag": "Embedded",
     "p3.h": "Personally engaged.",
     "p3.p":
-      "Embedded in the operating cadence. Carrying the work — not supervising it. Reporting on operating reality, weekly.",
+      "Embedded in the operating cadence. Carrying the work - not supervising it. Reporting on operating reality, weekly.",
     "p3.dur": "3 – 12 months",
     "p4.tag": "Handover",
     "p4.h": "Situation moved.",
     "p4.p":
-      "Capability transferred to a permanent operator or back to the founders. Clean exit — Altiva is designed to leave.",
+      "Capability transferred to a permanent operator or back to the founders. Clean exit - Altiva is designed to leave.",
     "p4.dur": "Clean exit",
 
     // contact
@@ -253,7 +253,7 @@ const DICT: Record<Lang, Dict> = {
     "ctc.mark.2": "Replies within two working days",
     "ctc.h": "When the situation <em>needs to move.</em>",
     "ctc.lede":
-      "A short note is enough. No questionnaire, no intake form, no BDR. Julien reads and replies personally — usually the same day, always within two working days.",
+      "A short note is enough. No questionnaire, no intake form, no BDR. Julien reads and replies personally - usually the same day, always within two working days.",
     "ctc.cta.write": "Write directly",
     "ctc.cta.book": "Book 30 minutes",
     "ctc.card.h": "Registered office",
@@ -307,20 +307,20 @@ const DICT: Record<Lang, Dict> = {
     "prac.mark.2": "Six mandats",
     "prac.h": "Le travail, <em>dit</em> simplement.",
     "prac.lede":
-      "L\u2019appel survient généralement quand un programme de transformation n\u2019aboutit pas, qu\u2019un siège de COO est vacant, qu\u2019une intégration post-acquisition doit être structurée, ou qu\u2019une expansion transfrontalière atteint ses limites opérationnelles — lorsque les équipes internes sont compétentes mais saturées, mal alignées, ou sans véritable propriétaire.",
+      "L\u2019appel survient généralement quand un programme de transformation n\u2019aboutit pas, qu\u2019un siège de COO est vacant, qu\u2019une intégration post-acquisition doit être structurée, ou qu\u2019une expansion transfrontalière atteint ses limites opérationnelles - lorsque les équipes internes sont compétentes mais saturées, mal alignées, ou sans véritable propriétaire.",
     "prac.callout.h": "La différence",
     "prac.callout.p":
-      "Altiva n\u2019est ni un cabinet de conseil, ni un réseau de freelances. C\u2019est un opérateur senior, engagé personnellement, qui apporte une vraie expérience P&amp;L là où elle manque. Les résultats se mesurent en réalité opérationnelle — impact commercial, capacité organisationnelle, préparation d\u2019opération — pas en livrables.",
+      "Altiva n\u2019est ni un cabinet de conseil, ni un réseau de freelances. C\u2019est un opérateur senior, engagé personnellement, qui apporte une vraie expérience P&amp;L là où elle manque. Les résultats se mesurent en réalité opérationnelle - impact commercial, capacité organisationnelle, préparation d\u2019opération - pas en livrables.",
 
     "m1.num": "Mandat 01",
     "m1.t": "COO, <em>à la demande.</em>",
     "m1.d":
-      "Direction intérimaire ou à temps partagé — transformation, croissance, redressement. Installé dans l\u2019entreprise jusqu\u2019à ce que le travail avance.",
+      "Direction intérimaire ou à temps partagé - transformation, croissance, redressement. Installé dans l\u2019entreprise jusqu\u2019à ce que le travail avance.",
     "m1.tag": "Intérim · Temps partagé",
     "m2.num": "Mandat 02",
     "m2.t": "Conseil <em>de haut niveau.</em>",
     "m2.d":
-      "Clarté stratégique avec engagement dans l\u2019exécution. Pas un conseil à distance — un jugement porté dans la pièce.",
+      "Clarté stratégique avec engagement dans l\u2019exécution. Pas un conseil à distance - un jugement porté dans la pièce.",
     "m2.tag": "Conseil · CEO",
     "m3.num": "Mandat 03",
     "m3.t": "Transformation &amp; <em>IA</em>.",
@@ -330,17 +330,17 @@ const DICT: Record<Lang, Dict> = {
     "m4.num": "Mandat 04",
     "m4.t": "Go-to-market &amp; <em>croissance</em>.",
     "m4.d":
-      "Structuration et activation commerciale — canaux, partenaires, nouveaux marchés. Conçu pour convertir en Europe et en Asie.",
+      "Structuration et activation commerciale - canaux, partenaires, nouveaux marchés. Conçu pour convertir en Europe et en Asie.",
     "m4.tag": "Commercial",
     "m5.num": "Mandat 05",
     "m5.t": "Revue opérationnelle &amp; <em>efficacité.</em>",
     "m5.d":
-      "Diagnostic, revue de structure de coûts, initiatives d\u2019efficacité. Missions courtes ou étendues — résultats documentés en P&amp;L.",
+      "Diagnostic, revue de structure de coûts, initiatives d\u2019efficacité. Missions courtes ou étendues - résultats documentés en P&amp;L.",
     "m5.tag": "Diagnostic",
     "m6.num": "Mandat 06",
     "m6.t": "Préparation de <em>transaction.</em>",
     "m6.d":
-      "Levée, cession ou repositionnement. Crédibilité opérationnelle et narratif investisseur construits sur l\u2019évidence — pas sur PowerPoint.",
+      "Levée, cession ou repositionnement. Crédibilité opérationnelle et narratif investisseur construits sur l\u2019évidence - pas sur PowerPoint.",
     "m6.tag": "Levée · Cession",
 
     // work (selected engagements)
@@ -349,33 +349,33 @@ const DICT: Record<Lang, Dict> = {
     "work.mark.2": "Anonymisés",
     "work.h": "Des situations, <em>débloquées.</em>",
     "work.lede":
-      "Six mandats, sélectionnés. De vrais sièges d\u2019opérateur, un vrai P&amp;L, de vrais résultats — sur six géographies et trois continents.",
+      "Six mandats, sélectionnés. De vrais sièges d\u2019opérateur, un vrai P&amp;L, de vrais résultats - sur six géographies et trois continents.",
 
-    "w1.yr": "01 — COO, à la demande",
+    "w1.yr": "01 - COO, à la demande",
     "w1.t": "COO, <em>automation</em> &amp; smart building",
     "w1.body":
-      "Repris une entreprise en difficulté opérationnelle. Pilotage d\u2019un reset complet — reconstruction de la delivery, restructuration de l\u2019équipe, rétablissement des standards d\u2019exécution, repositionnement pour la croissance.",
+      "Repris une entreprise en difficulté opérationnelle. Pilotage d\u2019un reset complet - reconstruction de la delivery, restructuration de l\u2019équipe, rétablissement des standards d\u2019exécution, repositionnement pour la croissance.",
     "w1.geo": "France · Caraïbes · Suisse",
     "w1.outA": "Dépassement de 10 M€ de revenus",
     "w1.outB": "Équipe de 50+ personnes construite et dirigée, P&amp;L assumé",
 
-    "w2.yr": "02 — Conseil de haut niveau",
+    "w2.yr": "02 - Conseil de haut niveau",
     "w2.t": "Environnement exécutif, <em>Fortune 500</em> industriel",
     "w2.body":
-      "Conception et exploitation d\u2019environnements numériques pour le top management — dont CEO et Comex — dans une organisation décentralisée, multi-pays.",
+      "Conception et exploitation d\u2019environnements numériques pour le top management - dont CEO et Comex - dans une organisation décentralisée, multi-pays.",
     "w2.geo": "Global",
     "w2.outA": "200 dirigeants accompagnés dans 20+ pays",
     "w2.outB": "Exécution dans des environnements sans droit à l\u2019erreur",
 
-    "w3.yr": "03 — Transformation &amp; IA",
+    "w3.yr": "03 - Transformation &amp; IA",
     "w3.t": "<em>Transformation</em> régionale, services",
     "w3.body":
-      "Pilotage de la transformation en APAC &amp; Moyen-Orient — opérations, supply chain, expérience client, exécution commerciale.",
+      "Pilotage de la transformation en APAC &amp; Moyen-Orient - opérations, supply chain, expérience client, exécution commerciale.",
     "w3.geo": "Périmètre de 500 M€",
     "w3.outA": "Croissance annuelle de 15 %",
     "w3.outB": "Programme complet sur quatre fonctions",
 
-    "w4.yr": "04 — Go-to-market &amp; croissance",
+    "w4.yr": "04 - Go-to-market &amp; croissance",
     "w4.t": "Go-to-market <em>canal</em> &amp; IoT, global",
     "w4.body":
       "Construction et mise à l\u2019échelle des écosystèmes partenaires et des offres connectées sur plusieurs régions. Alignement marketing, produit et terrain pour la croissance commerciale.",
@@ -383,19 +383,19 @@ const DICT: Record<Lang, Dict> = {
     "w4.outA": "Résultats commerciaux triplés",
     "w4.outB": "Programme canal déployé à l\u2019international",
 
-    "w5.yr": "05 — Revue opérationnelle",
+    "w5.yr": "05 - Revue opérationnelle",
     "w5.t": "Optimisation <em>opérations</em>, IT services",
     "w5.body":
       "Optimisation de la performance des services collaboratifs à grande échelle. Simplification des workflows, amélioration de l\u2019adoption utilisateur, alignement outils/besoins opérationnels.",
-    "w5.geo": "Grande Chine",
+    "w5.geo": "Chine",
     "w5.outA": "10 000+ utilisateurs servis",
     "w5.outB": "Gains d\u2019efficacité par workflow &amp; outils",
 
-    "w6.yr": "06 — Préparation de transaction",
+    "w6.yr": "06 - Préparation de transaction",
     "w6.t": "<em>Repositionnement</em> opérationnel, avant cession",
     "w6.body":
       "Reconstruction de la crédibilité opérationnelle, stabilisation de la performance, structuration de l\u2019entreprise au service d\u2019un narratif de sortie plus fort.",
-    "w6.geo": "Europe · International",
+    "w6.geo": "Europe",
     "w6.outA": "Rentabilité restaurée",
     "w6.outB": "Entreprise repositionnée pour la cession",
 
@@ -405,13 +405,13 @@ const DICT: Record<Lang, Dict> = {
     "fnd.mark.2": "Un opérateur",
     "fnd.h": "Julien <em>Levet.</em>",
     "fnd.bio.1":
-      "Opérateur senior avec <b>plus de quinze ans</b> d\u2019expérience internationale en Europe et en Asie — à l\u2019articulation entre stratégie et exécution, dans des environnements exigeants.",
+      "Opérateur senior avec <b>plus de quinze ans</b> d\u2019expérience internationale en Europe et en Asie - à l\u2019articulation entre stratégie et exécution, dans des environnements exigeants.",
     "fnd.bio.2":
-      "Ancien de <b>Schneider Electric</b> — postes seniors en transformation digitale, services et go-to-market global dans plus de quarante pays, en environnements complexes et à haute performance.",
+      "Ancien de <b>Schneider Electric</b> - postes seniors en transformation digitale, services et go-to-market global dans plus de quarante pays, en environnements complexes et à haute performance.",
     "fnd.bio.3":
-      "Plus récemment <b>COO d\u2019OÏKO</b> — pilotage du redressement opérationnel, repositionnement en vue d\u2019une cession, initiatives de croissance multi-pays. Douze ans installé en Asie (Chine, Singapour, Hong Kong, Indonésie).",
+      "Plus récemment <b>COO d\u2019OÏKO</b> - pilotage du redressement opérationnel, repositionnement en vue d\u2019une cession, initiatives de croissance multi-pays. Douze ans installé en Asie (Chine, Singapour, Hong Kong, Indonésie).",
     "fnd.pull":
-      "\u00AB\u202FAltiva n\u2019est pas un cabinet de conseil traditionnel. J\u2019agis en opérateur engagé personnellement, pour faire avancer les situations — quand l\u2019exécution interne ne suffit plus.\u202F\u00BB",
+      "\u00AB\u202FAltiva n\u2019est pas un cabinet de conseil traditionnel. J\u2019agis en opérateur engagé personnellement, pour faire avancer les situations - quand l\u2019exécution interne ne suffit plus.\u202F\u00BB",
     "fnd.signoff": "Fondateur &amp; Principal · Altiva Limited · Hong Kong",
     "fnd.geo":
       "A vécu et travaillé en France, aux États-Unis, en Chine, à Singapour, à Hong Kong et en Indonésie.",
@@ -430,17 +430,17 @@ const DICT: Record<Lang, Dict> = {
     "p2.tag": "Cadrage",
     "p2.h": "Mandat écrit.",
     "p2.p":
-      "Un mandat d\u2019une page — périmètre, cadence, résultats attendus, durée. Assez court pour être validé en une réunion ; assez précis pour être utile.",
+      "Un mandat d\u2019une page - périmètre, cadence, résultats attendus, durée. Assez court pour être validé en une réunion ; assez précis pour être utile.",
     "p2.dur": "~1 semaine",
     "p3.tag": "En poste",
     "p3.h": "Engagement personnel.",
     "p3.p":
-      "Installé dans la cadence opérationnelle. Je porte le travail — je ne le supervise pas. Reporting sur la réalité opérationnelle, chaque semaine.",
+      "Installé dans la cadence opérationnelle. Je porte le travail - je ne le supervise pas. Reporting sur la réalité opérationnelle, chaque semaine.",
     "p3.dur": "3 – 12 mois",
     "p4.tag": "Passation",
     "p4.h": "Situation débloquée.",
     "p4.p":
-      "Capacité transférée à un opérateur permanent ou rendue aux fondateurs. Sortie propre — Altiva est conçu pour partir.",
+      "Capacité transférée à un opérateur permanent ou rendue aux fondateurs. Sortie propre - Altiva est conçu pour partir.",
     "p4.dur": "Sortie propre",
 
     // contact
@@ -449,7 +449,7 @@ const DICT: Record<Lang, Dict> = {
     "ctc.mark.2": "Réponse sous deux jours ouvrés",
     "ctc.h": "Quand la situation <em>doit bouger.</em>",
     "ctc.lede":
-      "Un mot court suffit. Pas de questionnaire, pas de formulaire d\u2019intake, pas de BDR. Julien lit et répond personnellement — en général le jour même, toujours sous deux jours ouvrés.",
+      "Un mot court suffit. Pas de questionnaire, pas de formulaire d\u2019intake, pas de BDR. Julien lit et répond personnellement - en général le jour même, toujours sous deux jours ouvrés.",
     "ctc.cta.write": "Écrire directement",
     "ctc.cta.book": "Réserver 30 minutes",
     "ctc.card.h": "Siège social",
@@ -542,7 +542,7 @@ function setLang(lang: Lang, fromUser: boolean) {
 }
 
 /**
- * Mounts the i18n engine. No markup — applies detection + DOM mutation
+ * Mounts the i18n engine. No markup - applies detection + DOM mutation
  * on mount, keeps `<html lang>` and `document.title` in sync.
  */
 export function I18n() {
@@ -553,7 +553,7 @@ export function I18n() {
 }
 
 /**
- * FR · EN toggle — sits inside the nav. Re-renders on language change
+ * FR · EN toggle - sits inside the nav. Re-renders on language change
  * via the shared listeners set so the active state stays accurate.
  */
 export function LangSwitch() {
