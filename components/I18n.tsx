@@ -81,6 +81,7 @@ const DICT: Record<Lang, Dict> = {
     "nav.founder": "Founder",
     "nav.process": "Process",
     "nav.cta": "Start a conversation →",
+    "nav.cta.short": "Contact →",
 
     // hero
     "hero.title": "Operator. <em>Not</em><br>consultant.",
@@ -276,6 +277,7 @@ const DICT: Record<Lang, Dict> = {
     "nav.founder": "Fondateur",
     "nav.process": "Processus",
     "nav.cta": "Entamer une conversation →",
+    "nav.cta.short": "Contact →",
 
     // hero
     "hero.title": "Opérateur. <em>Pas</em><br>consultant.",
