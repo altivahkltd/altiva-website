@@ -3,6 +3,9 @@ import { ImageResponse } from "next/og";
 // Next.js App Router convention — generates the site's OG share image.
 // Rendered at 2x spec resolution (2400x1260) so social platforms
 // downscale cleanly regardless of their display dimensions.
+// Typography + palette match the Claude Design handoff:
+//   bone #ECE6D7 · ink #0E0E10 · brass #B08D57
+//   Geist (display + body) + Instrument Serif (italic accent only).
 
 export const runtime = "edge";
 export const alt = "Altiva — Operator. Not consultant.";
@@ -10,11 +13,23 @@ export const size = { width: 2400, height: 1260 };
 export const contentType = "image/png";
 
 export default async function OGImage() {
-  const [fraunces, frauncesItalic, inter] = await Promise.all([
-    fetch(new URL("./fonts/Fraunces-Regular.ttf", import.meta.url)).then((r) => r.arrayBuffer()),
-    fetch(new URL("./fonts/Fraunces-Italic.ttf", import.meta.url)).then((r) => r.arrayBuffer()),
-    fetch(new URL("./fonts/Inter-Medium.ttf", import.meta.url)).then((r) => r.arrayBuffer()),
+  const [geistRegular, geistMedium, instrumentItalic] = await Promise.all([
+    fetch(new URL("./fonts/Geist-Regular.ttf", import.meta.url)).then((r) =>
+      r.arrayBuffer()
+    ),
+    fetch(new URL("./fonts/Geist-Medium.ttf", import.meta.url)).then((r) =>
+      r.arrayBuffer()
+    ),
+    fetch(new URL("./fonts/InstrumentSerif-Italic.ttf", import.meta.url)).then(
+      (r) => r.arrayBuffer()
+    ),
   ]);
+
+  const BONE = "#ECE6D7";
+  const INK = "#0E0E10";
+  const INK_2 = "#1A1A1D";
+  const MUTED = "#5A5852";
+  const ACCENT = "#B08D57";
 
   return new ImageResponse(
     (
@@ -25,76 +40,96 @@ export default async function OGImage() {
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          backgroundColor: "#FAFAF9",
+          backgroundColor: BONE,
           padding: "144px 160px",
-          fontFamily: "Inter",
+          fontFamily: "Geist",
+          position: "relative",
         }}
       >
-        {/* Eyebrow */}
+        {/* Eyebrow — section mark */}
         <div
           style={{
             display: "flex",
             alignItems: "center",
-            gap: 32,
-            fontSize: 36,
-            letterSpacing: "0.28em",
+            gap: 28,
+            fontFamily: "Geist",
+            fontSize: 30,
+            letterSpacing: "0.22em",
             textTransform: "uppercase",
             fontWeight: 500,
+            color: MUTED,
           }}
         >
-          <span style={{ color: "#A16207" }}>§</span>
-          <span style={{ color: "#78716C" }}>International Advisory Platform</span>
+          <span style={{ color: ACCENT }}>§</span>
+          <span>International advisory platform</span>
+          <span
+            style={{
+              display: "flex",
+              flex: 1,
+              height: 1,
+              maxWidth: 240,
+              background: INK,
+              opacity: 0.22,
+            }}
+          />
+          <span>Hong Kong · Est. 2025</span>
         </div>
 
-        {/* Display headline */}
+        {/* Display headline — matches the hero */}
         <div
           style={{
             display: "flex",
             flexDirection: "column",
-            fontFamily: "Fraunces",
-            color: "#0C0A09",
+            color: INK,
             fontSize: 312,
-            lineHeight: 0.98,
-            letterSpacing: "-0.025em",
+            lineHeight: 0.92,
+            letterSpacing: "-0.045em",
+            fontWeight: 500,
           }}
         >
-          <div style={{ display: "flex" }}>Operator.</div>
-          <div
-            style={{
-              display: "flex",
-              fontFamily: "FrauncesItalic",
-              fontStyle: "italic",
-              color: "#44403C",
-            }}
-          >
-            Not consultant.
+          <div style={{ display: "flex", alignItems: "baseline", gap: 36 }}>
+            <span>Operator.</span>
+            <span
+              style={{
+                display: "flex",
+                fontFamily: "InstrumentSerif",
+                fontStyle: "italic",
+                color: ACCENT,
+                letterSpacing: "-0.02em",
+                fontWeight: 400,
+              }}
+            >
+              Not
+            </span>
           </div>
+          <div style={{ display: "flex", color: INK_2 }}>consultant.</div>
         </div>
 
-        {/* Bottom rule + wordmark + locator + CTA */}
+        {/* Bottom rule — wordmark + locator + CTA */}
         <div
           style={{
             display: "flex",
             alignItems: "flex-end",
             justifyContent: "space-between",
-            borderTop: "2px solid #E7E5E4",
-            paddingTop: 56,
+            borderTop: `1px solid ${INK}`,
+            paddingTop: 48,
           }}
         >
           <div
             style={{
               display: "flex",
               flexDirection: "column",
-              gap: 14,
+              gap: 16,
             }}
           >
             <div
               style={{
                 display: "flex",
-                fontFamily: "Fraunces",
-                fontSize: 84,
-                color: "#0C0A09",
-                letterSpacing: "-0.01em",
+                fontFamily: "Geist",
+                fontSize: 72,
+                color: INK,
+                letterSpacing: "-0.035em",
+                fontWeight: 600,
               }}
             >
               Altiva
@@ -102,14 +137,14 @@ export default async function OGImage() {
             <div
               style={{
                 display: "flex",
-                color: "#78716C",
-                fontSize: 30,
-                letterSpacing: "0.24em",
+                color: MUTED,
+                fontSize: 26,
+                letterSpacing: "0.22em",
                 textTransform: "uppercase",
                 fontWeight: 500,
               }}
             >
-              Hong Kong · Europe · APAC
+              Asian Pacific · European markets
             </div>
           </div>
 
@@ -118,13 +153,14 @@ export default async function OGImage() {
             style={{
               display: "flex",
               alignItems: "center",
-              gap: 24,
-              padding: "28px 48px",
-              backgroundColor: "#0C0A09",
-              color: "#FAFAF9",
-              fontSize: 34,
+              gap: 22,
+              padding: "24px 44px",
+              backgroundColor: INK,
+              color: BONE,
+              fontSize: 28,
               fontWeight: 500,
-              letterSpacing: "0.04em",
+              letterSpacing: "0.14em",
+              textTransform: "uppercase",
             }}
           >
             <span>Start a conversation</span>
@@ -136,9 +172,14 @@ export default async function OGImage() {
     {
       ...size,
       fonts: [
-        { name: "Fraunces", data: fraunces, style: "normal", weight: 400 },
-        { name: "FrauncesItalic", data: frauncesItalic, style: "normal", weight: 400 },
-        { name: "Inter", data: inter, style: "normal", weight: 500 },
+        { name: "Geist", data: geistRegular, style: "normal", weight: 400 },
+        { name: "Geist", data: geistMedium, style: "normal", weight: 500 },
+        {
+          name: "InstrumentSerif",
+          data: instrumentItalic,
+          style: "italic",
+          weight: 400,
+        },
       ],
     }
   );
