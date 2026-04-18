@@ -8,7 +8,8 @@ import { ImageResponse } from "next/og";
 //   Geist (display + body) + Instrument Serif (italic accent only).
 
 export const runtime = "edge";
-export const alt = "Altiva — Operator. Not consultant.";
+export const alt =
+  "Altiva — Operator, not consultant. Senior operator-led advisory based in Hong Kong.";
 export const size = { width: 2400, height: 1260 };
 export const contentType = "image/png";
 
