@@ -177,7 +177,7 @@ const DICT: Record<Lang, Dict> = {
     "w1.body":
       "Stepped into a company in operational difficulty. Led a full reset - rebuilt delivery, restructured the team, restored execution standards, and repositioned the business for growth.",
     "w1.geo": "France · Caribbean · Switzerland",
-    "w1.outA": "Scaled beyond €10M revenue",
+    "w1.outA": "€10M annual revenue with strong profitability",
     "w1.outB": "Built and led 50+ team with full P&amp;L ownership",
 
     "w2.yr": "02 - High-stakes advisory",
@@ -194,22 +194,22 @@ const DICT: Record<Lang, Dict> = {
       "End-to-end programme spanning operations, supply chain, customer experience, and commercial execution.",
     "w3.geo": "APAC &amp; Middle East",
     "w3.outA": "€500M business scope",
-    "w3.outB":
-      "15% YoY growth · Full programme across four functions",
+    "w3.outB": "15% YoY growth · 4 verticalised functions",
 
-    "w4.yr": "04 - Go-to-market &amp; growth",
-    "w4.t": "Global <em>channel</em> &amp; IoT go-to-market",
+    "w4.yr": "04 - Channel programme",
+    "w4.t": "<em>Channel</em> programme, electricians",
     "w4.body":
-      "Built and scaled partner ecosystems and connected offers across multiple regions. Aligned marketing, product, and field execution to drive commercial growth.",
+      "Built and scaled a channel programme for electricians - loyalty, brand preference, training, and productivity tools - deployed across strategic markets through a network of distributors.",
     "w4.geo": "40+ countries",
-    "w4.outA": "Tripled business results",
-    "w4.outB": "Channel programme deployed globally",
+    "w4.outA": "Strengthened brand preference",
+    "w4.outB":
+      "Strong direct engagement &amp; distributor network activated across 40+ markets",
 
     "w5.yr": "05 - Operational review",
     "w5.t": "Enterprise <em>operations</em> optimisation, IT services",
     "w5.body":
       "Led performance optimisation of collaboration services across large-scale environments. Simplified workflows, improved user adoption, and aligned systems with operational needs.",
-    "w5.geo": "Greater China",
+    "w5.geo": "Mainland China, Hong Kong &amp; Taiwan",
     "w5.outA": "10,000+ users supported",
     "w5.outB": "Efficiency gains through workflow &amp; tool optimisation",
 
@@ -218,8 +218,9 @@ const DICT: Record<Lang, Dict> = {
     "w6.body":
       "Rebuilt operational credibility, stabilised performance, and structured the business to support a stronger exit narrative.",
     "w6.geo": "Europe",
-    "w6.outA": "Profitability restored",
-    "w6.outB": "Business repositioned for exit",
+    "w6.outA": "Profitability restored · valuation 0 → €7M",
+    "w6.outB":
+      "Minority shareholder exit &amp; founder recapitalisation",
 
     // founder
     "fnd.mark.num": "§ III.",
@@ -389,13 +390,14 @@ const DICT: Record<Lang, Dict> = {
     "w1.body":
       "Repris une entreprise en difficulté opérationnelle. Pilotage d\u2019un reset complet - reconstruction de la delivery, restructuration de l\u2019équipe, rétablissement des standards d\u2019exécution, repositionnement pour la croissance.",
     "w1.geo": "France · Caraïbes · Suisse",
-    "w1.outA": "Dépassement de 10 M€ de revenus",
+    "w1.outA":
+      "10 M€ de revenus annuels adossés à une forte rentabilité",
     "w1.outB": "Équipe de 50+ personnes construite et dirigée, P&amp;L assumé",
 
     "w2.yr": "02 - Conseil de haut niveau",
     "w2.t": "Environnement exécutif, <em>Fortune 500</em> industriel",
     "w2.body":
-      "Conception et exploitation d\u2019environnements numériques pour le top management - dont CEO et Comex - dans une organisation décentralisée, multi-pays.",
+      "Conception et exploitation d\u2019outils digitaux pour le top management - dont CEO et Comex - dans une organisation décentralisée, multi-pays.",
     "w2.geo": "Global",
     "w2.outA": "200 dirigeants accompagnés dans 20+ pays",
     "w2.outB": "Exécution dans des environnements sans droit à l\u2019erreur",
@@ -403,25 +405,26 @@ const DICT: Record<Lang, Dict> = {
     "w3.yr": "03 - Transformation &amp; IA",
     "w3.t": "<em>Transformation</em> régionale, services",
     "w3.body":
-      "Programme de bout en bout - opérations, supply chain, expérience client, exécution commerciale.",
+      "Programme complet couvrant les opérations, la supply chain, l\u2019expérience client et l\u2019exécution commerciale.",
     "w3.geo": "APAC &amp; Moyen-Orient",
     "w3.outA": "Périmètre de 500 M€",
     "w3.outB":
-      "Croissance annuelle de 15 % · Programme complet sur quatre fonctions",
+      "Croissance annuelle de 15 % · 4 fonctions verticalisées",
 
-    "w4.yr": "04 - Go-to-market &amp; croissance",
-    "w4.t": "Go-to-market <em>canal</em> &amp; IoT, global",
+    "w4.yr": "04 - Programme canal",
+    "w4.t": "Programme <em>canal</em>, électriciens",
     "w4.body":
-      "Construction et mise à l\u2019échelle des écosystèmes partenaires et des offres connectées sur plusieurs régions. Alignement marketing, produit et terrain pour la croissance commerciale.",
+      "Construction et mise à l\u2019échelle d\u2019un programme canal vers les électriciens - fidélisation, préférence de marque, formation, outils de productivité - déployé sur des marchés stratégiques en lien avec un réseau de distributeurs.",
     "w4.geo": "40+ pays",
-    "w4.outA": "Résultats commerciaux triplés",
-    "w4.outB": "Programme canal déployé à l\u2019international",
+    "w4.outA": "Préférence de marque renforcée",
+    "w4.outB":
+      "Engagement direct fort &amp; réseau de distributeurs activé sur 40+ marchés",
 
     "w5.yr": "05 - Revue opérationnelle",
     "w5.t": "Optimisation <em>opérations</em>, IT services",
     "w5.body":
       "Optimisation de la performance des services collaboratifs à grande échelle. Simplification des workflows, amélioration de l\u2019adoption utilisateur, alignement outils/besoins opérationnels.",
-    "w5.geo": "Chine",
+    "w5.geo": "Chine continentale, Hong Kong &amp; Taïwan",
     "w5.outA": "10 000+ utilisateurs servis",
     "w5.outB": "Gains d\u2019efficacité par workflow &amp; outils",
 
@@ -430,8 +433,9 @@ const DICT: Record<Lang, Dict> = {
     "w6.body":
       "Reconstruction de la crédibilité opérationnelle, stabilisation de la performance, structuration de l\u2019entreprise au service d\u2019un narratif de sortie plus fort.",
     "w6.geo": "Europe",
-    "w6.outA": "Rentabilité restaurée",
-    "w6.outB": "Entreprise repositionnée pour la cession",
+    "w6.outA": "Rentabilité restaurée · valorisation 0 → 7 M€",
+    "w6.outB":
+      "Sortie de l\u2019actionnaire minoritaire &amp; recapitalisation du fondateur",
 
     // founder
     "fnd.mark.num": "§ III.",
