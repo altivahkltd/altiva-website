@@ -76,7 +76,7 @@ const snapshots = [
     ),
     body: "Stepped into a company in operational difficulty. Led a full reset - rebuilt delivery, restructured the team, restored execution standards, and repositioned the business for growth.",
     geo: "France · Caribbean · Switzerland",
-    outTitle: "Scaled beyond €10M revenue",
+    outTitle: "€10M annual revenue with strong profitability",
     outSub: "Built and led 50+ team with full P&L ownership",
   },
   {
@@ -101,19 +101,19 @@ const snapshots = [
     body: "End-to-end programme spanning operations, supply chain, customer experience, and commercial execution.",
     geo: "APAC & Middle East",
     outTitle: "€500M business scope",
-    outSub: "15% YoY growth · Full programme across four functions",
+    outSub: "15% YoY growth · 4 verticalised functions",
   },
   {
-    yr: "04 - Go-to-market & growth",
+    yr: "04 - Channel programme",
     title: (
       <>
-        Global <em>channel</em> &amp; IoT go-to-market
+        <em>Channel</em> programme, electricians
       </>
     ),
-    body: "Built and scaled partner ecosystems and connected offers across multiple regions. Aligned marketing, product, and field execution to drive commercial growth.",
+    body: "Built and scaled a channel programme for electricians - loyalty, brand preference, training, and productivity tools - deployed across strategic markets through a network of distributors.",
     geo: "40+ countries",
-    outTitle: "Tripled business results",
-    outSub: "Channel programme deployed globally",
+    outTitle: "Strengthened brand preference",
+    outSub: "Strong direct engagement & distributor network activated across 40+ markets",
   },
   {
     yr: "05 - Operational review",
@@ -123,7 +123,7 @@ const snapshots = [
       </>
     ),
     body: "Led performance optimisation of collaboration services across large-scale environments. Simplified workflows, improved user adoption, and aligned systems with operational needs.",
-    geo: "Greater China",
+    geo: "Mainland China, Hong Kong & Taiwan",
     outTitle: "10,000+ users supported",
     outSub: "Efficiency gains through workflow & tool optimisation",
   },
@@ -136,8 +136,8 @@ const snapshots = [
     ),
     body: "Rebuilt operational credibility, stabilised performance, and structured the business to support a stronger exit narrative.",
     geo: "Europe",
-    outTitle: "Profitability restored",
-    outSub: "Business repositioned for exit",
+    outTitle: "Profitability restored · valuation 0 → €7M",
+    outSub: "Minority shareholder exit & founder recapitalisation",
   },
 ];
 
