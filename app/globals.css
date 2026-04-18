@@ -536,16 +536,16 @@ h2.h em {
   color: var(--bone);
 }
 #practice .lede {
-  color: color-mix(in oklab, var(--bone) 88%, var(--ink));
+  color: color-mix(in oklab, var(--bone) 88%, transparent);
 }
 #practice .callout {
-  border-top-color: color-mix(in oklab, var(--bone) 40%, var(--ink));
+  border-top-color: color-mix(in oklab, var(--bone) 30%, transparent);
 }
 #practice .callout h4 {
   color: var(--bone);
 }
 #practice .callout p {
-  color: color-mix(in oklab, var(--bone) 80%, var(--ink));
+  color: color-mix(in oklab, var(--bone) 82%, transparent);
 }
 #practice .m-num {
   color: color-mix(in oklab, var(--bone) 55%, var(--ink));
@@ -649,7 +649,7 @@ h2.h em {
 }
 .founder {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 0.8fr 1.3fr;
   gap: clamp(32px, 5vw, 72px);
   align-items: start;
 }
@@ -664,6 +664,7 @@ h2.h em {
   overflow: hidden;
   background: var(--ink);
   margin: 0;
+  max-width: 380px;
 }
 .portrait img.photo {
   position: absolute;
