@@ -1,0 +1,2025 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="robots" content="noindex, nofollow"/>
+<title>Altiva · LinkedIn Kit</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+
+<style>
+  @font-face{ font-family: "Geist"; font-style: normal; font-weight: 300; font-display: swap;
+    src: url("https://cdn.jsdelivr.net/npm/@fontsource/geist-sans@5.1.0/files/geist-sans-latin-300-normal.woff2") format("woff2"); }
+  @font-face{ font-family: "Geist"; font-style: normal; font-weight: 400; font-display: swap;
+    src: url("https://cdn.jsdelivr.net/npm/@fontsource/geist-sans@5.1.0/files/geist-sans-latin-400-normal.woff2") format("woff2"); }
+  @font-face{ font-family: "Geist"; font-style: normal; font-weight: 500; font-display: swap;
+    src: url("https://cdn.jsdelivr.net/npm/@fontsource/geist-sans@5.1.0/files/geist-sans-latin-500-normal.woff2") format("woff2"); }
+  @font-face{ font-family: "Geist"; font-style: normal; font-weight: 600; font-display: swap;
+    src: url("https://cdn.jsdelivr.net/npm/@fontsource/geist-sans@5.1.0/files/geist-sans-latin-600-normal.woff2") format("woff2"); }
+  @font-face{ font-family: "Geist"; font-style: normal; font-weight: 700; font-display: swap;
+    src: url("https://cdn.jsdelivr.net/npm/@fontsource/geist-sans@5.1.0/files/geist-sans-latin-700-normal.woff2") format("woff2"); }
+  @font-face{ font-family: "Geist Mono"; font-style: normal; font-weight: 400; font-display: swap;
+    src: url("https://cdn.jsdelivr.net/npm/@fontsource/geist-mono@5.1.0/files/geist-mono-latin-400-normal.woff2") format("woff2"); }
+  @font-face{ font-family: "Geist Mono"; font-style: normal; font-weight: 500; font-display: swap;
+    src: url("https://cdn.jsdelivr.net/npm/@fontsource/geist-mono@5.1.0/files/geist-mono-latin-500-normal.woff2") format("woff2"); }
+</style>
+
+<style>
+  :root{
+    --bone: #ECE6D7;
+    --bone-2: #E4DDCA;
+    --bone-3: #D9D1BC;
+    --ink: #0E0E10;
+    --ink-2: #1A1A1D;
+    --muted: #5A5852;
+    --muted-2: #84817A;
+    --accent: #B08D57;
+    --sans: "Geist", -apple-system, system-ui, sans-serif;
+    --italic: "Instrument Serif", Georgia, serif;
+    --mono: "Geist Mono", ui-monospace, Menlo, monospace;
+
+    /* LinkedIn chrome */
+    --li-bg: #F4F2EE;
+    --li-card: #FFFFFF;
+    --li-text: #000000E0;
+    --li-muted: #00000099;
+    --li-border: #00000014;
+    --li-blue: #0A66C2;
+  }
+
+  *{ box-sizing: border-box; }
+  html, body{ margin:0; padding:0; }
+  body{
+    font-family: var(--sans);
+    background: #E8E4DA;
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* ──────────────────────────────────────────────────────────
+     Doc-level: brief header, sections, nav
+     ────────────────────────────────────────────────────────── */
+  .doc{
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 56px 48px 120px;
+  }
+  .doc-head{
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 24px;
+    align-items: end;
+    padding-bottom: 20px;
+    margin-bottom: 48px;
+    border-bottom: 1px solid #0E0E1018;
+  }
+  .doc-head .mark{
+    font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--muted);
+  }
+  .doc-head .mark .accent{ color: var(--accent); }
+  .doc-head h1{
+    font-family: var(--sans); font-weight: 500;
+    font-size: 40px; line-height: 1.05; letter-spacing: -0.035em;
+    margin: 8px 0 0;
+  }
+  .doc-head h1 em{ font-family: var(--italic); font-style: italic; color: var(--accent); font-weight: 400; }
+  .doc-head .meta{
+    text-align: right;
+    font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--muted);
+    line-height: 1.8;
+  }
+
+  /* TOC */
+  .toc{
+    display: flex; flex-wrap: wrap; gap: 8px 14px;
+    padding: 14px 0 0;
+    font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+  }
+  .toc a{
+    color: var(--muted);
+    padding: 4px 0;
+    border-bottom: 1px solid transparent;
+    text-decoration: none;
+  }
+  .toc a:hover{ color: var(--ink); border-bottom-color: var(--accent); }
+  .toc .sep{ color: #0E0E1030; }
+
+  /* Section */
+  .sec{
+    margin-top: 88px;
+  }
+  .sec-mark{
+    display: flex; align-items: center; gap: 14px;
+    font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 14px;
+  }
+  .sec-mark .num{ color: var(--accent); font-weight: 500; }
+  .sec-mark .line{ flex: 1; height: 1px; background: #0E0E1020; max-width: 140px; }
+  .sec-head{
+    font-family: var(--sans); font-weight: 500;
+    font-size: 48px; line-height: 1.05; letter-spacing: -0.04em;
+    margin: 0 0 10px;
+  }
+  .sec-head em{ font-family: var(--italic); font-style: italic; color: var(--accent); font-weight: 400; }
+  .sec-lede{
+    font-family: var(--sans); font-weight: 400;
+    font-size: 17px; line-height: 1.55; letter-spacing: -0.01em;
+    color: var(--muted);
+    max-width: 56ch;
+    margin: 0 0 40px;
+  }
+
+  /* Card frame around options */
+  .label{
+    font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--muted);
+  }
+  .label .accent{ color: var(--accent); }
+
+  /* ──────────────────────────────────────────────────────────
+     BANNERS — 1584×396 (LinkedIn spec)
+     Rendered at half-size on screen (792×198) for the page,
+     but each banner is built in its own absolute-positioned canvas
+     that matches the exact 1584×396 grid via CSS transform: scale(.5).
+     ────────────────────────────────────────────────────────── */
+
+  .banner-row{
+    display: flex; flex-direction: column;
+    gap: 14px;
+    margin-bottom: 48px;
+  }
+  .banner-head{
+    display: flex; align-items: baseline; justify-content: space-between;
+    gap: 12px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #0E0E1018;
+  }
+  .banner-head h3{
+    font-family: var(--sans); font-weight: 500;
+    font-size: 22px; line-height: 1.1; letter-spacing: -0.02em;
+    margin: 0;
+  }
+  .banner-head .desc{
+    font-family: var(--sans); font-weight: 400;
+    font-size: 14px; line-height: 1.5; color: var(--muted);
+    max-width: 52ch;
+  }
+  .banner-head .id{
+    font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  /* Stage that holds one banner at full size, then scales to fit */
+  .banner-stage{
+    width: 100%;
+    aspect-ratio: 1584 / 396;
+    background: #000;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 2px 24px rgba(0,0,0,0.08), 0 0 0 1px #0E0E1010;
+  }
+  .banner-canvas{
+    position: absolute; top: 0; left: 0;
+    width: 1584px; height: 396px;
+    transform-origin: top left;
+    /* scale is set by JS to fit .banner-stage width */
+  }
+
+  /* ── Banner A — Statement ─────────────────────────────────── */
+  .bnr-a{
+    background: var(--ink);
+    color: var(--bone);
+    padding: 60px 72px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: 1fr auto;
+    gap: 0;
+  }
+  .bnr-a .mid{
+    grid-row: 1; grid-column: 1;
+    align-self: center;
+  }
+  .bnr-a h2{
+    font-family: var(--sans); font-weight: 500;
+    font-size: 120px; line-height: 0.95; letter-spacing: -0.045em;
+    margin: 0;
+  }
+  .bnr-a h2 em{
+    font-family: var(--italic); font-style: italic;
+    color: var(--accent); font-weight: 400; letter-spacing: -0.01em;
+  }
+  .bnr-a .side{
+    grid-row: 1; grid-column: 2;
+    align-self: center;
+    display: flex; flex-direction: column; gap: 28px;
+    max-width: 440px;
+    padding-left: 56px;
+    border-left: 1px solid #ECE6D730;
+  }
+  .bnr-a .side dl{ margin: 0; }
+  .bnr-a .side dt{
+    font-family: var(--mono); font-size: 14px; font-weight: 500;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 10px;
+  }
+  .bnr-a .side dd{
+    font-family: var(--sans); font-weight: 500;
+    font-size: 28px; line-height: 1.2; letter-spacing: -0.015em;
+    margin: 0;
+    color: var(--bone);
+  }
+  .bnr-a .side dd em{
+    font-family: var(--italic); font-style: italic;
+    color: var(--accent); font-weight: 400;
+  }
+  .bnr-a .bot{
+    grid-row: 2; grid-column: 1 / -1;
+    display: flex; justify-content: space-between; align-items: baseline;
+    font-family: var(--mono); font-size: 18px; font-weight: 500;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--bone);
+  }
+  .bnr-a .bot .sep{ color: var(--accent); margin: 0 4px; }
+  .bnr-a .bot .accent{
+    font-family: var(--sans); font-weight: 600;
+    font-size: 22px; letter-spacing: -0.01em; text-transform: none;
+    color: var(--accent);
+  }
+
+  /* ── Banner B — Editorial / mandates index ──────────────── */
+  .bnr-b{
+    background: var(--bone);
+    color: var(--ink);
+    padding: 56px 72px;
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 56px;
+    position: relative;
+  }
+  .bnr-b::before{
+    content: ""; position: absolute; inset: 0;
+    background:
+      linear-gradient(90deg, transparent 0, transparent calc(50% + 28px), #0E0E1012 calc(50% + 28px), #0E0E1012 calc(50% + 29px), transparent calc(50% + 29px));
+    pointer-events: none;
+  }
+  .bnr-b .left{
+    display: flex; flex-direction: column; justify-content: space-between;
+    padding-left: 200px;  /* LinkedIn avatar safe-zone */
+  }
+  .bnr-b .top-row{
+    display: flex; align-items: center; gap: 14px;
+    font-family: var(--mono); font-size: 15px; font-weight: 500;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--ink-2);
+  }
+  .bnr-b .top-row .accent{ color: var(--accent); }
+  .bnr-b .top-row .bar{ flex: 1; height: 1px; background: #0E0E1028; max-width: 140px; }
+  .bnr-b h2{
+    font-family: var(--sans); font-weight: 500;
+    font-size: 88px; line-height: 0.98; letter-spacing: -0.04em;
+    margin: 0;
+  }
+  .bnr-b h2 em{ font-family: var(--italic); font-style: italic; color: var(--accent); font-weight: 400; }
+  .bnr-b .bottom-row{
+    display: flex; justify-content: space-between; align-items: baseline;
+    font-family: var(--mono); font-size: 16px; font-weight: 500;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--ink);
+  }
+  .bnr-b .bottom-row .sep{ color: var(--accent); margin: 0 4px; }
+  .bnr-b .bottom-row .accent{ color: var(--accent); }
+  .bnr-b .bottom-row > span:last-child{
+    font-family: var(--sans); font-weight: 600;
+    font-size: 20px; letter-spacing: -0.01em; text-transform: none;
+    color: var(--accent);
+  }
+  .bnr-b .right{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(3, auto);
+    gap: 22px 44px;
+    align-content: center;
+    padding-left: 56px;
+  }
+  .bnr-b .mandate{
+    display: flex; flex-direction: column; gap: 6px;
+  }
+  .bnr-b .mandate .n{
+    font-family: var(--mono); font-size: 14px; font-weight: 500;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--accent);
+  }
+  .bnr-b .mandate .t{
+    font-family: var(--sans); font-weight: 500;
+    font-size: 24px; line-height: 1.2; letter-spacing: -0.015em;
+    color: var(--ink);
+  }
+
+  /* ── Banner C — Geography / EU ↔ APAC ─────────────────── */
+  .bnr-c{
+    background: var(--ink);
+    color: var(--bone);
+    padding: 56px 72px;
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 56px;
+    position: relative;
+    overflow: hidden;
+  }
+  .bnr-c .left{ display: flex; flex-direction: column; justify-content: center; gap: 48px; }
+  .bnr-c h2{
+    font-family: var(--sans); font-weight: 500;
+    font-size: 82px; line-height: 0.98; letter-spacing: -0.04em;
+    margin: 0;
+    color: var(--bone);
+  }
+  .bnr-c h2 em{ font-family: var(--italic); font-style: italic; color: var(--accent); font-weight: 400; }
+  .bnr-c .btm{
+    display: flex; gap: 12px; align-items: baseline; flex-wrap: wrap;
+    font-family: var(--mono); font-size: 17px; font-weight: 500;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--bone);
+  }
+  .bnr-c .btm .sep{ color: var(--accent); margin: 0 2px; }
+  .bnr-c .btm .year{ color: var(--accent); }
+  .bnr-c .btm .hk{
+    font-family: var(--sans); font-weight: 600;
+    font-size: 20px; letter-spacing: -0.01em; text-transform: none;
+    color: var(--accent);
+    margin-left: auto;
+  }
+  .bnr-c .right{
+    position: relative;
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  /* ── Banner D — Tri-panel / manifesto rhythm ──────────── */
+  .bnr-d{
+    display: grid;
+    grid-template-columns: 1fr 1.2fr 1fr;
+    width: 100%; height: 100%;
+  }
+  .bnr-d .panel{
+    padding: 48px 52px;
+    display: flex; flex-direction: column;
+    justify-content: space-between;
+  }
+  .bnr-d .p1{
+    background: var(--bone);
+    color: var(--ink);
+  }
+  .bnr-d .p2{
+    background: var(--ink);
+    color: var(--bone);
+    align-items: center; justify-content: center;
+    gap: 16px;
+  }
+  .bnr-d .p3{
+    background: var(--bone-2);
+    color: var(--ink);
+  }
+  .bnr-d .panel .label-row{
+    display: flex; align-items: center; gap: 12px;
+    font-family: var(--mono); font-size: 14px; font-weight: 500;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--ink-2);
+  }
+  .bnr-d .p2 .label-row{ color: #ECE6D7; justify-content: center; }
+  .bnr-d .panel .label-row .accent{ color: var(--accent); }
+  .bnr-d .panel .label-row .dot{ width: 8px; height: 8px; background: var(--accent); border-radius: 50%; }
+  .bnr-d .panel h3{
+    font-family: var(--sans); font-weight: 500;
+    font-size: 40px; line-height: 1.05; letter-spacing: -0.03em;
+    margin: 0;
+  }
+  .bnr-d .p2 h2{
+    font-family: var(--sans); font-weight: 500;
+    font-size: 72px; line-height: 0.98; letter-spacing: -0.04em;
+    margin: 0; text-align: center;
+    color: var(--bone);
+  }
+  .bnr-d .p2 h2 em{ font-family: var(--italic); font-style: italic; color: var(--accent); font-weight: 400; }
+  .bnr-d .panel .foot{
+    font-family: var(--mono); font-size: 15px; font-weight: 500;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--ink);
+  }
+  .bnr-d .p2 .foot{ color: var(--bone); text-align: center; }
+  .bnr-d .panel .foot .accent{ color: var(--accent); }
+  .bnr-d .p3 .foot{
+    display: inline-flex; align-items: center; gap: 6px;
+  }
+  .bnr-d .p3 .foot .url{
+    font-family: var(--sans); font-weight: 600;
+    font-size: 20px; letter-spacing: -0.01em; text-transform: none;
+    color: var(--accent);
+  }
+
+  /* ──────────────────────────────────────────────────────────
+     BANNERS — 1128×191 (LinkedIn COMPANY PAGE spec)
+     Narrow 5.9:1 strip. Left 240px is reserved for the square
+     logo overlay that LinkedIn stamps at the bottom-left of a
+     Company Page header.
+     ────────────────────────────────────────────────────────── */
+  .banner-stage.cp{ aspect-ratio: 1128 / 191; }
+  .banner-canvas.cp{ width: 1128px; height: 191px; }
+
+  /* Subsection label inside §01 */
+  .subsec-mark{
+    display: flex; align-items: center; gap: 12px;
+    margin: 24px 0 14px;
+    font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--muted);
+  }
+  .subsec-mark .num{ color: var(--accent); font-weight: 500; }
+  .subsec-mark .line{ flex: 1; height: 1px; background: #0E0E1018; max-width: 160px; }
+  .subsec-mark .pill{
+    padding: 3px 9px; border: 1px solid #0E0E1020;
+    color: var(--ink-2);
+    background: #FCFAF5;
+  }
+  .subsec-mark .pill.on{ color: var(--accent); border-color: var(--accent); }
+
+  /* Spec-mismatch callout */
+  .callout{
+    margin: 0 0 40px;
+    padding: 18px 22px;
+    background: #FBF3E4;
+    border: 1px solid #B08D5740;
+    border-left: 3px solid var(--accent);
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 16px 22px;
+    align-items: start;
+  }
+  .callout .lbl{
+    font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--accent); font-weight: 500;
+    padding-top: 2px;
+  }
+  .callout .body{
+    font-family: var(--sans); font-size: 14px; line-height: 1.55; color: var(--ink-2);
+  }
+  .callout .body b{ color: var(--ink); font-weight: 500; }
+  .callout .body code{
+    font-family: var(--mono); font-size: 12.5px;
+    background: #0E0E1008; padding: 1px 6px; color: var(--ink);
+  }
+
+  /* Shared CP banner primitives */
+  .bnr-cp-a, .bnr-cp-b, .bnr-cp-c, .bnr-cp-d{
+    width: 1128px; height: 191px;
+  }
+
+  /* ── CP Banner A — Statement ───────────────────────────── */
+  .bnr-cp-a{
+    background: var(--ink);
+    color: var(--bone);
+    padding: 18px 32px 20px 240px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: 1fr auto;
+    gap: 0 28px;
+  }
+  .bnr-cp-a h2{
+    grid-column: 1; grid-row: 1;
+    align-self: center;
+    font-family: var(--sans); font-weight: 500;
+    font-size: 56px; line-height: 0.98; letter-spacing: -0.04em;
+    margin: 0;
+  }
+  .bnr-cp-a h2 em{ font-family: var(--italic); font-style: italic; color: var(--accent); font-weight: 400; }
+  .bnr-cp-a .side{
+    grid-column: 2; grid-row: 1;
+    align-self: center;
+    padding-left: 28px;
+    border-left: 1px solid #ECE6D730;
+    display: flex; flex-direction: column; gap: 8px;
+    max-width: 260px;
+  }
+  .bnr-cp-a .side .lbl{
+    font-family: var(--mono); font-size: 11px; font-weight: 500;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--accent);
+  }
+  .bnr-cp-a .side .stmt{
+    font-family: var(--sans); font-weight: 500;
+    font-size: 17px; line-height: 1.25; letter-spacing: -0.015em;
+    color: var(--bone);
+  }
+  .bnr-cp-a .side .stmt em{
+    font-family: var(--italic); font-style: italic;
+    color: var(--accent); font-weight: 400;
+  }
+  .bnr-cp-a .bot{
+    grid-column: 1 / -1; grid-row: 2;
+    display: flex; justify-content: space-between; align-items: baseline;
+    font-family: var(--mono); font-size: 13px; font-weight: 500;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--bone);
+  }
+  .bnr-cp-a .bot .sep{ color: var(--accent); margin: 0 2px; }
+  .bnr-cp-a .bot .accent{ color: var(--accent); }
+
+  /* Stronger altiva.hk URL on every CP banner's bottom rail */
+  .bnr-cp-a .bot > span:last-child,
+  .bnr-cp-b .bottom-row > span:last-child,
+  .bnr-cp-c .btm > span:last-child,
+  .bnr-cp-d .bot > span:last-child{
+    font-family: var(--sans);
+    font-weight: 600;
+    font-size: 15px;
+    letter-spacing: -0.01em;
+    text-transform: none;
+    color: var(--accent);
+  }
+
+  /* ── CP Banner B — Practice index ────────────────────── */
+  .bnr-cp-b{
+    background: var(--bone);
+    color: var(--ink);
+    padding: 18px 32px 20px 240px;
+    display: flex; flex-direction: column; justify-content: space-between;
+  }
+  .bnr-cp-b .mid{
+    flex: 1;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 32px;
+    align-items: center;
+  }
+  .bnr-cp-b h2{
+    font-family: var(--sans); font-weight: 500;
+    font-size: 42px; line-height: 0.98; letter-spacing: -0.035em;
+    margin: 0;
+    white-space: nowrap;
+  }
+  .bnr-cp-b h2 em{ font-family: var(--italic); font-style: italic; color: var(--accent); font-weight: 400; }
+  .bnr-cp-b .mandates{
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    gap: 6px 26px;
+    font-family: var(--mono); font-size: 12px; font-weight: 500;
+    letter-spacing: 0.08em;
+    color: var(--ink);
+    padding-left: 26px;
+    border-left: 1px solid #0E0E1025;
+    white-space: nowrap;
+  }
+  .bnr-cp-b .mandates .n{ color: var(--accent); margin-right: 6px; font-weight: 500; }
+  .bnr-cp-b .bottom-row{
+    display: flex; justify-content: space-between; align-items: baseline;
+    font-family: var(--mono); font-size: 13px; font-weight: 500;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--ink);
+  }
+  .bnr-cp-b .bottom-row .sep{ color: var(--accent); margin: 0 2px; }
+  .bnr-cp-b .bottom-row .accent{ color: var(--accent); }
+
+  /* ── CP Banner C — EU ↔ APAC ─────────────────────────── */
+  .bnr-cp-c{
+    background: var(--ink);
+    color: var(--bone);
+    padding: 18px 32px 20px 240px;
+    display: flex; flex-direction: column; justify-content: space-between;
+  }
+  .bnr-cp-c .mid{
+    flex: 1;
+    display: flex; align-items: center; gap: 40px;
+  }
+  .bnr-cp-c h2{
+    font-family: var(--sans); font-weight: 500;
+    font-size: 44px; line-height: 0.98; letter-spacing: -0.035em;
+    margin: 0;
+    color: var(--bone);
+  }
+  .bnr-cp-c h2 em{ font-family: var(--italic); font-style: italic; color: var(--accent); font-weight: 400; }
+  .bnr-cp-c .geo{
+    flex: 1;
+    display: flex; align-items: center; gap: 12px;
+    font-family: var(--mono); font-size: 12px; font-weight: 500;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: #ECE6D7;
+    padding-left: 28px;
+    border-left: 1px solid #ECE6D725;
+  }
+  .bnr-cp-c .geo .pin{
+    width: 7px; height: 7px; border-radius: 50%;
+    background: #ECE6D790;
+    display: inline-block;
+  }
+  .bnr-cp-c .geo .pin.anchor{ background: var(--accent); box-shadow: 0 0 0 3px #B08D5730; }
+  .bnr-cp-c .geo .arr{ color: var(--accent); font-weight: 500; font-size: 14px; }
+  .bnr-cp-c .btm{
+    display: flex; justify-content: space-between; align-items: baseline;
+    font-family: var(--mono); font-size: 13px; font-weight: 500;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--bone);
+  }
+  .bnr-cp-c .btm .sep{ color: var(--accent); margin: 0 2px; }
+  .bnr-cp-c .btm .accent{ color: var(--accent); }
+
+  /* ── CP Banner D — Situation / Work ─────────────────── */
+  .bnr-cp-d{
+    background: var(--bone-2);
+    color: var(--ink);
+    padding: 18px 32px 20px 240px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr auto;
+    column-gap: 48px;
+    position: relative;
+  }
+  .bnr-cp-d::before{
+    content: "";
+    position: absolute;
+    left: calc(240px + ((100% - 240px - 32px) / 2));
+    top: 22px; bottom: 50px;
+    width: 1px;
+    background: #0E0E1025;
+    pointer-events: none;
+  }
+  .bnr-cp-d .left,
+  .bnr-cp-d .right{
+    grid-row: 1;
+    align-self: center;
+    display: flex; flex-direction: column; gap: 8px;
+  }
+  .bnr-cp-d .left{ grid-column: 1; }
+  .bnr-cp-d .right{ grid-column: 2; }
+  .bnr-cp-d .lbl{
+    font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 500;
+  }
+  .bnr-cp-d .lbl .accent{ color: var(--accent); }
+  .bnr-cp-d h2{
+    font-family: var(--sans); font-weight: 500;
+    font-size: 24px; line-height: 1.15; letter-spacing: -0.02em;
+    margin: 0;
+    color: var(--ink-2);
+  }
+  .bnr-cp-d .right h2{ color: var(--ink); }
+  .bnr-cp-d .right h2 em{ font-family: var(--italic); font-style: italic; color: var(--accent); font-weight: 400; }
+  .bnr-cp-d .bot{
+    grid-column: 1 / -1; grid-row: 2;
+    display: flex; justify-content: space-between; align-items: baseline;
+    font-family: var(--mono); font-size: 13px; font-weight: 500;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--ink);
+  }
+  .bnr-cp-d .bot .sep{ color: var(--accent); margin: 0 2px; }
+  .bnr-cp-d .bot .accent{ color: var(--accent); }
+
+  /* Safe-zone guide overlay (toggleable) */
+  .banner-stage.cp.show-safe .safe-overlay,
+  .banner-stage.show-safe .safe-overlay{
+    opacity: 1;
+  }
+  .safe-overlay{
+    position: absolute;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity .2s;
+    background: repeating-linear-gradient(45deg, rgba(176,141,87,0.22) 0 8px, transparent 8px 16px);
+    outline: 1px dashed #B08D57;
+  }
+  .safe-overlay.cp{
+    /* Company-page logo square: ~32px from left, ~160px wide, spans upper half + bleeds below.
+       Inside a 1128×191 banner, visible overlap ≈ x:32→192, y:71→191.          */
+    left: calc(32 / 1128 * 100%);
+    width: calc(160 / 1128 * 100%);
+    top: calc(71 / 191 * 100%);
+    height: calc(120 / 191 * 100%);
+  }
+  .safe-overlay.pp{
+    /* Personal-profile avatar circle: ~24px from left, ~152px wide, centered on banner bottom edge.
+       Inside a 1584×396 banner, visible overlap ≈ x:24→176, y:320→396.         */
+    left: calc(24 / 1584 * 100%);
+    width: calc(152 / 1584 * 100%);
+    top: calc(320 / 396 * 100%);
+    height: calc(76 / 396 * 100%);
+    border-radius: 50%;
+  }
+  .safe-toggle{
+    background: transparent;
+    border: 1px solid #0E0E1020;
+    color: var(--muted);
+    padding: 4px 10px;
+    font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+    cursor: pointer;
+  }
+  .safe-toggle.on{ color: var(--accent); border-color: var(--accent); }
+
+  /* ──────────────────────────────────────────────────────────
+     LIVE LINKEDIN MOCKUP
+     Shows the chosen banner + avatar + name + tagline as it
+     would actually render on LinkedIn desktop.
+     ────────────────────────────────────────────────────────── */
+
+  .li-frame{
+    background: var(--li-bg);
+    border-radius: 12px;
+    border: 1px solid #0E0E1012;
+    overflow: hidden;
+    box-shadow: 0 4px 32px rgba(0,0,0,0.06);
+  }
+  .li-chrome{
+    background: #FFFFFF;
+    border-bottom: 1px solid var(--li-border);
+    padding: 8px 24px;
+    display: flex; align-items: center; gap: 16px;
+    font-family: -apple-system, system-ui, "Segoe UI", Roboto, sans-serif;
+    font-size: 12px;
+    color: var(--li-muted);
+  }
+  .li-chrome .logo{
+    width: 34px; height: 34px; background: var(--li-blue); border-radius: 6px;
+    display: grid; place-items: center;
+    color: white; font-weight: 700; font-size: 20px; line-height: 1;
+    font-family: -apple-system, system-ui, sans-serif;
+  }
+  .li-chrome .crumb{ flex: 1; }
+  .li-card{
+    background: var(--li-card);
+    padding: 0;
+  }
+  .li-banner{
+    aspect-ratio: 1128 / 191;
+    background: #000;
+    overflow: hidden;
+    position: relative;
+  }
+  .li-body{
+    padding: 0 24px 16px;
+    position: relative;
+  }
+  .li-avatar-wrap{
+    position: absolute;
+    top: -52px; left: 24px;
+    width: 120px; height: 120px;
+    background: white;
+    border: 4px solid white;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    display: grid; place-items: center;
+    overflow: hidden;
+  }
+  .li-avatar-wrap .av-chevron{
+    width: 64%; height: auto;
+  }
+  .li-body-inner{
+    padding-top: 80px;
+    font-family: -apple-system, system-ui, "Segoe UI", Roboto, sans-serif;
+    color: var(--li-text);
+  }
+  .li-name{
+    font-size: 24px; font-weight: 600; line-height: 1.2;
+    margin: 0 0 4px;
+  }
+  .li-tagline{
+    font-size: 14px; color: var(--li-text); line-height: 1.45;
+    margin: 0 0 10px;
+    max-width: 60ch;
+  }
+  .li-meta-row{
+    display: flex; align-items: center; gap: 8px;
+    font-size: 13px; color: var(--li-muted);
+    margin-bottom: 14px;
+  }
+  .li-meta-row .sep{ opacity: 0.4; }
+  .li-meta-row a{ color: var(--li-blue); font-weight: 600; text-decoration: none; }
+  .li-actions{
+    display: flex; gap: 8px; margin-top: 10px;
+  }
+  .li-btn{
+    font-family: inherit;
+    font-size: 14px; font-weight: 600;
+    padding: 6px 16px;
+    border-radius: 20px;
+    border: 1px solid;
+    cursor: pointer;
+    line-height: 1.5;
+  }
+  .li-btn.primary{ background: var(--li-blue); color: white; border-color: var(--li-blue); }
+  .li-btn.ghost{ background: transparent; color: var(--li-blue); border-color: var(--li-blue); }
+  .li-btn.subtle{ background: transparent; color: var(--li-muted); border-color: #00000033; }
+
+  .li-tabs{
+    display: flex; gap: 0;
+    border-top: 1px solid var(--li-border);
+    margin-top: 18px;
+    font-family: -apple-system, system-ui, sans-serif;
+    font-size: 14px;
+  }
+  .li-tabs span{
+    padding: 12px 16px;
+    color: var(--li-muted);
+  }
+  .li-tabs span.active{
+    color: var(--li-text); font-weight: 600;
+    border-bottom: 2px solid #8A5B00;
+    margin-bottom: -1px;
+  }
+
+  /* ──────────────────────────────────────────────────────────
+     Text blocks — tagline / about / specialties / post
+     ────────────────────────────────────────────────────────── */
+
+  .two-col{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+  }
+  @media (max-width: 900px){ .two-col{ grid-template-columns: 1fr; } }
+
+  .block{
+    background: #FCFAF5;
+    border: 1px solid #0E0E1010;
+    padding: 32px 34px 34px;
+    position: relative;
+  }
+  .block .tag{
+    position: absolute; top: 0; left: 32px;
+    transform: translateY(-50%);
+    background: #FCFAF5;
+    padding: 2px 10px;
+    font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--accent);
+  }
+  .block h4{
+    font-family: var(--sans); font-weight: 500;
+    font-size: 22px; line-height: 1.15; letter-spacing: -0.02em;
+    margin: 0 0 18px;
+  }
+  .block h4 em{ font-family: var(--italic); font-style: italic; color: var(--accent); font-weight: 400; }
+  .block p{
+    font-family: var(--sans); font-weight: 400;
+    font-size: 15px; line-height: 1.6; letter-spacing: -0.005em;
+    color: var(--ink-2);
+    margin: 0 0 14px;
+  }
+  .block p:last-child{ margin-bottom: 0; }
+  .block p b{ font-weight: 500; color: var(--ink); }
+  .block p em{ font-family: var(--italic); font-style: italic; color: var(--accent); font-style: italic; }
+  .block .count{
+    font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--muted);
+    margin-top: 18px; padding-top: 14px;
+    border-top: 1px solid #0E0E1010;
+  }
+  .block .count b{ color: var(--ink); font-weight: 500; }
+
+  .tagline-row{
+    display: grid; gap: 10px;
+  }
+  .tagline{
+    background: #FCFAF5;
+    border: 1px solid #0E0E1010;
+    padding: 18px 22px;
+    display: flex; align-items: baseline; gap: 18px;
+  }
+  .tagline .n{
+    font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--accent); font-weight: 500;
+    min-width: 72px;
+  }
+  .tagline .t{
+    flex: 1;
+    font-family: var(--sans); font-weight: 400;
+    font-size: 16px; line-height: 1.45; letter-spacing: -0.005em;
+    color: var(--ink);
+  }
+  .tagline .t b{ font-weight: 500; }
+  .tagline .c{
+    font-family: var(--mono); font-size: 11px;
+    color: var(--muted);
+    min-width: 48px; text-align: right;
+  }
+
+  .spec-grid{
+    display: flex; flex-wrap: wrap; gap: 8px;
+  }
+  .spec{
+    font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+    padding: 8px 14px;
+    border: 1px solid #0E0E1020;
+    color: var(--ink-2);
+    background: #FCFAF5;
+  }
+  .spec .accent{ color: var(--accent); }
+
+  /* Announce post — simulate LinkedIn post card */
+  .post{
+    background: white;
+    border: 1px solid var(--li-border);
+    border-radius: 8px;
+    padding: 16px 20px 14px;
+    font-family: -apple-system, system-ui, "Segoe UI", Roboto, sans-serif;
+    max-width: 560px;
+    box-shadow: 0 2px 14px rgba(0,0,0,0.04);
+  }
+  .post .ph{
+    display: flex; gap: 12px; margin-bottom: 12px;
+  }
+  .post .pav{
+    width: 48px; height: 48px; border-radius: 50%;
+    background: var(--ink);
+    display: grid; place-items: center;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+  .post .pav img{ width: 66%; height: auto; }
+  .post .pmeta .name{ font-size: 14px; font-weight: 600; color: var(--li-text); line-height: 1.2; }
+  .post .pmeta .sub{ font-size: 12px; color: var(--li-muted); line-height: 1.4; }
+  .post .pbody{
+    font-size: 14px; line-height: 1.55; color: var(--li-text);
+    white-space: pre-wrap;
+    margin-bottom: 12px;
+  }
+  .post .pbody b{ font-weight: 600; }
+  .post .pfoot{
+    font-size: 12px; color: var(--li-muted);
+    padding-top: 10px;
+    border-top: 1px solid var(--li-border);
+    display: flex; justify-content: space-between;
+  }
+
+  /* ──────────────────────────────────────────────────────────
+     Avatars / logo treatments
+     ────────────────────────────────────────────────────────── */
+  .avatars{
+    display: flex; gap: 20px; flex-wrap: wrap;
+    margin-top: 24px;
+  }
+  .av-card{
+    display: flex; flex-direction: column; gap: 12px;
+    align-items: center;
+  }
+  .av-tile{
+    width: 160px; height: 160px;
+    border-radius: 14px;
+    display: grid; place-items: center;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    overflow: hidden;
+  }
+  .av-tile.ink{ background: var(--ink); }
+  .av-tile.bone{ background: var(--bone); }
+  .av-tile.bone-2{ background: var(--bone-2); }
+  .av-tile.accent{ background: var(--accent); }
+  .av-tile img{ width: 72%; height: auto; display: block; }
+  .av-card .cap{
+    font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--muted);
+  }
+  .av-card .cap b{ color: var(--accent); font-weight: 500; }
+
+  /* print-cleanup helpers */
+  code.inline{
+    font-family: var(--mono); font-size: 12.5px;
+    background: #0E0E1008;
+    padding: 1px 6px;
+    color: var(--ink-2);
+  }
+
+  /* copy-to-clipboard buttons on text blocks */
+  .copy-btn{
+    position: absolute; top: 12px; right: 12px;
+    font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--muted);
+    background: transparent;
+    border: 1px solid #0E0E1020;
+    padding: 4px 10px;
+    cursor: pointer;
+    transition: color .15s, border-color .15s;
+  }
+  .copy-btn:hover{ color: var(--accent); border-color: var(--accent); }
+  .copy-btn.copied{ color: var(--accent); border-color: var(--accent); }
+
+  /* Download banner buttons */
+  .dl-row{
+    display: flex; align-items: center; gap: 10px;
+    font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
+  }
+  .dl-btn{
+    background: var(--ink); color: var(--bone);
+    border: 0;
+    padding: 9px 16px;
+    font-family: inherit; font-size: inherit; letter-spacing: inherit; text-transform: inherit;
+    cursor: pointer;
+    transition: background .2s;
+  }
+  .dl-btn:hover{ background: var(--accent); color: var(--ink); }
+  .dl-btn.ghost{
+    background: transparent; color: var(--ink);
+    border: 1px solid var(--ink);
+  }
+  .dl-btn.ghost:hover{ background: var(--ink); color: var(--bone); }
+</style>
+</head>
+<body>
+
+<div class="doc">
+
+  <!-- ═══════════════════════════════════════════════════════
+       DOC HEAD
+       ═══════════════════════════════════════════════════════ -->
+  <header class="doc-head">
+    <div>
+      <div class="mark">Altiva Limited · <span class="accent">LinkedIn kit</span></div>
+      <h1>LinkedIn, <em>aligned</em> with the new site.</h1>
+    </div>
+    <div></div>
+    <div class="meta">
+      Banner · Avatar · Tagline<br/>
+      About · Specialties · Post<br/>
+      <span style="color: var(--accent);">1128 × 191 · 1584 × 396</span>
+    </div>
+  </header>
+
+  <nav class="toc">
+    <a href="#banners">01 · Banners</a><span class="sep">/</span>
+    <a href="#avatar">02 · Avatar</a><span class="sep">/</span>
+    <a href="#mockup">03 · Live mockup</a><span class="sep">/</span>
+    <a href="#tagline">04 · Tagline</a><span class="sep">/</span>
+    <a href="#about">05 · About</a><span class="sep">/</span>
+    <a href="#specialties">06 · Specialties</a><span class="sep">/</span>
+    <a href="#post">07 · Announce post</a>
+  </nav>
+
+  <!-- ═══════════════════════════════════════════════════════
+       01 · BANNERS
+       ═══════════════════════════════════════════════════════ -->
+  <section class="sec" id="banners">
+    <div class="sec-mark">
+      <span class="num">§ 01</span>
+      <span>Banners</span>
+      <span class="line"></span>
+      <span>1128 × 191 · 1584 × 396</span>
+    </div>
+    <h2 class="sec-head">Two <em>surfaces,</em> two formats.</h2>
+    <p class="sec-lede">LinkedIn uses a different aspect ratio depending on where the banner lives. The earlier four banners were drawn to the personal-profile spec only — which is why, when uploaded to the <code class="inline">/company/altivaltd</code> Company Page, the square logo stamp crashed into the headline. Each direction now ships in both sizes.</p>
+
+    <div class="callout">
+      <span class="lbl">Spec · fixed</span>
+      <div class="body">
+        <b>LinkedIn Company Page cover</b> — <code>1128 × 191</code> (≈5.9:1). Square logo overlay covers the bottom-left <code>~160 × 120</code> px of the banner.<br/>
+        <b>LinkedIn Personal Profile background</b> — <code>1584 × 396</code> (4:1). Circular avatar overlay covers the bottom-left corner.<br/>
+        Company Page is the primary upload target (the Altiva page is <code>/company/altivaltd</code>). The four original 4:1 banners are kept below as a personal-profile reference for Julien's own profile.
+      </div>
+    </div>
+
+    <div class="subsec-mark">
+      <span class="num">§ 01.A</span>
+      <span>Company Page</span>
+      <span class="pill on">1128 × 191</span>
+      <span class="line"></span>
+      <span>primary</span>
+    </div>
+
+    <!-- Banner CP-A — Statement -->
+    <div class="banner-row">
+      <div class="banner-head">
+        <div>
+          <h3>A · Operator statement · <span style="color:var(--accent); font-weight:500;">Company</span></h3>
+          <div class="desc">Same hero line, re-drawn for the narrow strip with the 240-px logo safe-zone baked into the left edge. Headline, rail, contact line — nothing that can collide with the logo stamp.</div>
+        </div>
+        <div style="display:flex; align-items:center; gap: 12px;">
+          <span class="id">CP · A</span>
+          <button class="safe-toggle" data-safe-target=".banner-stage.cp-a">Show safe-zone</button>
+          <div class="dl-row">
+            <button class="dl-btn" onclick="downloadBanner('bnr-cp-a', 'altiva-linkedin-company-A-statement', 1128, 191)">↓ 1128×191 PNG</button>
+          </div>
+        </div>
+      </div>
+      <div class="banner-stage cp cp-a">
+        <div class="banner-canvas cp" data-canvas>
+          <div class="bnr-cp-a">
+            <h2>Operator.<br/><em>Not</em> consultant.</h2>
+            <div class="side">
+              <span class="lbl">Engaged when</span>
+              <div class="stmt">execution is the<br/><em>bottleneck.</em></div>
+            </div>
+            <div class="bot">
+              <span>Six mandate types <span class="sep">·</span> Interim <span class="sep">·</span> Advisory <span class="sep">·</span> Transformation</span>
+              <span class="accent">altiva.hk</span>
+            </div>
+          </div>
+        </div>
+        <div class="safe-overlay cp"></div>
+      </div>
+    </div>
+
+    <!-- Banner CP-B — Practice -->
+    <div class="banner-row">
+      <div class="banner-head">
+        <div>
+          <h3>B · Practice index · <span style="color:var(--accent); font-weight:500;">Company</span></h3>
+          <div class="desc">The six mandates compressed into a horizontal rail next to the headline. The numbered list keeps the editorial signature without the vertical grid that broke at 191 px.</div>
+        </div>
+        <div style="display:flex; align-items:center; gap: 12px;">
+          <span class="id">CP · B</span>
+          <button class="safe-toggle" data-safe-target=".banner-stage.cp-b">Show safe-zone</button>
+          <div class="dl-row">
+            <button class="dl-btn" onclick="downloadBanner('bnr-cp-b', 'altiva-linkedin-company-B-practice', 1128, 191)">↓ 1128×191 PNG</button>
+          </div>
+        </div>
+      </div>
+      <div class="banner-stage cp cp-b">
+        <div class="banner-canvas cp" data-canvas>
+          <div class="bnr-cp-b">
+            <div class="mid">
+              <h2>One firm.<br/><em>Six</em> mandates.</h2>
+              <div class="mandates">
+                <span><span class="n">01</span>COO, on call</span>
+                <span><span class="n">02</span>High-stakes advisory</span>
+                <span><span class="n">03</span>Transformation &amp; AI</span>
+                <span><span class="n">04</span>Go-to-market</span>
+                <span><span class="n">05</span>Operational review</span>
+                <span><span class="n">06</span>Transaction prep</span>
+              </div>
+            </div>
+            <div class="bottom-row">
+              <span>Altiva Limited <span class="sep">·</span> Hong Kong <span class="sep">·</span> <span class="accent">2025</span></span>
+              <span>altiva.hk</span>
+            </div>
+          </div>
+        </div>
+        <div class="safe-overlay cp"></div>
+      </div>
+    </div>
+
+    <!-- Banner CP-C — EU ↔ APAC -->
+    <div class="banner-row">
+      <div class="banner-head">
+        <div>
+          <h3>C · EU ↔ APAC · <span style="color:var(--accent); font-weight:500;">Company</span></h3>
+          <div class="desc">Reach-forward variant. Geography inline as a single horizontal pin-strip — no map at 191 px, just the route from Paris through Hong Kong.</div>
+        </div>
+        <div style="display:flex; align-items:center; gap: 12px;">
+          <span class="id">CP · C</span>
+          <button class="safe-toggle" data-safe-target=".banner-stage.cp-c">Show safe-zone</button>
+          <div class="dl-row">
+            <button class="dl-btn" onclick="downloadBanner('bnr-cp-c', 'altiva-linkedin-company-C-geography', 1128, 191)">↓ 1128×191 PNG</button>
+          </div>
+        </div>
+      </div>
+      <div class="banner-stage cp cp-c">
+        <div class="banner-canvas cp" data-canvas>
+          <div class="bnr-cp-c">
+            <div class="mid">
+              <h2>Europe &amp; <em>Asia-Pacific.</em><br/>Same operator.</h2>
+              <div class="geo">
+                <span class="pin"></span><span>Paris</span>
+                <span class="arr">→</span>
+                <span class="pin anchor"></span><span style="color:var(--accent);">Hong Kong</span>
+              </div>
+            </div>
+            <div class="btm">
+              <span>Altiva Limited <span class="sep">·</span> International advisory platform <span class="sep">·</span> 2025</span>
+              <span class="accent">altiva.hk</span>
+            </div>
+          </div>
+        </div>
+        <div class="safe-overlay cp"></div>
+      </div>
+    </div>
+
+    <!-- Banner CP-D — Situation / Work -->
+    <div class="banner-row">
+      <div class="banner-head">
+        <div>
+          <h3>D · Situation / Work · <span style="color:var(--accent); font-weight:500;">Company</span></h3>
+          <div class="desc">Editorial diptych — the manifesto rhythm from PP D compressed onto one strip. Warm bone ground, a thin rule between the situation and the work, no chrome.</div>
+        </div>
+        <div style="display:flex; align-items:center; gap: 12px;">
+          <span class="id">CP · D</span>
+          <button class="safe-toggle" data-safe-target=".banner-stage.cp-d">Show safe-zone</button>
+          <div class="dl-row">
+            <button class="dl-btn" onclick="downloadBanner('bnr-cp-d', 'altiva-linkedin-company-D-diptych', 1128, 191)">↓ 1128×191 PNG</button>
+          </div>
+        </div>
+      </div>
+      <div class="banner-stage cp cp-d">
+        <div class="banner-canvas cp" data-canvas>
+          <div class="bnr-cp-d">
+            <div class="left">
+              <span class="lbl"><span class="accent">01</span> &nbsp;·&nbsp; The situation</span>
+              <h2>The strategy is sound. The growth is there.</h2>
+            </div>
+            <div class="right">
+              <span class="lbl"><span class="accent">02</span> &nbsp;·&nbsp; The work</span>
+              <h2>One operator, <em>inside the room.</em></h2>
+            </div>
+            <div class="bot">
+              <span>Altiva Limited <span class="sep">·</span> Hong Kong <span class="sep">·</span> International advisory</span>
+              <span class="accent">altiva.hk</span>
+            </div>
+          </div>
+        </div>
+        <div class="safe-overlay cp"></div>
+      </div>
+    </div>
+
+    <div class="subsec-mark" style="margin-top: 48px;">
+      <span class="num">§ 01.B</span>
+      <span>Personal Profile</span>
+      <span class="pill">1584 × 396</span>
+      <span class="line"></span>
+      <span>reference / Julien's profile</span>
+    </div>
+
+    <!-- Banner A — Statement -->
+    <div class="banner-row">
+      <div class="banner-head">
+        <div>
+          <h3>A · Operator statement</h3>
+          <div class="desc">The hero line, loud. For the relaunch moment — maximum clarity, minimal ornament.</div>
+        </div>
+        <div style="display:flex; align-items:center; gap: 16px;">
+          <span class="id">BANNER · A</span>
+          <div class="dl-row">
+            <button class="dl-btn" onclick="downloadBanner('bnr-a', 'altiva-linkedin-banner-A-statement')">↓ Download PNG</button>
+          </div>
+        </div>
+      </div>
+      <div class="banner-stage">
+        <div class="banner-canvas" data-canvas>
+          <div class="bnr-a" style="width:1584px; height:396px;">
+            <div class="mid">
+              <h2>Operator.<br/><em>Not</em> consultant.</h2>
+            </div>
+            <div class="side">
+              <dl>
+                <dt>Engaged when</dt>
+                <dd>Execution is the <em>bottleneck.</em></dd>
+              </dl>
+              <dl>
+                <dt>Deep expertise across</dt>
+                <dd>Europe &amp; <em>Asia-Pacific.</em></dd>
+              </dl>
+            </div>
+            <div class="bot">
+              <span>Six mandate types <span class="sep">·</span> Interim <span class="sep">·</span> Advisory <span class="sep">·</span> Transformation</span>
+              <span class="accent">altiva.hk</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Banner B — Editorial mandates index -->
+    <div class="banner-row">
+      <div class="banner-head">
+        <div>
+          <h3>B · Practice index</h3>
+          <div class="desc">The six mandate types, laid out as a typographic index — for recurring use after the launch, when you want the page to read as a real firm.</div>
+        </div>
+        <div style="display:flex; align-items:center; gap: 16px;">
+          <span class="id">BANNER · B</span>
+          <div class="dl-row">
+            <button class="dl-btn" onclick="downloadBanner('bnr-b', 'altiva-linkedin-banner-B-practice')">↓ Download PNG</button>
+          </div>
+        </div>
+      </div>
+      <div class="banner-stage">
+        <div class="banner-canvas" data-canvas>
+          <div class="bnr-b" style="width:1584px; height:396px;">
+            <div class="left">
+              <div class="top-row">
+                <span class="accent">§</span>
+                <span>Practice</span>
+                <span class="bar"></span>
+                <span>Six mandate types</span>
+              </div>
+              <h2>One firm.<br/><em>Six</em> mandates.</h2>
+              <div class="bottom-row">
+                <span>Altiva Limited <span class="sep">·</span> Hong Kong <span class="sep">·</span> <span class="accent">2025</span></span>
+                <span>altiva.hk</span>
+              </div>
+            </div>
+            <div class="right">
+              <div class="mandate"><span class="n">01 —</span><span class="t">COO, on call</span></div>
+              <div class="mandate"><span class="n">02 —</span><span class="t">High-stakes advisory</span></div>
+              <div class="mandate"><span class="n">03 —</span><span class="t">Transformation &amp; AI</span></div>
+              <div class="mandate"><span class="n">04 —</span><span class="t">Go-to-market &amp; growth</span></div>
+              <div class="mandate"><span class="n">05 —</span><span class="t">Operational review</span></div>
+              <div class="mandate"><span class="n">06 —</span><span class="t">Transaction prep</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Banner C — Geography / EU ↔ APAC -->
+    <div class="banner-row">
+      <div class="banner-head">
+        <div>
+          <h3>C · EU ↔ APAC</h3>
+          <div class="desc">Reach-forward. Emphasises the bi-continental footprint and the Hong Kong anchor. Best for investor / partner audiences.</div>
+        </div>
+        <div style="display:flex; align-items:center; gap: 16px;">
+          <span class="id">BANNER · C</span>
+          <div class="dl-row">
+            <button class="dl-btn" onclick="downloadBanner('bnr-c', 'altiva-linkedin-banner-C-geography')">↓ Download PNG</button>
+          </div>
+        </div>
+      </div>
+      <div class="banner-stage">
+        <div class="banner-canvas" data-canvas>
+          <div class="bnr-c" style="width:1584px; height:396px;">
+            <div class="left">
+              <h2>Europe &amp;<br/><em>Asia-Pacific,</em><br/>same operator.</h2>
+              <div class="btm">
+                <span>Altiva Limited</span>
+                <span class="sep">·</span>
+                <span>International advisory</span>
+                <span class="sep">·</span>
+                <span class="year">2025</span>
+                <span class="hk">altiva.hk</span>
+              </div>
+            </div>
+            <div class="right">
+              <!-- Geo diagram: minimal cartographic dot-network -->
+              <svg viewBox="0 0 700 320" style="width:100%; max-height: 280px;" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <linearGradient id="arc-grad" x1="0" y1="0" x2="1" y2="0">
+                    <stop offset="0%" stop-color="#B08D57" stop-opacity="0.9"/>
+                    <stop offset="100%" stop-color="#B08D57" stop-opacity="0.3"/>
+                  </linearGradient>
+                </defs>
+                <!-- latitude rules -->
+                <g stroke="#ECE6D718" stroke-width="1" fill="none">
+                  <line x1="0" y1="80"  x2="700" y2="80"/>
+                  <line x1="0" y1="160" x2="700" y2="160"/>
+                  <line x1="0" y1="240" x2="700" y2="240"/>
+                </g>
+                <!-- longitude rules -->
+                <g stroke="#ECE6D712" stroke-width="1" fill="none">
+                  <line x1="100" y1="0" x2="100" y2="320"/>
+                  <line x1="260" y1="0" x2="260" y2="320"/>
+                  <line x1="420" y1="0" x2="420" y2="320"/>
+                  <line x1="580" y1="0" x2="580" y2="320"/>
+                </g>
+                <!-- Paris -->
+                <g transform="translate(180,140)">
+                  <circle r="4" fill="#ECE6D7"/>
+                  <circle r="10" fill="none" stroke="#ECE6D7" stroke-opacity="0.35"/>
+                  <text x="14" y="5" fill="#ECE6D7" font-family="Geist Mono, monospace" font-size="13" letter-spacing="0.12em">PARIS</text>
+                </g>
+                <!-- London -->
+                <g transform="translate(150,120)">
+                  <circle r="3" fill="#ECE6D790"/>
+                  <text x="-58" y="4" fill="#ECE6D790" font-family="Geist Mono, monospace" font-size="11" letter-spacing="0.12em">LONDON</text>
+                </g>
+                <!-- Singapore -->
+                <g transform="translate(500,210)">
+                  <circle r="3" fill="#ECE6D790"/>
+                  <text x="14" y="5" fill="#ECE6D790" font-family="Geist Mono, monospace" font-size="11" letter-spacing="0.12em">SINGAPORE</text>
+                </g>
+                <!-- Hong Kong (anchor) -->
+                <g transform="translate(520,170)">
+                  <circle r="10" fill="none" stroke="#B08D57" stroke-opacity="0.5"/>
+                  <circle r="18" fill="none" stroke="#B08D57" stroke-opacity="0.2"/>
+                  <circle r="5" fill="#B08D57"/>
+                  <text x="18" y="5" fill="#B08D57" font-family="Geist Mono, monospace" font-size="13" letter-spacing="0.14em" font-weight="500">HONG KONG</text>
+                </g>
+                <!-- Arc EU ↔ APAC -->
+                <path d="M 180 140 Q 350 30 520 170" stroke="url(#arc-grad)" stroke-width="1.5" fill="none" stroke-dasharray="2 4"/>
+                <!-- Arrowhead -->
+                <path d="M 515 166 L 522 170 L 515 174" stroke="#B08D57" stroke-width="1.5" fill="none"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Banner D — Tri-panel rhythm -->
+    <div class="banner-row">
+      <div class="banner-head">
+        <div>
+          <h3>D · Three-panel rhythm</h3>
+          <div class="desc">Editorial pacing: situation, positioning, outcome. Works well as a recurring post-image template too.</div>
+        </div>
+        <div style="display:flex; align-items:center; gap: 16px;">
+          <span class="id">BANNER · D</span>
+          <div class="dl-row">
+            <button class="dl-btn" onclick="downloadBanner('bnr-d', 'altiva-linkedin-banner-D-tripanel')">↓ Download PNG</button>
+          </div>
+        </div>
+      </div>
+      <div class="banner-stage">
+        <div class="banner-canvas" data-canvas>
+          <div class="bnr-d" style="width:1584px; height:396px;">
+            <div class="panel p1">
+              <div class="label-row">
+                <span class="accent">01</span><span>The situation</span>
+              </div>
+              <h3>The strategy is sound. The growth is there.</h3>
+              <div class="foot"><span class="accent">—</span> &nbsp; The organisation is not moving.</div>
+            </div>
+            <div class="panel p2">
+              <div class="label-row"><span class="dot"></span><span>Altiva</span></div>
+              <h2>Operator.<br/><em>Not</em> consultant.</h2>
+              <div class="foot">International advisory · <span class="accent">EU &amp; APAC</span></div>
+            </div>
+            <div class="panel p3">
+              <div class="label-row">
+                <span class="accent">02</span><span>The work</span>
+              </div>
+              <h3>One operator, inside the room — until it moves.</h3>
+              <div class="foot"><span class="accent">→</span> &nbsp; <span class="url">altiva.hk</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top: 24px; padding: 14px 18px; background: #FCFAF5; border: 1px solid #0E0E1010; display: flex; gap: 18px; align-items: center; flex-wrap: wrap;">
+      <span class="label"><span class="accent">Tip</span> · LinkedIn safe-zones</span>
+      <span style="font-family: var(--sans); font-size: 14px; color: var(--ink-2); flex: 1; min-width: 280px;">Click <b>Show safe-zone</b> on any banner to overlay the logo / avatar footprint. Company Page square (1128×191): <code class="inline">x ≈ 32→192 · y ≈ 71→191</code>. Personal Profile circle (1584×396): <code class="inline">x ≈ 24→176 · y ≈ 320→396</code>. The three CP banners already reserve the full left 240 px — nothing important can collide with the logo.</span>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       02 · AVATAR / LOGO TREATMENTS
+       ═══════════════════════════════════════════════════════ -->
+  <section class="sec" id="avatar">
+    <div class="sec-mark">
+      <span class="num">§ 02</span>
+      <span>Avatar</span>
+      <span class="line"></span>
+      <span>800 × 800 · 2× retina</span>
+    </div>
+    <h2 class="sec-head">Logo <em>as avatar.</em></h2>
+    <p class="sec-lede">Your full logo — chevron mark + ALTIVA wordmark — vectorised with a transparent background and available in four colour variants. Exported at <b>800×800</b> — 2× LinkedIn's 400×400 recommendation, so the chevron and wordmark stay crisp on retina feed and mobile even after LinkedIn's downsampling. Recommendation: <b>ink background, bone logo</b> — matches the banner system and the site's header treatment.</p>
+
+    <div class="avatars">
+      <div class="av-card">
+        <div class="av-tile ink"><img src="./assets/altiva-logo-bone-new.png" alt="Altiva logo, bone on ink"/></div>
+        <div class="cap"><b>Recommended</b> · Ink background</div>
+        <a class="dl-btn" href="./assets/altiva-avatar-ink-800.png" download="altiva-avatar-ink-800.png" style="margin-top: 4px; padding: 6px 12px; font-size: 10px; text-decoration: none; display: inline-block;">↓ 800×800 PNG</a>
+      </div>
+      <div class="av-card">
+        <div class="av-tile bone"><img src="./assets/altiva-logo-ink.png" alt="Altiva logo, ink on bone"/></div>
+        <div class="cap">Bone background</div>
+        <a class="dl-btn" href="./assets/altiva-avatar-bone-800.png" download="altiva-avatar-bone-800.png" style="margin-top: 4px; padding: 6px 12px; font-size: 10px; text-decoration: none; display: inline-block;">↓ 800×800 PNG</a>
+      </div>
+      <div class="av-card">
+        <div class="av-tile bone-2"><img src="./assets/altiva-logo-brass.png" alt="Altiva logo, brass on bone"/></div>
+        <div class="cap">Bone + <span style="color:#B08D57;">brass</span></div>
+        <a class="dl-btn" href="./assets/altiva-avatar-brass-on-bone-800.png" download="altiva-avatar-brass-on-bone-800.png" style="margin-top: 4px; padding: 6px 12px; font-size: 10px; text-decoration: none; display: inline-block;">↓ 800×800 PNG</a>
+      </div>
+      <div class="av-card">
+        <div class="av-tile accent"><img src="./assets/altiva-logo-ink.png" alt="Altiva logo, ink on brass"/></div>
+        <div class="cap"><span style="color:#B08D57;">Brass</span> background</div>
+        <a class="dl-btn" href="./assets/altiva-avatar-ink-on-brass-800.png" download="altiva-avatar-ink-on-brass-800.png" style="margin-top: 4px; padding: 6px 12px; font-size: 10px; text-decoration: none; display: inline-block;">↓ 800×800 PNG</a>
+      </div>
+    </div>
+
+    <div style="margin-top: 28px; padding: 14px 18px; background: #FCFAF5; border: 1px solid #0E0E1010; display: flex; gap: 18px; align-items: flex-start; flex-wrap: wrap;">
+      <span class="label" style="margin-top: 3px;"><span class="accent">Note</span> · Files</span>
+      <span style="font-family: var(--sans); font-size: 14px; color: var(--ink-2); flex: 1; min-width: 280px; line-height: 1.55;">The 4 avatar PNGs are pre-rendered in <code class="inline">public/linkedin/assets/</code>: <code class="inline">altiva-avatar-ink-800.png</code> (recommended), <code class="inline">altiva-avatar-bone-800.png</code>, <code class="inline">altiva-avatar-brass-on-bone-800.png</code>, <code class="inline">altiva-avatar-ink-on-brass-800.png</code>. The Download buttons fetch the static files directly — no browser canvas, works from <code class="inline">file://</code>. You can also copy them from the filesystem and upload to LinkedIn straight from Finder.</span>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       03 · LIVE LINKEDIN MOCKUP
+       ═══════════════════════════════════════════════════════ -->
+  <section class="sec" id="mockup">
+    <div class="sec-mark">
+      <span class="num">§ 03</span>
+      <span>Live mockup</span>
+      <span class="line"></span>
+      <span>Company Page · 1128 × 191</span>
+    </div>
+    <h2 class="sec-head">On <em>LinkedIn,</em> today.</h2>
+    <p class="sec-lede">The Company Page header as it will render after upload — <code class="inline">/company/altivaltd</code>, recommended ink avatar, banner rotating through A / B / C / D. Toggle below to compare. Logo square overlaps the bottom-left; the 240-px safe-zone in each CP banner keeps it clear of the typography.</p>
+
+    <div style="display: flex; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
+      <button class="dl-btn ghost" onclick="switchMockup('A')" data-mockup-btn="A" style="background: var(--ink); color: var(--bone);">CP · A</button>
+      <button class="dl-btn ghost" onclick="switchMockup('B')" data-mockup-btn="B">CP · B</button>
+      <button class="dl-btn ghost" onclick="switchMockup('C')" data-mockup-btn="C">CP · C</button>
+      <button class="dl-btn ghost" onclick="switchMockup('D')" data-mockup-btn="D">CP · D</button>
+    </div>
+
+    <div class="li-frame">
+      <div class="li-chrome">
+        <div class="logo">in</div>
+        <div class="crumb">Companies › Altiva Limited</div>
+        <div>Admin view · preview</div>
+      </div>
+      <div class="li-card">
+        <div class="li-banner" id="mockup-banner">
+          <!-- Filled by JS with a clone of the chosen banner -->
+        </div>
+        <div class="li-body">
+          <div class="li-avatar-wrap">
+            <div style="background: var(--ink); width:100%; height:100%; display:grid; place-items:center;">
+              <img class="av-chevron" src="./assets/altiva-logo-bone-new.png" alt="Altiva" style="width: 78%;"/>
+            </div>
+          </div>
+          <div class="li-body-inner">
+            <h2 class="li-name">Altiva</h2>
+            <p class="li-tagline" id="li-tagline-live"><b>Operator, not consultant.</b> International advisory for decisive situations — EU &amp; APAC.</p>
+            <div class="li-meta-row">
+              <span>Business Consulting and Services</span>
+              <span class="sep">·</span>
+              <span>Hong Kong</span>
+              <span class="sep">·</span>
+              <a href="https://altiva.hk" target="_blank" rel="noopener">altiva.hk</a>
+              <span class="sep">·</span>
+              <span>Follow</span>
+            </div>
+            <div class="li-actions">
+              <button class="li-btn primary">+ Follow</button>
+              <button class="li-btn ghost">Visit website ↗</button>
+              <button class="li-btn subtle">More</button>
+            </div>
+            <div class="li-tabs">
+              <span class="active">Home</span>
+              <span>About</span>
+              <span>Posts</span>
+              <span>Jobs</span>
+              <span>People</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       04 · TAGLINE (120 char limit)
+       ═══════════════════════════════════════════════════════ -->
+  <section class="sec" id="tagline">
+    <div class="sec-mark">
+      <span class="num">§ 04</span>
+      <span>Tagline</span>
+      <span class="line"></span>
+      <span>120 characters max</span>
+    </div>
+    <h2 class="sec-head">The <em>one-liner.</em></h2>
+    <p class="sec-lede">LinkedIn's tagline sits directly under the company name. It's the single line everyone reads. Three options — ranked by fit with the site's voice — with a French mirror for bilingual posts or a second Company Page locale.</p>
+
+    <div class="subsec-mark">
+      <span class="num">§ 04.A</span>
+      <span>English</span>
+      <span class="pill on">primary</span>
+      <span class="line"></span>
+      <span>international audience</span>
+    </div>
+
+    <div class="tagline-row">
+      <div class="tagline">
+        <span class="n">01 <span style="color:var(--ink);">· Recommended</span></span>
+        <span class="t"><b>Operator, not consultant.</b> International advisory for decisive situations — EU &amp; APAC.</span>
+        <span class="c">95 / 120</span>
+      </div>
+      <div class="tagline">
+        <span class="n">02</span>
+        <span class="t">International advisory platform. <b>One senior operator, embedded — until the work moves.</b></span>
+        <span class="c">93 / 120</span>
+      </div>
+      <div class="tagline">
+        <span class="n">03</span>
+        <span class="t">Interim operating, advisory &amp; transformation. <b>Embedded senior leadership across EU &amp; APAC.</b></span>
+        <span class="c">105 / 120</span>
+      </div>
+    </div>
+
+    <div class="subsec-mark" style="margin-top: 32px;">
+      <span class="num">§ 04.B</span>
+      <span>Français</span>
+      <span class="pill">miroir</span>
+      <span class="line"></span>
+      <span>posts bilingues · marché FR</span>
+    </div>
+
+    <div class="tagline-row">
+      <div class="tagline">
+        <span class="n">01 <span style="color:var(--ink);">· Recommandé</span></span>
+        <span class="t"><b>Opérateur, pas consultant.</b> Conseil international pour les situations décisives — EU &amp; APAC.</span>
+        <span class="c">99 / 120</span>
+      </div>
+      <div class="tagline">
+        <span class="n">02</span>
+        <span class="t">Plateforme de conseil international. <b>Un opérateur senior embarqué — jusqu'à ce que le travail avance.</b></span>
+        <span class="c">104 / 120</span>
+      </div>
+      <div class="tagline">
+        <span class="n">03</span>
+        <span class="t">Management de transition, conseil &amp; transformation. <b>Direction senior embarquée sur l'EU et l'APAC.</b></span>
+        <span class="c">101 / 120</span>
+      </div>
+    </div>
+
+    <div style="margin-top: 18px; padding: 14px 18px; background: #FCFAF5; border: 1px solid #0E0E1010; font-family: var(--sans); font-size: 14px; color: var(--ink-2);">
+      <span class="label" style="margin-right: 12px;"><span class="accent">Why 01 · EN + FR</span></span>
+      Both recommendations are exact mirrors — same positioning as the pitch deck cover and the site hero, same punch, same word count bracket. "Opérateur, pas consultant." is the direct equivalent of "Operator, not consultant." — keeps the editorial bite. "EU &amp; APAC" stays in English in both versions (standard in international business French).
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       05 · ABOUT (2000 char limit, two languages)
+       ═══════════════════════════════════════════════════════ -->
+  <section class="sec" id="about">
+    <div class="sec-mark">
+      <span class="num">§ 05</span>
+      <span>About</span>
+      <span class="line"></span>
+      <span>2000 characters max · EN + FR</span>
+    </div>
+    <h2 class="sec-head">The <em>full story,</em> edited for LinkedIn.</h2>
+    <p class="sec-lede">LinkedIn truncates after ~300 characters, so the first paragraph must land the promise alone. The rest deepens it — positioning, practice, reach, then contact. English is primary (international audience); French is available to paste when you post bilingually.</p>
+
+    <div class="two-col">
+      <div class="block">
+        <span class="tag">About · English</span>
+        <button class="copy-btn" onclick="copyBlock(this, 'about-en')">Copy EN</button>
+        <div id="about-en">
+          <h4>Operator. <em>Not</em> consultant.</h4>
+          <p><b>Altiva is an international advisory platform for situations where execution is the bottleneck.</b> Not teams of analysts producing decks from a distance. One senior operator, embedded in the room — with real P&amp;L experience, carrying judgment in, taking decisions, moving execution until the mandate is closed.</p>
+          <p>We are engaged when the strategy is sound and the growth is there, but the organisation is not moving. Interim COO mandates. High-stakes advisory to CEOs and executive committees. Transformation and AI programmes that are business-driven, not layered on top. Go-to-market build-out across EU and APAC. Operational reviews. Transaction preparation — fundraise, exit, repositioning.</p>
+          <p>Six mandate types, six geographies. Work already delivered across automation, Fortune 500 industrials, regional services businesses, channel programmes and enterprise operations — in Europe, the Middle East, and Asia-Pacific.</p>
+          <p><b>Anchored in Hong Kong with deep expertise across Europe &amp; Asia-Pacific.</b> Written work and methodology on altiva.hk. Direct enquiries: julien@altiva.hk.</p>
+        </div>
+        <div class="count"><b id="cnt-en">—</b> / 2000 characters</div>
+      </div>
+
+      <div class="block">
+        <span class="tag">À propos · Français</span>
+        <button class="copy-btn" onclick="copyBlock(this, 'about-fr')">Copier FR</button>
+        <div id="about-fr">
+          <h4>Opérateur. <em>Pas</em> consultant.</h4>
+          <p><b>Altiva est une plateforme de conseil international pour les situations où l'exécution est le point de blocage.</b> Pas d'équipes d'analystes produisant des livrables à distance. Un opérateur senior, embarqué dans la pièce — avec une vraie expérience P&amp;L, jugement apporté, décisions prises, exécution mise en mouvement jusqu'à la clôture du mandat.</p>
+          <p>Nous intervenons quand la stratégie est solide et la croissance au rendez-vous, mais que l'organisation n'avance pas. Mandats COO intérim. Conseil à fort enjeu auprès des CEO et comités exécutifs. Transformation et programmes IA ancrés dans le business, non surajoutés. Go-to-market et développement commercial sur l'EU et l'APAC. Revues opérationnelles. Préparation de transactions — levée, cession, repositionnement.</p>
+          <p>Six types de mandats, six géographies. Travaux livrés dans l'automatisation, l'industrie Fortune 500, les services régionaux, les programmes de canaux, et les opérations d'entreprise — en Europe, au Moyen-Orient et en Asie-Pacifique.</p>
+          <p><b>Basés à Hong Kong avec une expertise opérationnelle approfondie en Europe et en Asie-Pacifique.</b> Publications et méthodologie sur altiva.hk. Contact direct : julien@altiva.hk.</p>
+        </div>
+        <div class="count"><b id="cnt-fr">—</b> / 2000 characters</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       06 · SPECIALTIES
+       ═══════════════════════════════════════════════════════ -->
+  <section class="sec" id="specialties">
+    <div class="sec-mark">
+      <span class="num">§ 06</span>
+      <span>Specialties</span>
+      <span class="line"></span>
+      <span>searchable keywords</span>
+    </div>
+    <h2 class="sec-head">Keywords, <em>ranked.</em></h2>
+    <p class="sec-lede">LinkedIn indexes specialties for discovery. Lead with the six mandate types verbatim, then the discovery-heavy terms your audiences actually search. No fluff.</p>
+
+    <div class="spec-grid">
+      <span class="spec"><span class="accent">§</span>&nbsp; Interim COO</span>
+      <span class="spec"><span class="accent">§</span>&nbsp; Fractional executive</span>
+      <span class="spec"><span class="accent">§</span>&nbsp; High-stakes advisory</span>
+      <span class="spec"><span class="accent">§</span>&nbsp; Executive committee advisory</span>
+      <span class="spec"><span class="accent">§</span>&nbsp; Business transformation</span>
+      <span class="spec"><span class="accent">§</span>&nbsp; AI adoption</span>
+      <span class="spec"><span class="accent">§</span>&nbsp; Go-to-market</span>
+      <span class="spec"><span class="accent">§</span>&nbsp; Channel programmes</span>
+      <span class="spec"><span class="accent">§</span>&nbsp; Operational review</span>
+      <span class="spec"><span class="accent">§</span>&nbsp; Turnaround</span>
+      <span class="spec"><span class="accent">§</span>&nbsp; Transaction preparation</span>
+      <span class="spec"><span class="accent">§</span>&nbsp; Pre/post-deal operations</span>
+      <span class="spec"><span class="accent">§</span>&nbsp; APAC expansion</span>
+      <span class="spec"><span class="accent">§</span>&nbsp; EU–APAC bridge</span>
+      <span class="spec"><span class="accent">§</span>&nbsp; International growth</span>
+      <span class="spec"><span class="accent">§</span>&nbsp; Industrial &amp; services</span>
+      <span class="spec"><span class="accent">§</span>&nbsp; Automation &amp; smart building</span>
+      <span class="spec"><span class="accent">§</span>&nbsp; Fortune 500 advisory</span>
+    </div>
+
+    <div style="margin-top: 20px; padding: 14px 18px; background: #FCFAF5; border: 1px solid #0E0E1010; font-family: var(--sans); font-size: 14px; color: var(--ink-2);">
+      <span class="label" style="margin-right: 12px;"><span class="accent">Industries</span></span>
+      Under Industry, select <b>Business Consulting and Services</b> (primary) — it's the most searched and matches how buyers think. Secondary isn't publicly surfaced so it's optional.
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       07 · ANNOUNCE POST
+       ═══════════════════════════════════════════════════════ -->
+  <section class="sec" id="post">
+    <div class="sec-mark">
+      <span class="num">§ 07</span>
+      <span>Announce post</span>
+      <span class="line"></span>
+      <span>relaunch · English</span>
+    </div>
+    <h2 class="sec-head">The <em>relaunch</em> post.</h2>
+    <p class="sec-lede">Pin this as the first post when the new site and the Company Page banner go live. The attached image below uses the <b>Personal Profile 4:1 Banner A</b> — not the narrow 1128×191 version — because feed posts render attached images at up to 1.91:1 and the 4:1 layout claims more real estate in the scroll. The narrow CP banner belongs on the page header, not in the feed.</p>
+
+    <div style="display: grid; grid-template-columns: minmax(0, 560px) 1fr; gap: 32px; align-items: start;">
+      <!-- Live post mockup -->
+      <div class="post">
+        <div class="ph">
+          <div class="pav" style="background: var(--ink); border-radius: 50%; display: grid; place-items: center;"><img src="./assets/altiva-logo-bone-new.png" alt="Altiva" style="width: 72%; height: auto;"/></div>
+          <div class="pmeta">
+            <div class="name">Altiva</div>
+            <div class="sub">International advisory platform · EU &amp; APAC</div>
+            <div class="sub">Now · <span style="color:var(--li-blue);">Follow</span></div>
+          </div>
+        </div>
+        <div class="pbody" id="post-preview"></div>
+        <div style="aspect-ratio: 1584/396; background: var(--ink); margin: 0 -20px 12px; overflow: hidden; position: relative;">
+          <div style="position:absolute; inset:0; transform-origin: top left;" id="post-banner-clone"></div>
+        </div>
+        <div class="pfoot">
+          <span>♡  Like</span>
+          <span>💬  Comment</span>
+          <span>↗  Repost</span>
+          <span>✈  Send</span>
+        </div>
+      </div>
+
+      <!-- Editable copy block -->
+      <div class="block" style="position: relative;">
+        <span class="tag">Post copy · English</span>
+        <button class="copy-btn" onclick="copyBlock(this, 'post-en')">Copy post</button>
+        <div id="post-en" style="font-family: var(--sans); font-size: 15px; line-height: 1.6; color: var(--ink-2); white-space: pre-wrap;"><b>Altiva is back online. Operator, not consultant.</b>
+
+Most companies we work with don't have a strategy problem. They have an execution problem. The direction is set, the growth is there, but the organisation isn't moving.
+
+That's what Altiva is built for. Not a team of analysts producing decks from a distance. One senior operator, embedded in the room, with real P&amp;L experience. Judgment carried in. Decisions taken. Execution moved until the mandate is closed.
+
+Six mandate types:
+· Interim COO, on call
+· High-stakes advisory
+· Transformation &amp; AI
+· Go-to-market &amp; growth
+· Operational review
+· Transaction preparation
+
+Anchored in Hong Kong, with deep expertise across Europe and Asia-Pacific.
+
+New site. Sharper pitch. Same principle: the work is not advised. It's moved.
+
+altiva.hk
+
+#InterimCOO #Advisory #Transformation #Execution #APAC #EU #Operators</div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- ═══════════════════════════════════════════════════════
+     Scripts — banner scaling, mockup switching, copy, counts, export
+     ═══════════════════════════════════════════════════════ -->
+
+<!-- html-to-image for PNG export -->
+<script src="https://cdn.jsdelivr.net/npm/html-to-image@1.11.11/dist/html-to-image.min.js"></script>
+
+<script>
+  /* ── Scale each banner canvas to fit its stage ─────────── */
+  function scaleBanners(){
+    document.querySelectorAll('.banner-stage').forEach(stage => {
+      const canvas = stage.querySelector('[data-canvas]');
+      if (!canvas) return;
+      const nativeW = stage.classList.contains('cp') ? 1128 : 1584;
+      const scale = stage.clientWidth / nativeW;
+      canvas.style.transform = 'scale(' + scale + ')';
+    });
+  }
+  window.addEventListener('load', scaleBanners);
+  window.addEventListener('resize', scaleBanners);
+
+  /* ── Auto-inject safe-zone overlay + toggle into any banner
+     row that doesn't already have one (so the 4 personal-profile
+     banners pick up the same treatment as the 3 CP banners). ─ */
+  window.addEventListener('load', () => {
+    document.querySelectorAll('.banner-row').forEach(row => {
+      const stage = row.querySelector('.banner-stage');
+      if (!stage) return;
+      if (!stage.querySelector('.safe-overlay')){
+        const o = document.createElement('div');
+        o.className = 'safe-overlay ' + (stage.classList.contains('cp') ? 'cp' : 'pp');
+        stage.appendChild(o);
+      }
+      const head = row.querySelector('.banner-head > div:last-child');
+      if (head && !head.querySelector('.safe-toggle')){
+        const b = document.createElement('button');
+        b.className = 'safe-toggle';
+        b.textContent = 'Show safe-zone';
+        const dlRow = head.querySelector('.dl-row');
+        if (dlRow) head.insertBefore(b, dlRow);
+        else head.appendChild(b);
+      }
+    });
+  });
+
+  /* ── Safe-zone overlay toggles ─────────────────────────── */
+  document.addEventListener('click', (e) => {
+    const btn = e.target.closest('.safe-toggle');
+    if (!btn) return;
+    const selector = btn.getAttribute('data-safe-target');
+    const stage = selector ? document.querySelector(selector) : btn.closest('.banner-row')?.querySelector('.banner-stage');
+    if (!stage) return;
+    const on = stage.classList.toggle('show-safe');
+    btn.classList.toggle('on', on);
+    btn.textContent = on ? 'Hide safe-zone' : 'Show safe-zone';
+  });
+
+  /* ── Mockup banner switcher — clones the CP (Company Page)
+     banners at 1128×191, since that's the surface the user
+     actually uploads to. ─────────────────────────────────── */
+  const MOCKUP_W = 1128, MOCKUP_H = 191;
+  const BANNER_MAP = {
+    A: '.bnr-cp-a',
+    B: '.bnr-cp-b',
+    C: '.bnr-cp-c',
+    D: '.bnr-cp-d',
+  };
+  function switchMockup(letter){
+    const target = document.getElementById('mockup-banner');
+    const src = document.querySelector(BANNER_MAP[letter]);
+    if (!target || !src) return;
+    target.innerHTML = '';
+    const clone = src.cloneNode(true);
+    const holder = document.createElement('div');
+    holder.style.position = 'absolute';
+    holder.style.top = '0';
+    holder.style.left = '0';
+    holder.style.width = MOCKUP_W + 'px';
+    holder.style.height = MOCKUP_H + 'px';
+    holder.style.transformOrigin = 'top left';
+    holder.appendChild(clone);
+    target.appendChild(holder);
+    const scale = target.clientWidth / MOCKUP_W;
+    holder.style.transform = 'scale(' + scale + ')';
+    document.querySelectorAll('[data-mockup-btn]').forEach(b => {
+      const isActive = b.getAttribute('data-mockup-btn') === letter;
+      b.style.background = isActive ? 'var(--ink)' : 'transparent';
+      b.style.color = isActive ? 'var(--bone)' : 'var(--ink)';
+    });
+  }
+  window.addEventListener('load', () => { switchMockup('A'); });
+  window.addEventListener('resize', () => {
+    const holder = document.querySelector('#mockup-banner > div');
+    const target = document.getElementById('mockup-banner');
+    if (holder && target){
+      holder.style.transform = 'scale(' + (target.clientWidth / MOCKUP_W) + ')';
+    }
+  });
+
+  /* ── Clone Banner A into post preview ──────────────────── */
+  window.addEventListener('load', () => {
+    const src = document.querySelector('.bnr-a');
+    const host = document.getElementById('post-banner-clone');
+    if (src && host){
+      const clone = src.cloneNode(true);
+      host.style.width = '1584px';
+      host.style.height = '396px';
+      host.appendChild(clone);
+      const fit = () => {
+        const parent = host.parentElement;
+        if (!parent) return;
+        const scale = parent.clientWidth / 1584;
+        host.style.transform = 'scale(' + scale + ')';
+      };
+      fit();
+      window.addEventListener('resize', fit);
+    }
+  });
+
+  /* ── Character counters ─────────────────────────────────── */
+  function countText(id){
+    const el = document.getElementById(id);
+    if (!el) return 0;
+    // LinkedIn counts characters in the rendered plain text
+    return el.innerText.replace(/\s+\n/g, '\n').trim().length;
+  }
+  window.addEventListener('load', () => {
+    const en = countText('about-en');
+    const fr = countText('about-fr');
+    const enEl = document.getElementById('cnt-en');
+    const frEl = document.getElementById('cnt-fr');
+    if (enEl) enEl.textContent = en;
+    if (frEl) frEl.textContent = fr;
+
+    // Post preview: show plain-text version
+    const postSrc = document.getElementById('post-en');
+    const postPreview = document.getElementById('post-preview');
+    if (postSrc && postPreview){
+      postPreview.innerHTML = postSrc.innerHTML;
+    }
+  });
+
+  /* ── Copy block to clipboard as plain text ──────────────── */
+  function copyBlock(btn, id){
+    const el = document.getElementById(id);
+    if (!el) return;
+    const text = el.innerText.replace(/\n\s+\n/g, '\n\n').trim();
+    navigator.clipboard.writeText(text).then(() => {
+      btn.classList.add('copied');
+      const old = btn.textContent;
+      btn.textContent = '✓ Copied';
+      setTimeout(() => {
+        btn.classList.remove('copied');
+        btn.textContent = old;
+      }, 1800);
+    });
+  }
+
+  /* ── Download avatar (400×400) PNG ──────────────────────── */
+  const LOGO_RECIPES = {
+    'ink':          { bg: '#0E0E10', src: './assets/altiva-logo-bone-new.png', name: 'altiva-avatar-ink.png' },
+    'bone':         { bg: '#ECE6D7', src: './assets/altiva-logo-ink.png',       name: 'altiva-avatar-bone.png' },
+    'brass-bone':   { bg: '#E4DDCA', src: './assets/altiva-logo-brass.png',     name: 'altiva-avatar-brass-on-bone.png' },
+    'ink-on-brass': { bg: '#B08D57', src: './assets/altiva-logo-ink.png',       name: 'altiva-avatar-ink-on-brass.png' },
+  };
+  async function downloadLogo(recipeKey){
+    const r = LOGO_RECIPES[recipeKey];
+    if (!r) { alert('Logo recipe not found: ' + recipeKey); return; }
+    // 800×800 — 2× LinkedIn's 400×400 recommendation, for retina sharpness.
+    const SIZE = 800;
+    try {
+      const canvas = document.createElement('canvas');
+      canvas.width = SIZE; canvas.height = SIZE;
+      const ctx = canvas.getContext('2d');
+      ctx.fillStyle = r.bg;
+      ctx.fillRect(0, 0, SIZE, SIZE);
+      // Load image. Do NOT set crossOrigin — the assets are same-origin,
+      // and setting crossOrigin='anonymous' forces a CORS preflight that
+      // fails on file:// and on servers without explicit CORS headers,
+      // which silently taints the canvas and breaks toDataURL().
+      const img = new Image();
+      await new Promise((resolve, reject) => {
+        img.onload = resolve;
+        img.onerror = () => reject(new Error('Failed to load: ' + r.src));
+        img.src = r.src;
+      });
+      const targetW = SIZE * 0.72;
+      const scale = targetW / img.width;
+      const targetH = img.height * scale;
+      ctx.imageSmoothingEnabled = true;
+      ctx.imageSmoothingQuality = 'high';
+      ctx.drawImage(img, (SIZE - targetW) / 2, (SIZE - targetH) / 2, targetW, targetH);
+      // toDataURL throws SecurityError if the canvas is tainted.
+      const url = canvas.toDataURL('image/png');
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = r.name.replace(/\.png$/, '-800.png');
+      document.body.appendChild(link); link.click(); link.remove();
+    } catch (e) {
+      console.error('downloadLogo failed:', e);
+      alert('Logo download failed: ' + e.message +
+            '\n\nIf you opened this file directly (file://), your browser blocks canvas exports. Serve it via a local server, or right-click the preview tile above and choose "Save image as…".');
+    }
+  }
+
+  /* ── Download banner PNG — width/height default to 1584×396
+     (personal profile). Company-page banners pass 1128, 191.
+     Awaits font loading so the PNG captures Geist / Instrument
+     Serif, not the system fallback. ─ */
+  async function downloadBanner(className, filename, width, height){
+    const src = document.querySelector('.' + className);
+    if (!src) { alert('Banner not found: ' + className); return; }
+    const w = width || 1584;
+    const h = height || 396;
+    try {
+      // Make sure the custom fonts are actually loaded before rasterising.
+      if (document.fonts && document.fonts.ready) {
+        await document.fonts.ready;
+      }
+      // First pass often warms the renderer; second pass is the clean one.
+      await htmlToImage.toPng(src, { width: w, height: h, pixelRatio: 2, style: { transform: 'none' }, cacheBust: true });
+      const dataUrl = await htmlToImage.toPng(src, {
+        width: w,
+        height: h,
+        pixelRatio: 2,
+        style: {
+          transform: 'none',
+        },
+        cacheBust: true,
+      });
+      const a = document.createElement('a');
+      a.href = dataUrl;
+      a.download = filename + '.png';
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+    } catch (e) {
+      console.error(e);
+      alert('Export failed. Try again, or take a screenshot.');
+    }
+  }
+</script>
+
+</body>
+</html>
