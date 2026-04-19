@@ -196,7 +196,11 @@
   .bnr-a{
     background: var(--ink);
     color: var(--bone);
-    padding: 60px 72px;
+    /* padding-left 420px reserves the avatar safe-zone — LinkedIn's
+       circular personal-profile avatar bleeds further into the
+       bottom-left of the banner than my original spec assumed
+       (visible up to ~x=385 in 1584px native coords). */
+    padding: 56px 72px 60px 420px;
     display: grid;
     grid-template-columns: 1fr auto;
     grid-template-rows: 1fr auto;
@@ -208,7 +212,7 @@
   }
   .bnr-a h2{
     font-family: var(--sans); font-weight: 500;
-    font-size: 120px; line-height: 0.95; letter-spacing: -0.045em;
+    font-size: 110px; line-height: 0.95; letter-spacing: -0.045em;
     margin: 0;
   }
   .bnr-a h2 em{
