@@ -197,9 +197,9 @@ const DICT: Record<Lang, Dict> = {
     "w3.outB": "15% YoY growth · 4 verticalised functions",
 
     "w4.yr": "04 - Channel programme",
-    "w4.t": "<em>Channel</em> programme, electricians",
+    "w4.t": "<em>Channel</em> programme · electrical trade",
     "w4.body":
-      "Built and scaled a channel programme for electricians - loyalty, brand preference, training, and productivity tools - deployed across strategic markets through a network of distributors.",
+      "Built and scaled a channel programme for the electrical trade - loyalty, brand preference, training, and productivity tools - deployed across strategic markets through a network of distributors.",
     "w4.geo": "40+ countries",
     "w4.outA": "Strengthened brand preference",
     "w4.outB":
@@ -412,9 +412,9 @@ const DICT: Record<Lang, Dict> = {
       "Croissance annuelle de 15 % · 4 fonctions verticalisées",
 
     "w4.yr": "04 - Programme canal",
-    "w4.t": "Programme <em>canal</em>, électriciens",
+    "w4.t": "Programme <em>canal</em> · filière électrique",
     "w4.body":
-      "Construction et mise à l\u2019échelle d\u2019un programme canal vers les électriciens - fidélisation, préférence de marque, formation, outils de productivité - déployé sur des marchés stratégiques en lien avec un réseau de distributeurs.",
+      "Construction et mise à l\u2019échelle d\u2019un programme canal dédié à la filière électrique - fidélisation, préférence de marque, formation, outils de productivité - déployé sur des marchés stratégiques en lien avec un réseau de distributeurs.",
     "w4.geo": "40+ pays",
     "w4.outA": "Préférence de marque renforcée",
     "w4.outB":

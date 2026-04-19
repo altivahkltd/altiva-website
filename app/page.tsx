@@ -107,10 +107,10 @@ const snapshots = [
     yr: "04 - Channel programme",
     title: (
       <>
-        <em>Channel</em> programme, electricians
+        <em>Channel</em> programme · electrical trade
       </>
     ),
-    body: "Built and scaled a channel programme for electricians - loyalty, brand preference, training, and productivity tools - deployed across strategic markets through a network of distributors.",
+    body: "Built and scaled a channel programme for the electrical trade - loyalty, brand preference, training, and productivity tools - deployed across strategic markets through a network of distributors.",
     geo: "40+ countries",
     outTitle: "Strengthened brand preference",
     outSub: "Strong direct engagement & distributor network activated across 40+ markets",
