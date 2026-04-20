@@ -627,6 +627,63 @@
   }
   .repost .copy-btn:hover{ color: var(--accent); border-color: var(--accent); }
   .repost .copy-btn.copied{ color: var(--accent); border-color: var(--accent); }
+  /* Pre-mapped intro table (§ 07.B) */
+  .intro-table{
+    width: 100%;
+    border-collapse: collapse;
+    background: #FCFAF5;
+    border: 1px solid #0E0E1010;
+  }
+  .intro-table th{
+    padding: 10px 14px;
+    text-align: left;
+    background: #F4EFDF;
+    font-family: var(--mono); font-size: 10.5px; font-weight: 500;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--muted);
+    border-bottom: 1px solid #0E0E1018;
+  }
+  .intro-table td{
+    padding: 14px;
+    border-bottom: 1px solid #0E0E1010;
+    font-family: var(--sans); font-size: 14px;
+    vertical-align: top;
+  }
+  .intro-table tr:last-child td{ border-bottom: 0; }
+  .intro-table td.fires{
+    font-family: var(--mono); font-size: 11.5px; letter-spacing: 0.14em;
+    color: var(--accent); font-weight: 500;
+    white-space: nowrap;
+    width: 110px;
+  }
+  .intro-table td.post-col{
+    width: 320px;
+    font-size: 13.5px;
+    color: var(--ink-2);
+    line-height: 1.4;
+  }
+  .intro-table td.post-col b{ font-weight: 500; color: var(--ink); }
+  .intro-table td.intro-col{
+    font-family: var(--italic); font-style: italic;
+    font-size: 17px;
+    line-height: 1.35;
+    color: var(--ink);
+  }
+  .intro-table td.action-col{
+    width: 70px;
+    text-align: right;
+  }
+  .intro-table .copy-btn{
+    font-family: var(--mono); font-size: 9.5px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--muted);
+    background: transparent;
+    border: 1px solid #0E0E1020;
+    padding: 4px 8px;
+    cursor: pointer;
+  }
+  .intro-table .copy-btn:hover{ color: var(--accent); border-color: var(--accent); }
+  .intro-table .copy-btn.copied{ color: var(--accent); border-color: var(--accent); }
+
   .repost-rule{
     margin-top: 22px;
     padding: 14px 20px;
@@ -2099,8 +2156,77 @@ in the room is willing to say.</div>
       </div>
     </div>
 
-    <div class="repost-rule">
-      <b>Hard rule:</b> Julien's repost intro should be written <b>the morning of</b>, not pre-scheduled. Reposts that feel live get 3–5× the engagement of ones that feel templated.
+    <div class="subsec-mark" style="margin-top: 44px;">
+      <span class="num">§ 07.B</span><span>Pre-mapped intros · W1 — W4</span><span class="line"></span><span>one per scheduled post</span>
+    </div>
+
+    <p style="font-family: var(--sans); font-size: 14.5px; line-height: 1.55; color: var(--muted); max-width: 64ch; margin: 0 0 22px;">
+      Each of the eight Company Page posts scheduled in §04 has a specific one-liner here — tuned to the individual post's content so the intro feels intentional rather than templated. Paste straight, or modify live if you have time (live always beats template). Click <b>Copy</b> on each row.
+    </p>
+
+    <table class="intro-table">
+      <thead>
+        <tr>
+          <th>Fires</th>
+          <th>Post</th>
+          <th>Repost intro — paste as your comment</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="fires">Tue · Apr 21</td>
+          <td class="post-col"><b>p1</b> · Most companies don't have a strategy problem</td>
+          <td class="intro-col" id="ri1">Something I keep coming back to every time I meet a senior leader.</td>
+          <td class="action-col"><button class="copy-btn" onclick="copyRepost(this, 'ri1')">Copy</button></td>
+        </tr>
+        <tr>
+          <td class="fires">Thu · Apr 23</td>
+          <td class="post-col"><b>p2</b> · The meeting where I stopped using slides</td>
+          <td class="intro-col" id="ri2">A moment a couple of years ago that changed how I approach every mandate since.</td>
+          <td class="action-col"><button class="copy-btn" onclick="copyRepost(this, 'ri2')">Copy</button></td>
+        </tr>
+        <tr>
+          <td class="fires">Tue · Apr 28</td>
+          <td class="post-col"><b>p3</b> · First 30 minutes inside an org</td>
+          <td class="intro-col" id="ri3">The five questions I actually ask in the first week inside any new mandate.</td>
+          <td class="action-col"><button class="copy-btn" onclick="copyRepost(this, 'ri3')">Copy</button></td>
+        </tr>
+        <tr>
+          <td class="fires">Thu · Apr 30</td>
+          <td class="post-col"><b>p4</b> · The one question a consultant can't answer</td>
+          <td class="intro-col" id="ri4">A question more CEOs should put to the people they bring in.</td>
+          <td class="action-col"><button class="copy-btn" onclick="copyRepost(this, 'ri4')">Copy</button></td>
+        </tr>
+        <tr>
+          <td class="fires">Tue · May 5</td>
+          <td class="post-col"><b>p5</b> · Hong Kong anchors EU–APAC advisory</td>
+          <td class="intro-col" id="ri5">For anyone running a business between Europe and Asia, why the hinge still sits where it does.</td>
+          <td class="action-col"><button class="copy-btn" onclick="copyRepost(this, 'ri5')">Copy</button></td>
+        </tr>
+        <tr>
+          <td class="fires">Thu · May 7</td>
+          <td class="post-col"><b>p6</b> · Three operating patterns that don't translate</td>
+          <td class="intro-col" id="ri6">Fifteen years between the two continents have taught me three things that never translate cleanly.</td>
+          <td class="action-col"><button class="copy-btn" onclick="copyRepost(this, 'ri6')">Copy</button></td>
+        </tr>
+        <tr>
+          <td class="fires">Tue · May 12</td>
+          <td class="post-col"><b>p7</b> · Why "interim" doesn't mean "temporary"</td>
+          <td class="intro-col" id="ri7">What a good interim mandate actually looks like when the shape is right.</td>
+          <td class="action-col"><button class="copy-btn" onclick="copyRepost(this, 'ri7')">Copy</button></td>
+        </tr>
+        <tr>
+          <td class="fires">Thu · May 14</td>
+          <td class="post-col"><b>p8</b> · 30 days of listening bought a €40M programme</td>
+          <td class="intro-col" id="ri8">A lesson I keep referring back to when something stuck won't move.</td>
+          <td class="action-col"><button class="copy-btn" onclick="copyRepost(this, 'ri8')">Copy</button></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="repost-rule" style="margin-top: 22px;">
+      <b>Hard rule:</b> Julien's repost intro should be written <b>the morning of</b>, not pre-scheduled. Reposts that feel live get 3–5× the engagement of ones that feel templated. The intros above are a <b>safety net for mornings without improvisation bandwidth</b> — zero guilt about using them straight.
     </div>
   </section>
 
