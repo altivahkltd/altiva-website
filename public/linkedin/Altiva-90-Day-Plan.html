@@ -464,6 +464,17 @@
     font-size: 22px; line-height: 1.2; letter-spacing: -0.02em;
     margin: 22px 20px 0;
     padding-right: 90px;
+    /* The title is a visual hook for scanning, NOT part of the post body.
+       Excluded from text selection so manual copy (Cmd+A or drag-select)
+       never accidentally duplicates the opening line. Use the Copy button. */
+    user-select: none;
+    -webkit-user-select: none;
+  }
+  .post-card .card-head,
+  .post-card .foot,
+  .post-card .banner-preview .caption{
+    user-select: none;
+    -webkit-user-select: none;
   }
   .post-card h3 em{ font-family: var(--italic); font-style: italic; color: var(--accent); font-weight: 400; }
   .post-card .body{
@@ -1492,10 +1503,10 @@ and act on it.
        ═══════════════════════════════════════════════════════ -->
   <section class="sec" id="posts-personal">
     <div class="sec-mark">
-      <span class="num">§ 05.B</span><span>Personal posts · Weeks 1 — 4</span><span class="line"></span><span>from Julien's profile</span>
+      <span class="num">§ 05.B</span><span>Personal posts · Mon May 11 → Wed Jun 3</span><span class="line"></span><span>after Japan · 8 posts</span>
     </div>
     <h2 class="sec-head">Eight <em>personal</em> posts.</h2>
-    <p class="sec-lede">From Julien's personal profile, Mondays and Wednesdays at 09:00 HKT (so the perso feed never duplicates the Company Page Tuesday/Thursday rhythm). Same Altiva universe, but written first-person and observational. <b>Critical constraint observed throughout:</b> none of these posts mention "Altiva" by name in the body. Altiva surfaces only via Julien's profile (banner, headline, bio). Anyone curious clicks through. This keeps current client relationships clean while still building Julien's personal authority — which is, in reality, the actual reach engine.</p>
+    <p class="sec-lede">From Julien's personal profile, Mondays and Wednesdays at 09:00 HKT (so the perso feed never duplicates the Company Page Tuesday/Thursday rhythm). Same Altiva universe, but written first-person and observational. Cadence intentionally delayed until <b>Mon May 11</b> — after Julien's Japan break Fri May 2 → Fri May 8 — to start the perso broadcast with fresh bandwidth and a softer ramp after the Company Page has already had three weeks to breathe. <b>Critical constraint observed throughout:</b> none of these posts mention "Altiva" by name in the body. Altiva surfaces only via Julien's profile (banner, headline, bio). Anyone curious clicks through. This keeps current client relationships clean while still building Julien's personal authority, which is, in reality, the actual reach engine.</p>
 
     <div class="posts-grid">
 
@@ -1503,7 +1514,7 @@ and act on it.
       <article class="post-card personal">
         <button class="copy-btn" onclick="copyPost(this, 'jp1')">Copy</button>
         <div class="card-head">
-          <span class="wk">PERSONAL · W1 Mon Apr 21</span>
+          <span class="wk">PERSONAL · Mon May 11</span>
           <span class="pillar">First-person</span>
           <span class="date">09:00 HKT</span>
         </div>
@@ -1532,7 +1543,7 @@ makes the calls, and stays until the mandate is closed.</div>
       <article class="post-card personal">
         <button class="copy-btn" onclick="copyPost(this, 'jp2')">Copy</button>
         <div class="card-head">
-          <span class="wk">PERSONAL · W1 Wed Apr 23</span>
+          <span class="wk">PERSONAL · Wed May 13</span>
           <span class="pillar">Boardroom vignette</span>
           <span class="date">09:00 HKT</span>
         </div>
@@ -1559,7 +1570,7 @@ have happened three months earlier.</div>
       <article class="post-card personal">
         <button class="copy-btn" onclick="copyPost(this, 'jp3')">Copy</button>
         <div class="card-head">
-          <span class="wk">PERSONAL · W2 Mon Apr 28</span>
+          <span class="wk">PERSONAL · Mon May 18</span>
           <span class="pillar">Sharp take</span>
           <span class="date">09:00 HKT</span>
         </div>
@@ -1581,7 +1592,7 @@ The market has plenty of the first kind. Almost none of the second.</div>
       <article class="post-card personal">
         <button class="copy-btn" onclick="copyPost(this, 'jp4')">Copy</button>
         <div class="card-head">
-          <span class="wk">PERSONAL · W2 Wed Apr 30</span>
+          <span class="wk">PERSONAL · Wed May 20</span>
           <span class="pillar">Field observation</span>
           <span class="date">09:00 HKT</span>
         </div>
@@ -1607,7 +1618,7 @@ There's a real shortage of people who can do it.</div>
       <article class="post-card personal">
         <button class="copy-btn" onclick="copyPost(this, 'jp5')">Copy</button>
         <div class="card-head">
-          <span class="wk">PERSONAL · W3 Mon May 5</span>
+          <span class="wk">PERSONAL · Mon May 25</span>
           <span class="pillar">APAC observation</span>
           <span class="date">09:00 HKT</span>
         </div>
@@ -1633,7 +1644,7 @@ plan with hope attached.</div>
       <article class="post-card personal">
         <button class="copy-btn" onclick="copyPost(this, 'jp6')">Copy</button>
         <div class="card-head">
-          <span class="wk">PERSONAL · W3 Wed May 7</span>
+          <span class="wk">PERSONAL · Wed May 27</span>
           <span class="pillar">Personal lesson</span>
           <span class="date">09:00 HKT</span>
         </div>
@@ -1659,7 +1670,7 @@ Consultants bring frameworks. Operators bring oxygen.</div>
       <article class="post-card personal">
         <button class="copy-btn" onclick="copyPost(this, 'jp7')">Copy</button>
         <div class="card-head">
-          <span class="wk">PERSONAL · W4 Mon May 12</span>
+          <span class="wk">PERSONAL · Mon Jun 1</span>
           <span class="pillar">CEO vignette</span>
           <span class="date">09:00 HKT</span>
         </div>
@@ -1687,7 +1698,7 @@ someone who'll name what they're avoiding.</div>
       <article class="post-card personal">
         <button class="copy-btn" onclick="copyPost(this, 'jp8')">Copy</button>
         <div class="card-head">
-          <span class="wk">PERSONAL · W4 Wed May 14</span>
+          <span class="wk">PERSONAL · Wed Jun 3</span>
           <span class="pillar">Operator reflection</span>
           <span class="date">09:00 HKT</span>
         </div>
