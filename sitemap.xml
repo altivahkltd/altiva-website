@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/0.9">
+  <url>
+    <loc>https://altiva.hk/</loc>
+    <lastmod>2026-04-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://altiva.hk/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://altiva.hk/?lang=fr" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://altiva.hk/" />
+    <image:image>
+      <image:loc>https://altiva.hk/assets/og-image.png</image:loc>
+      <image:title>Altiva — Operator, not consultant.</image:title>
+      <image:caption>Senior operator-led advisory. Hong Kong &amp; Europe.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://altiva.hk/assets/altiva-full-black.png</image:loc>
+      <image:title>Altiva logo</image:title>
+    </image:image>
+  </url>
+</urlset>

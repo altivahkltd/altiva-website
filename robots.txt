@@ -1,0 +1,26 @@
+# Altiva — https://altiva.hk/
+# Senior operator-led advisory. Hong Kong & Europe.
+
+User-agent: *
+Allow: /
+
+# Crawlers we explicitly welcome
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+# Disallow exploration of any internal/staging paths (future-proofing)
+Disallow: /draft/
+Disallow: /admin/
+Disallow: /*.tmp$
+
+# Sitemap
+Sitemap: https://altiva.hk/sitemap.xml
