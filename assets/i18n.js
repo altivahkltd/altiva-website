@@ -142,7 +142,7 @@
       'ctc.card.direct':'Direct','ctc.card.li':'LinkedIn',
 
       // footer
-      'foot.meta':'International advisory platform. Hong Kong · Incorporated 2025 · BR No. 78582830.<br>No analytics. No tracking.',
+      'foot.meta':'International advisory platform.<br>Hong Kong · Incorporated 2025 · BR&nbsp;No.&nbsp;78582830.<br>No analytics. No tracking.',
       'foot.email':'Email','foot.linkedin':'LinkedIn',
       'foot.copy':'© 2026 Altiva Limited · All rights reserved'
     },
@@ -240,7 +240,7 @@
       'ctc.card.direct':'Direct','ctc.card.li':'LinkedIn',
 
       // footer
-      'foot.meta':'Plateforme de conseil international. Hong Kong · Immatriculée 2025 · BR No. 78582830.<br>Pas d\u2019analytics. Pas de tracking.',
+      'foot.meta':'Plateforme de conseil international.<br>Hong Kong · Immatriculée 2025 · BR&nbsp;No.&nbsp;78582830.<br>Pas d\u2019analytics. Pas de tracking.',
       'foot.email':'Email','foot.linkedin':'LinkedIn',
       'foot.copy':'© 2026 Altiva Limited · Tous droits réservés'
     }
